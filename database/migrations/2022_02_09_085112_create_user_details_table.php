@@ -15,11 +15,11 @@ class CreateUserDetailsTable extends Migration
     {
         Schema::create('user_details', function (Blueprint $table) {
             $table->id();
-            $table->string("cv_path");
-            $table->longText("bio");
-            $table->string("img_path");
-            $table->boolean("available");
-            $table->string("phone", 20);
+            $table->string("cv_path")->nullable();
+            $table->longText("bio")->nullable();
+            $table->string("img_path")->nullable();
+            $table->boolean("available")->default(true);
+            $table->string("phone", 20)->nullable();
             $table->foreignId("user_id")->constrained();
             $table->timestamps();
             $table->softDeletes();

@@ -1,6 +1,10 @@
 <?php
 
+use App\User;
+use App\UserDetail;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
+use Faker\Provider\it_IT\PhoneNumber as FakerPhone;
 
 class UserDetailSeeder extends Seeder
 {
@@ -9,8 +13,15 @@ class UserDetailSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker , FakerPhone $fakerPhone)
     {
-        //
+        $users = User::all();
+        foreach ($users as $user) {
+            $userDetail = new UserDetail();
+            $userDetail->bio = $faker->text(200);
+            $userDetail->phone = $fakerPhone->phoneNumber();
+            $userDetail->user_id = $user['id'];
+            $userDetail->save();
+        }
     }
 }
