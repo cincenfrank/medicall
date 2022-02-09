@@ -50,11 +50,11 @@ class User extends Authenticatable
     }
 
     public function messagesAsPatient() {
-        return $this->hasMany(User::class, 'patient_id');
+        return $this->hasMany(Message::class, 'patient_id');
     }
 
     public function messagesAsDoctor() {
-        return $this->hasMany(User::class, 'doctor_id');
+        return $this->hasMany(Message::class, 'doctor_id');
     }
 
     public function subcriptions() {
