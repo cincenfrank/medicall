@@ -13,3 +13,10 @@ yarn-error.log
 /public/js/*.js
 /public/mix-manifest.json
 /public/css/app.css
+app/.DS_Store
+database/.DS_Store
+.DS_Store
+public/.DS_Store
+storage/.DS_Store
+resources/.DS_Store
+tests/.DS_Store
