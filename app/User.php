@@ -41,31 +41,19 @@ class User extends Authenticatable
         return $this->hasOne(UserDetail::class); 
     }
 
-    public function receivedReviews() {
-        return $this->hasMany(Review::class, 'doctor_id'); 
+    public function reviews() {
+        return $this->hasMany(Review::class); 
     }
 
-    public function sentReviews() {
-        return $this->hasMany(Review::class, 'user_id'); 
+    public function messages() {
+        return $this->hasMany(Message::class);
     }
 
-    public function messagesAsPatient() {
-        return $this->hasMany(Message::class, 'patient_id');
-    }
-
-    public function messagesAsDoctor() {
-        return $this->hasMany(Message::class, 'doctor_id');
-    }
-
-    public function subcriptions() {
+    public function subscriptions() {
         return $this->belongsToMany(Subscription::class);
     }
 
     public function services() {
         return $this->belongsToMany(Service::class);
-    }
-
-    public function roles() {
-        return $this->belongsToMany(Role::class);
     }
 }

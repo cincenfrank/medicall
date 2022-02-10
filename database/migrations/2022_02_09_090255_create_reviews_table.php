@@ -17,9 +17,8 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->string("title", 100)->nullable();
             $table->text("content")->nullable();
-            $table->foreignId("rating_id")->constrained();
+            $table->smallInteger("rating");
             $table->foreignId("user_id")->constrained();
-            $table->foreignId("doctor_id")->constrained("users", "id");
             $table->timestamps();
             $table->softDeletes();
         });

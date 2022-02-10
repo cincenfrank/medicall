@@ -16,9 +16,9 @@ class CreateMessagesTable extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->text("content");
-            $table->foreignId("patient_id")->constrained("users", "id");
-            $table->foreignId("doctor_id")->constrained("users", "id");
-            $table->foreignId("status_id")->constrained();
+            $table->string("patient_name");
+            $table->string("patient_email");
+            $table->foreignId("user_id")->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
