@@ -71,7 +71,7 @@
     </div>
     </nav> --}}
     <navbar></navbar>
-    <main class="py-4">
+    <main class="">
         @yield('content')
     </main>
     <the-footer></the-footer>
