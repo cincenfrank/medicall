@@ -20,6 +20,7 @@ class UserDetailSeeder extends Seeder
             $userDetail = new UserDetail();
             $userDetail->bio = $faker->text(200);
             $userDetail->phone = $fakerPhone->phoneNumber();
+            $userDetail->available = true;
             $userDetail->user_id = $user['id'];
             $userDetail->save();
         }
