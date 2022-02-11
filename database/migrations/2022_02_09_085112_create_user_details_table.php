@@ -18,7 +18,7 @@ class CreateUserDetailsTable extends Migration
             $table->string("cv_path")->nullable();
             $table->longText("bio")->nullable();
             $table->string("img_path")->nullable();
-            $table->boolean("available")->default(true);
+            $table->boolean("available")->default(false);
             $table->string("phone", 20)->nullable();
             $table->foreignId("user_id")->constrained();
             $table->timestamps();
