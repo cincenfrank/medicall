@@ -1,6 +1,6 @@
 <template>
-  <div class="auth-container">
-    <h1>sono il login register container</h1>
+  <div class="authentication-card p-4">
+    <img class="authentication-logo mb-2" src="/img/logo.svg" alt="" />
     <slot></slot>
   </div>
 </template>
@@ -12,8 +12,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.auth-container {
-  background-color: red;
+.authentication-card {
+  background-color: rgba(255, 255, 255, 0.568);
+  border-radius: 20px;
+  margin: 100px 0;
+  position: relative;
+
+  .authentication-logo {
+    width: 100%;
+  }
 }
 </style>
 
