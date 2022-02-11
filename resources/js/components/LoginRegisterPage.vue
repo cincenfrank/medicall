@@ -24,6 +24,10 @@ export default {
 .login-register-page {
   position: relative;
   background-color: rgba(0, 0, 0, 0.5);
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   &::after {
     position: absolute;
     z-index: -1;
