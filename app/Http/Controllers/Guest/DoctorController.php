@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Review;
 use App\Service;
 use App\User;
 use App\UserDetail;
@@ -11,13 +12,15 @@ use Illuminate\Http\Request;
 class DoctorController extends Controller
 {
     public function show($id) {
-        // $userDetail = User::all();
+        $user = User::findOrFail($id);
         $services = Service::all();
-        // dump($userDetail);
+        $reviews = Review::where('user_id',$user->id)->paginate(6);
+        // dump($reviews);
+
         return view('pages.guest.showDoctor',[
-            'user' => User::find($id),
-            // 'userDetail' => $userDetail,
-            'services'=>$services
+            'user' => $user,
+            'services'=>$services,
+            'reviews' => $reviews,
         ]);
     }
 }
