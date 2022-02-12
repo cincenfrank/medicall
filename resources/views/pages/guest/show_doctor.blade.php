@@ -6,12 +6,12 @@
                 <img
                     src="https://www.ambulatoriobiomedica.it/wp-content/uploads/2013/05/111-1118645_chiropractic-provider-male-doctor-vector-390x260.jpg">
             </div>
-            <div class="w-50">
+            <div class="ps-3">
                 <h5 class="card-title">{{ $user->first_name . ' ' . $user->last_name }} </h5>
                 <p class="card-text bg-danger text-white">Scarica CV: Cv Path Null DB {{ $user->userDetail->cv_path }}</p>
                 <p class="card-text">Numero di Telefono: {{ $user->userDetail->phone }}</p>
                 <p class="card-text">Email: {{ $user->email }}</p>
-                <p class="card-text bg-danger text-white">Recensioni...</p>
+                <p class="card-text bg-danger text-white">Media delle Recensioni...</p>
                 <a class="btn btn-outline-primary" href="#" role="button">Contatta il dottore</a>
             </div>
         </div>
@@ -34,7 +34,7 @@
         </div>
 
         <div class="">
-            <h3>Recensioni:</h3>
+            <h3>Recensioni (Tener conto del totale delle recensioni)</h3>
             <div class="d-flex">
                 <div class="row row-cols-1 row-cols-md-2 g-4">
                     @foreach ($reviews as $review)

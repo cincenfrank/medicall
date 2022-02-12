@@ -13,13 +13,13 @@ class DoctorController extends Controller
 {
     public function show($id) {
         $user = User::findOrFail($id);
-        $services = Service::all();
+        // $services = Service::all();
         $reviews = Review::where('user_id',$user->id)->paginate(6);
         // dump($reviews);
 
-        return view('pages.guest.showDoctor',[
+        return view('pages.guest.show_doctor',[
             'user' => $user,
-            'services'=>$services,
+            // 'services'=>$services,
             'reviews' => $reviews,
         ]);
     }
