@@ -42,5 +42,5 @@ Route::namespace('Guest')
         Route::get('/', 'HomeController@index')->name('home');
         Route::get('search', 'SearchController@index')->name('search');
         Route::get('service', 'ServiceController@index')->name('service');
-        Route::get('doctors/{id}', 'DoctorController@index')->name('doctors');
+        Route::get('doctors/{id}', 'DoctorController@show')->name('doctors');
     });
