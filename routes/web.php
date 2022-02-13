@@ -41,6 +41,7 @@ Route::namespace('Guest')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
         Route::get('search', 'SearchController@index')->name('search');
-        Route::get('service', 'ServiceController@index')->name('service');
+        // parametro dinamico + show (no index)
+        Route::get('service/{id}', 'ServiceController@show')->name('service');
         Route::get('doctors/{id}', 'DoctorController@index')->name('doctors');
     });

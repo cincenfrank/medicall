@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Service</title>
-</head>
-
-<body>
-    <ul>
-        <li>Navbar</li>
-        <li>Jumbo = (services id img_path) + (service id name )</li>
-        <li>DescriptionBlock = (services id description)</li>
-        <li>CardDoctor = (doctor id + services id + subscription id)</li>
-        <li>TheFooter</li>
-    </ul>
-</body>
-
-</html>
+@extends('layouts.app')
+@section('content')
+    <div>
+        {{-- Jumbo = (services id img_path) + (service id name ) --}}
+        <div class="position relative"
+            style="height: 500px; background-image:url(https://st.ilfattoquotidiano.it/wp-content/uploads/2019/09/25/Medici-1200.jpg)">
+            <h2 class="position-absolute top-50 start-50 translate-middle mb-0">
+                {{ $services->name }}
+            </h2>
+        </div>
+        <div class="container">
+            <div class="row">
+                <p> $services -> description = <strong>{{ $services->description }}</strong></p>
+            </div>
+        </div>
+    </div>
+@endsection
