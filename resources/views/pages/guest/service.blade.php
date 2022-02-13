@@ -8,10 +8,16 @@
                 {{ $services->name }}
             </h2>
         </div>
+        {{-- service description --}}
         <div class="container">
             <div class="row">
                 <p> $services -> description = <strong>{{ $services->description }}</strong></p>
             </div>
         </div>
+    </div>
+    {{-- VUE --}}
+    <div>
+        <jumbo-service></jumbo-service>
+        <description-block></description-block>
     </div>
 @endsection

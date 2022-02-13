@@ -1,5 +1,7 @@
 <template>
-  
+  <div>
+    <h1>VUE Description Block Service</h1>
+  </div>
 </template>
 
 <script>
