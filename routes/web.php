@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Guest\DoctorController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -43,4 +44,6 @@ Route::namespace('Guest')
         Route::get('search', 'SearchController@index')->name('search');
         Route::get('service', 'ServiceController@index')->name('service');
         Route::get('doctors/{id}', 'DoctorController@show')->name('doctors');
+        Route::post('message/create',"DoctorController@addMessage")->name('addMessage');
+        // Route::resource('doctors/{id}','MessageController@store')->
     });

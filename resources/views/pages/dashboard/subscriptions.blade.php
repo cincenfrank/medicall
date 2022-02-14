@@ -91,13 +91,12 @@
                                     <div>
                                         {{-- <a class="btn btn-success btn-sm " href="#" role="button">Acquista</a> --}}
                                         <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                            data-bs-target="#buyModal">
-                                            Launch demo modal
+                                            data-bs-target="#sub_{{ $subscription->id }}">
+                                            Acquista
                                         </button>
                                     </div>
-
                                     <div>
-                                        <div class="modal fade" id="buyModal" tabindex="-1"
+                                        <div class="modal fade" id="sub_{{ $subscription->id }}" tabindex="-1"
                                             aria-labelledby="buyModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content bg-dark">
@@ -109,10 +108,10 @@
                                                     <div class="modal-body">
                                                         <h5>Conferma il tuo acquisto</h5>
                                                         <form>
-                                                            <div class="mb-3  align-items-center bg-danger">
-                                                                <label for="price" class="form-label px-2">Show
-                                                                    Subcription per prendere e mostrare il prezzo
-                                                                    dell'elemento cliccato?</label>
+                                                            <div class="mb-3  align-items-center">
+                                                                <label for="price" class="form-label mb-0 fs-3"
+                                                                    id="test_prezzo">Prezzo:
+                                                                    €{{ $subscription->price }}</label>
                                                             </div>
                                                             <div class="mb-3  align-items-center">
                                                                 <label for="name"
@@ -160,6 +159,8 @@
                             </div>
                         </div>
                     @endforeach
+
+
                 </div>
             </div>
         </div>
