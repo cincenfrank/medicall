@@ -11,7 +11,7 @@ class ServiceController extends Controller
     public function show($id)
     {
         $services = Service::findOrFail($id);
-        //dd($services);
+       //dump($services);
 
         return view('pages.guest.service', ['services' => $services]);
     }
