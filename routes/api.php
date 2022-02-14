@@ -18,4 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get("service/{id}", "Api\ServiceController@getJumboService");
+Route::get("service/{id}", "Api\ServiceController@getServiceData");
+Route::get("reviews", "Api\ReviewController@getReviewData");
