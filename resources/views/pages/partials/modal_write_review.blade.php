@@ -1,4 +1,4 @@
-<form action="" method="POST">
+<form action="{{ route('guest.addReview') }}" method="POST">
     @csrf
     <div class="modal fade" id="modal_review" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -8,20 +8,35 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3  align-items-center">Scrivi la tua esperienza:
-                        {{ $user->first_name . ' ' . $user->last_name }}</div>
+                    <div class="mb-3  align-items-center">Scrivi la tua esperienza con
+                        <span class="btn text-white bg-success">
+                            {{ $user->first_name . ' ' . $user->last_name }}</span>
+                    </div>
                     <div class="mb-3  align-items-center">
-                        <label for="patient_name" class="form-label ">Title</label>
-                        <input type="text" class="form-control" id="patient_name" name="patient_name">
+                        <label for="title" class="form-label ">Title</label>
+                        <input type="text" class="form-control" id="title" name="title">
+                    </div>
+                    <div class="mb-3  align-items-center">
+                        <label for="name" class="form-label ">Nome</label>
+                        <input type="text" class="form-control" id="name" name="reviewer_name">
+                    </div>
+                    <div class="mb-3  align-items-center d-flex">
+                        <label for="rating" class="form-label ">Rating</label>
+                        <select class="form-select w-25 ms-3 align-items-center" name="rating" id="rating">
+
+                            @foreach ($ratings as $rating)
+                                <option name='rating' value="{{ $rating['voto'] }}">{{ $rating['voto'] }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="mb-3 align-items-center">
-                        <label for="patient_email" class="form-label ">Email</label>
-                        <input type="email" class="form-control" id="patient_email" name="patient_email">
+                        <label for="reviewer_email" class="form-label ">Email</label>
+                        <input type="email" class="form-control" id="reviewer_email" name="reviewer_email">
                     </div>
 
                     <div class="mb-3 align-items-center">
-                        <label for="card" class="form-label ">Messaggio</label>
+                        <label for="content" class="form-label ">Recensione:</label>
                         <textarea type="text" class="form-control" name="content" id="content" cols="30"
                             rows="5"></textarea>
                     </div>
@@ -32,7 +47,7 @@
                     {{-- <button type="submit">Invia</button> --}}
                     <button type="submit" class="btn btn-primary" data-bs-target="#exampleModalToggle2"
                         data-bs-toggle="modal" value="sentMessage">
-                        Invia Messaggio</button>
+                        Invia</button>
                 </div>
             </div>
         </div>
