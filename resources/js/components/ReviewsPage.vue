@@ -1,12 +1,4 @@
-<template>
-    <div>
-        <ul class="d-flex list-unstyled">
-            <li v-for="number in ratings" :key="number">
-                <i class="fa fa-star" aria-hidden="true"></i>
-            </li>
-        </ul>
-    </div>
-</template>
+<template></template>
 
 <script>
 export default {
@@ -15,9 +7,7 @@ export default {
             prova: "titolo di prova",
         };
     },
-    props: {
-        ratings: Number,
-    },
+    props: {},
     methods: {},
 };
 </script>

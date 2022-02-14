@@ -25,7 +25,8 @@
                         <select class="form-select w-25 ms-3 align-items-center" name="rating" id="rating">
 
                             @foreach ($ratings as $rating)
-                                <option name='rating' value="{{ $rating['voto'] }}">{{ $rating['voto'] }}</option>
+                                <option name='rating' class="bg-secondary" value="{{ $rating['voto'] }}">
+                                    {{ $rating['voto'] }}</option>
                             @endforeach
                         </select>
                     </div>

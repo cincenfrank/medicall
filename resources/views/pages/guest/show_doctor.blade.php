@@ -22,7 +22,8 @@
                     {{ $user->userDetail->cv_path ? $user->userDetail->cv_path : '' }}</p>
                 <p class="card-text">Numero di Telefono: {{ $user->userDetail->phone }}</p>
                 <p class="card-text">Email: {{ $user->email }}</p>
-                <p class="card-text bg-danger text-white">Media delle Recensioni: {{ $media }}</p>
+                <stars-rating :ratings={{ $media }}>
+                    Media delle recensioni:</stars-rating>
                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
                     data-bs-target="#contact_doctor">
                     <a class="" href="#" role="button">Contatta il dottore</a>
@@ -75,9 +76,9 @@
                                     <h5 class="card-title">{{ $review->title }}</h5>
                                     <h5 class="card-title">From: {{ $review->reviewer_name }}</h5>
 
-                                    <h5 class="card-title">Voto: {{ $review->rating }}</h5>
+                                    {{-- <h5 class="card-title">Voto: {{ $review->rating }}</h5> --}}
 
-                                    <reviews-page :ratings={{ $review->rating }}></reviews-page>
+                                    <stars-rating :ratings={{ $review->rating }}></stars-rating>
 
                                     <p class="card-text">{{ Str::limit($review->content, 100, '...') }}</p>
                                 </div>
