@@ -1,4 +1,13 @@
 @extends('layouts.app')
+
+@section('add_head_scripts')
+    <link rel="stylesheet" href=“https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css”>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+@endsection
+
 @section('content')
     <div class="container">
         <div class="d-flex justify-content-center">
@@ -13,7 +22,7 @@
                     {{ $user->userDetail->cv_path ? $user->userDetail->cv_path : '' }}</p>
                 <p class="card-text">Numero di Telefono: {{ $user->userDetail->phone }}</p>
                 <p class="card-text">Email: {{ $user->email }}</p>
-                <p class="card-text bg-danger text-white">Media delle Recensioni...</p>
+                <p class="card-text bg-danger text-white">Media delle Recensioni: {{ $media }}</p>
                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
                     data-bs-target="#contact_doctor">
                     <a class="" href="#" role="button">Contatta il dottore</a>
@@ -64,8 +73,12 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $review->title }}</h5>
-                                    <h5 class="card-title bg-danger text-white">Nome da definire (manca colonna DB)</h5>
+                                    <h5 class="card-title">From: {{ $review->reviewer_name }}</h5>
+
                                     <h5 class="card-title">Voto: {{ $review->rating }}</h5>
+
+                                    <reviews-page :ratings={{ $review->rating }}></reviews-page>
+
                                     <p class="card-text">{{ Str::limit($review->content, 100, '...') }}</p>
                                 </div>
                             </div>

@@ -45,5 +45,5 @@ Route::namespace('Guest')
         Route::get('service', 'ServiceController@index')->name('service');
         Route::get('doctors/{id}', 'DoctorController@show')->name('doctors');
         Route::post('message/create',"DoctorController@addMessage")->name('addMessage');
-        // Route::resource('doctors/{id}','MessageController@store')->
+        Route::post('reviews/create','DoctorController@addReview')->name('addReview');
     });
