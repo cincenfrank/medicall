@@ -27,6 +27,20 @@
     </div>
 </homepage-section-carousel>
 
-{{-- sezione testo con immagini --}}
+{{-- sezione testi con immagini --}}
 <homepage-section-steps></homepage-section-steps>
+
+{{-- sezione carosello recensioni --}}
+<homepage-section-carousel
+:title="'Our latest reviews'"
+:subtitle="'best in class'"
+:description="''"
+>
+    <div class="bottom">
+        <h1>Carosello con lista dei servizi</h1>
+    </div>
+</homepage-section-carousel>
+
+{{-- footer --}}
+<the-footer></the-footer>
 @endsection

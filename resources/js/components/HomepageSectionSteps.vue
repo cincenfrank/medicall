@@ -1,25 +1,64 @@
 <template>
     <section class="container">
-        <div class="row p-5">
+        <!-- 1° section -->
+        <div class="row p-5 d-flex align-items-center">
             <div class="col-md-6">
-                <div class="jumbo-text">
-                    <div class="w-75 mb-20">
-                        <span class="mb-5">LET'S GO</span>
+                <div class="section-img text-center w-sm-50">
+                    <img src="https://picsum.photos/500/400" alt="section-home-img">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="section-text">
+                    <div class="mb-20 text-center">
+                        <span class="mb-5">STEP 1</span>
                         <h1 class="display-4 mb-10">
-                            Find the <br>
-                            <span class="text-primary">best doctor</span> <br>
-                            near you
+                            <span class="text-primary">Scegli</span> il <br> 
+                            medico
                         </h1>
                         <p>Tramite il nostro sito potrai visualizzare e prenotare i migliori specialisti per ogni settore medico</p>
                     </div>
-                    <div>
-                        <!-- filter component here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 2° section -->
+        <div class="row p-5 d-flex align-items-center">
+            <div class="col-md-6">
+                <div class="section-text">
+                    <div class="mb-20 text-center">
+                        <span class="mb-5">STEP 2</span>
+                        <h1 class="display-4 mb-10">
+                            <span class="text-primary">Prenota</span> la <br> 
+                            visita
+                        </h1>
+                        <p>Tramite il nostro sito potrai visualizzare e prenotare i migliori specialisti per ogni settore medico</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="jumbo-img text-center">
-                    <img src="https://picsum.photos/300" alt="jumbo-home-img" class="rounded-circle">
+                <div class="section-img text-center">
+                    <img src="https://picsum.photos/500/400" alt="section-home-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- 3° section -->
+        <div class="row p-5 d-flex align-items-center">
+            <div class="col-md-6">
+                <div class="section-img text-center">
+                    <img src="https://picsum.photos/500/400" alt="section-home-img">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="section-text">
+                    <div class="mb-20 text-center">
+                        <span class="mb-5">STEP 3</span>
+                        <h1 class="display-4 mb-10">
+                            <span class="text-primary">Vai</span> alla <br> 
+                            visita
+                        </h1>
+                        <p>Tramite il nostro sito potrai visualizzare e prenotare i migliori specialisti per ogni settore medico</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -28,11 +67,13 @@
 
 <script>
 export default {
-
+    name: 'HomepageSectionSteps',
 }
 </script>
 
 <style lang="scss" scoped>
-
+img {
+    border-radius: 15px;
+}
 </style>
 
