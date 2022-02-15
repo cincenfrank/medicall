@@ -61,7 +61,7 @@ class DoctorController extends Controller
         };
         $media = round($somma / count($allVotes),2);
         // dump(round($media));
-        $reviews = Review::where('user_id',$user->id)->paginate(6);
+        $reviews = Review::where('user_id',$user->id)->orderBy('created_at','desc')->paginate(6);
 
         return view('pages.guest.show_doctor',[
             'user' => $user,

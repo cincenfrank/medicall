@@ -81,6 +81,8 @@
                                     <stars-rating :ratings={{ $review->rating }}></stars-rating>
 
                                     <p class="card-text">{{ Str::limit($review->content, 100, '...') }}</p>
+                                    <p class="card-text">Recensito il {{ $review->created_at->format('d F y') }}
+                                    </p>
                                 </div>
                             </div>
                         </div>
