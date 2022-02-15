@@ -22,5 +22,9 @@
 
         </div> --}}
     </div>
-    <card-review></card-review>
+    <homepage-section-carousel>
+        <home-review-carousel>
+
+        </home-review-carousel>
+    </homepage-section-carousel>
 @endsection
