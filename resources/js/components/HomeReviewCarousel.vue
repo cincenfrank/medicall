@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-hidden w-100">
+  <div class="overflow-hidden w-100" v-if="Object.keys(reviews).length > 0">
     <carousel :visibleItemsNumber="4">
       <div class="carousel-element" v-for="review in reviews" :key="review.id">
         <card-review :review="review"></card-review>

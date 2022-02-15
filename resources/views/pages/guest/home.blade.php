@@ -22,8 +22,8 @@
 
         </div> --}}
     </div>
-    <homepage-section-carousel>
-        <home-review-carousel>
+    <homepage-section-carousel title="Latest Reviews" subtitle="Reviews about our best doctors" description="">
+        <home-review-carousel class="bottom">
 
         </home-review-carousel>
     </homepage-section-carousel>
