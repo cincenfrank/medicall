@@ -1,17 +1,16 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">{{ review.title }}</h5>
-      <h5 class="card-title">{{ review.user.first_name }}</h5>
-      <p class="card-text fw-bolder">{{ review.rating }}/5</p>
-      <p class="card-text fw-bolder fst-italic">
+      <h5 class="card-text text-truncate mb-0 fw-bold">{{ review.title }}</h5>
+      <p class="card-text text-truncate">"{{ review.content }}"</p>
+      <h5 class="card-text mb-0">
+        Dr. {{ review.user.last_name }} {{ review.user.first_name }}
+      </h5>
+      <p class="card-text fw-bold">{{ review.rating }}/5</p>
+      <p class="card-text fst-italic">
+        Recensito da:
         {{ review.reviewer_name }}
       </p>
-      <p class="card-text fst-italic">{{ review.reviewer_email }}</p>
-
-      <p class="card-text fst-italic">{{ review.user_id }}</p>
-
-      <!-- <p class="card-text">{{ review.content }}</p> -->
     </div>
   </div>
 </template>
