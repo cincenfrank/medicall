@@ -15,7 +15,7 @@
 
 <script>
 export default {
-    name: 'HomepageSection',
+    name: 'HomepageSectionCarousel',
     props: {
         title: String,
         subtitle: String,
