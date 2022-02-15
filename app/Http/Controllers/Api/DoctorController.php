@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Date;
 
 class DoctorController extends Controller
 {
-    public function sponsored(Request $request)
+    public function getSponsoredDoctors(Request $request)
     {
         $sponsoredDoctors = User::with('subscriptions')->whereHas('subscriptions', function($param) {
             $param->where('expiration_date', '>', Date::now());

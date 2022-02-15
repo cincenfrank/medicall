@@ -18,4 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/doctors/sponsored', 'Api\DoctorController@sponsored');
+Route::get('/doctors/sponsored', 'Api\DoctorController@getSponsoredDoctors');
