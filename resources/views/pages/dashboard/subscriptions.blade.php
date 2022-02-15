@@ -1,14 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('content')
     <div class="d-flex">
-
-        {{-- Sidebar --}}
-        <sidebar></sidebar>
-        {{-- right side --}}
-        <div class="d-flex flex-grow-1 flex-column bg-dark text-white justify-content-center">
+        <div class="d-flex flex-grow-1 flex-column text-center justify-content-center">
             <h3>Subscriptions</h3>
-            <div class="d-flex justify-content-center bg-dark flex-grow-1 align-items-center">
+            <div class="d-flex justify-content-center flex-grow-1 align-items-center">
                 {{-- @dump($subscriptions) --}}
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     @foreach ($subscriptions as $subscription)
@@ -28,7 +24,7 @@
                                         </button>
                                     </div>
                                     <div>
-                                        <div class="modal fade" id="sub_{{ $subscription->id }}" tabindex="-1"
+                                        <div class="modal fade text-white" id="sub_{{ $subscription->id }}" tabindex="-1"
                                             aria-labelledby="buyModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content bg-dark">
@@ -43,7 +39,7 @@
                                                             <div class="mb-3  align-items-center">
                                                                 <label for="price" class="form-label mb-0 fs-3"
                                                                     id="test_prezzo">Prezzo:
-                                                                    €{{ $subscription->price }}</label>
+                                                                    € {{ $subscription->price }}</label>
                                                             </div>
                                                             <div class="mb-3  align-items-center">
                                                                 <label for="name"
@@ -91,8 +87,6 @@
                             </div>
                         </div>
                     @endforeach
-
-
                 </div>
             </div>
         </div>
