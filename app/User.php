@@ -51,10 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Message::class);
     }
-
-    public function subscriptions()
-    {
-        return $this->belongsToMany(Subscription::class);
+  
+    public function subscriptions() {
+        return $this->belongsToMany(Subscription::class)->withPivot('expiration_date');
     }
 
     public function services()
