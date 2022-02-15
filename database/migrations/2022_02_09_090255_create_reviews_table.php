@@ -18,6 +18,8 @@ class CreateReviewsTable extends Migration
             $table->string("title", 100)->nullable();
             $table->text("content")->nullable();
             $table->smallInteger("rating");
+            $table->string("reviewer_name",100);
+            $table->string("reviewer_email",100);
             $table->foreignId("user_id")->constrained();
             $table->timestamps();
             $table->softDeletes();
