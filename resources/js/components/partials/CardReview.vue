@@ -7,7 +7,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">{{ review.title }}</h5>
-              <!-- <h5 class="card-title">{{ user.name }}</h5> -->
+              <h5 class="card-title">{{ review.user.first_name }}</h5>
               <p class="card-text fw-bolder">{{ review.rating }}/5</p>
               <p class="card-text fw-bolder fst-italic">
                 {{ review.reviewer_name }}
