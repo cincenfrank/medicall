@@ -1,33 +1,33 @@
 <template>
-    <div class="container-fluid bg-primary">
+    <div class="container-fluid bg-primary pt-4">
         <div class="container">
             <footer class="">
-                <div class="row">
+                <div class="row text-white">
                     <div class="col-2">
                         <h5>Company</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-muted"
+                                <a href="#" class="nav-link p-0 text-white"
                                     >Home</a
                                 >
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-muted"
+                                <a href="#" class="nav-link p-0 text-white"
                                     >Features</a
                                 >
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-muted"
+                                <a href="#" class="nav-link p-0 text-white"
                                     >Pricing</a
                                 >
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-muted"
+                                <a href="#" class="nav-link p-0 text-white"
                                     >FAQs</a
                                 >
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-muted"
+                                <a href="#" class="nav-link p-0 text-white"
                                     >About</a
                                 >
                             </li>
@@ -38,27 +38,27 @@
                         <h5>Policies</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-muted"
+                                <a href="#" class="nav-link p-0 text-white"
                                     >Home</a
                                 >
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-muted"
+                                <a href="#" class="nav-link p-0 text-white"
                                     >Features</a
                                 >
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-muted"
+                                <a href="#" class="nav-link p-0 text-white"
                                     >Pricing</a
                                 >
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-muted"
+                                <a href="#" class="nav-link p-0 text-white"
                                     >FAQs</a
                                 >
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-muted"
+                                <a href="#" class="nav-link p-0 text-white"
                                     >About</a
                                 >
                             </li>
@@ -69,27 +69,27 @@
                         <h5>Contacts</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-muted"
+                                <a href="#" class="nav-link p-0 text-white"
                                     >Home</a
                                 >
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-muted"
+                                <a href="#" class="nav-link p-0 text-white"
                                     >Features</a
                                 >
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-muted"
+                                <a href="#" class="nav-link p-0 text-white"
                                     >Pricing</a
                                 >
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-muted"
+                                <a href="#" class="nav-link p-0 text-white"
                                     >FAQs</a
                                 >
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-muted"
+                                <a href="#" class="nav-link p-0 text-white"
                                     >About</a
                                 >
                             </li>
@@ -113,7 +113,7 @@
                                     class="form-control"
                                     placeholder="Email address"
                                 />
-                                <button class="btn btn-primary" type="button">
+                                <button class="btn btn-success" type="button">
                                     Subscribe
                                 </button>
                             </div>
@@ -122,10 +122,10 @@
                 </div>
 
                 <div
-                    class="d-flex justify-content-between py-4 my-4 border-top"
+                    class="d-flex justify-content-center pt-4 mt-2 border-top text-white"
                 >
                     <p>© 2021 Company, Inc. All rights reserved.</p>
-                    <ul class="list-unstyled d-flex">
+                    <!-- <ul class="list-unstyled d-flex">
                         <li class="ms-3">
                             <a class="link-dark" href="#"
                                 ><svg class="bi" width="24" height="24">
@@ -144,7 +144,7 @@
                                     <use xlink:href="#facebook"></use></svg
                             ></a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </footer>
         </div>
