@@ -41,6 +41,6 @@ Route::namespace('Guest')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
         Route::get('search', 'SearchController@index')->name('search');
-        Route::get('service', 'ServiceController@index')->name('service');
+        Route::get('service/{id}', 'ServiceController@index')->name('service');
         Route::get('doctors/{id}', 'DoctorController@index')->name('doctors');
     });
