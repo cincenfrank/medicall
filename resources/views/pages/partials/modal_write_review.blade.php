@@ -8,9 +8,10 @@
     </div>
 @endif
 <form action="{{ route('guest.addReview') }}" method="POST">
-    {{-- <div id="modal_review" tabindex="-1" aria-labelledby="exampleModalLabel" class="modal fade show" style="display: block;" aria-modal="true" role="dialog"><div class="modal-dialog"> --}}
     @csrf
-    <div class="modal fade" id="modal_review" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal_review" tabindex="-1" 
+    {{-- aria-labelledby="modalReview" --}}
+     aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content bg-dark text-light">
                 <div class="modal-header">
