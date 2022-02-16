@@ -10,8 +10,9 @@
                 Messaggio Inviato con successo!
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to
-                    first</button>
+                {{-- <button class="btn btn-primary" data-bs-toggle="modal">Close</button> --}}
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
             </div>
         </div>
     </div>

@@ -10,6 +10,7 @@ use App\User;
 use App\UserDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator as FacadesValidator;
 use Symfony\Component\VarDumper\Caster\RedisCaster;
 
 class DoctorController extends Controller
@@ -22,17 +23,55 @@ class DoctorController extends Controller
         $newMessage = new Message();
         $newMessage->fill($data);
         $newMessage->save();
-        return Redirect::back();
+        // return Redirect::back();
     }
 
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    // protected function validator(array $data)
+    // {
+    //     $validator = FacadesValidator::make($data, [
+    //         'name' => ['required', 'string', 'max:255'],
+    //         'email' => ['required', 'string', 'email','min:5' ,'max:255', 'unique:users'],
+    //         'password' => ['required', 'string', 'min:8', 'confirmed'],
+    //         'title'=>['required','string','max:100'],
+    //         'reviewer_name'=>['required','string','max:100'],
+    //         'reviewer_email'=>['required','string','max:100'],
+    //         'content'=>['required','string','max:1000'],
+    //         'rating'=>['required'],
+    //         'user_id' => ['required']
+    //     ]);
+    //     if($validator->fails()){
+    //         return Redirect::back()->withErrors($validator,'errori')->withInput();
+    //     }
+    //     return 'Validazione fatta';
+    // }
+
     public function addReview(Request $request){
+        $request->validate([
+            // 'name' => 'required| string| max:255',
+            // 'email' => 'required| string| email|min:5 |max:255| unique:users',
+            // 'password' => 'required| string| min:8| confirmed',
+            'title'=>'required|string|max:100',
+            'reviewer_name'=>'required|string|max:100',
+            'reviewer_email'=>'required|string|max:100',
+            'content'=>'required|string|max:1000',
+            'rating'=>'required',
+            'user_id' => 'required',
+        ]);
         $data = $request->all();
+        // $validazione = validator($data);
         $newReview = new Review();
         $newReview->fill($data);
         $newReview->save();
+        $success = true ;
 
-        return Redirect::back();
-
+        return Redirect::back()->with(compact('success')); 
+        // return view('pages.guest.show_doctor',[]);
     }
 
     public function show( $id) {

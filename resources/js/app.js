@@ -5,6 +5,22 @@
  */
 
 require('./bootstrap');
+import Modal from 'bootstrap/js/dist/modal';
+    document.addEventListener('DOMContentLoaded', function() {
+        // document.getElementById('modal_review').classList.add('show');
+        // document.getElementById('modal_review').style.display='block';
+        let myModal = new Modal(
+        document.getElementById('modal_review')
+        );
+        // myModal.show();
+        window.modalReview = myModal;
+
+        let myModalSuccess = new Modal(
+            document.getElementById('exampleModalToggle2')
+            );
+            // myModal.show();
+            window.modalSuccess = myModalSuccess;
+    });
 
 window.Vue = require('vue');
 

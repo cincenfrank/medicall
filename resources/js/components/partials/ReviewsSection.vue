@@ -9,20 +9,36 @@
                     :review="review"
                 ></card-review>
                 <!-- <h1 v-for="review in reviews" :key="review.id">{{ review.title }}</h1> -->
+                <!-- <pagination
+                    v-model="page"
+                    :records="5"
+                    :per-page="25"
+                    @paginate="myCallback"
+                /> -->
             </div>
         </div>
     </div>
 </template>
 
 <script>
+// https://www.npmjs.com/package/v-pagination-3
+// import Pagination from "v-pagination-3";
 import CardReview from "./CardReview.vue";
 export default {
-    components: { CardReview },
+    components: {
+        CardReview,
+        // Pagination
+    },
     name: "ReviewsSection",
     data() {
         return {
             reviews: [],
+            // page: 1,
         };
+    },
+    props: {
+        // records: Number,
+        // perPage: Number,
     },
     methods: {
         getReviews() {

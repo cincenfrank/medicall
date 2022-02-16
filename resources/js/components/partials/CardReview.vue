@@ -7,7 +7,7 @@
                 <!-- Component Stars -->
                 <stars :ratings="review.rating"></stars>
 
-                <p class="card-text">{{ truncate(review.content, 100) }}</p>
+                <p v-snip="3" class="card-text">{{ review.content }}</p>
                 <!-- <p class="card-text">
                     Recensito il {{ $review->created_at->format('d F y') }}
                 </p> -->
@@ -17,10 +17,17 @@
 </template>
 
 <script>
+import VueSnip from "vue-snip";
+Vue.use(VueSnip);
 import Stars from "./Stars.vue";
 export default {
     components: { Stars },
     name: "card-review",
+    data() {
+        return {
+            page: 1,
+        };
+    },
     props: {
         review: Object,
         // rating: Number,

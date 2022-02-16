@@ -5,8 +5,7 @@
 @endsection
 
 @section('content')
-    <reviews-section></reviews-section>
-
+    {{-- <reviews-section></reviews-section> --}}
     <div class="container">
         <div class="d-flex justify-content-center">
             <div>
@@ -62,6 +61,7 @@
                     </button>
                 </div>
                 @include('pages.partials.modal_write_review')
+                {{-- @include('pages.partials.modal_sent_message') --}}
 
             </div>
 
@@ -89,7 +89,20 @@
             </div>
             <div class="d-flex justify-content-center py-2">
                 {!! $reviews->links() !!}
-
             </div>
         </div>
-    @endsection
+    </div>
+@endsection
+<script type="text/javascript">
+    // console.log(window.modalReview);
+    window.addEventListener('DOMContentLoaded', (event) => {
+    @if(count($errors)>0)
+        window.modalReview.show();
+    // });
+    @elseif(Session::get('success'))
+    // window.addEventListener('DOMContentLoaded', (event) => {
+        console.log('prova');
+        window.modalSuccess.show();
+        @endif
+    });
+</script>
