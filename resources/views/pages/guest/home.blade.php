@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('add_head_scripts')
+    @include('pages.partials.head_scripts')
+@endsection
 @section('content')
     <div class="container">
         <h1>Ciao da MediCall</h1>

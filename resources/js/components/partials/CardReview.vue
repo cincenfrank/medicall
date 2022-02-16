@@ -6,7 +6,8 @@
       <h5 class="card-text mb-0">
         Dr. {{ review.user.last_name }} {{ review.user.first_name }}
       </h5>
-      <p class="card-text fw-bold">{{ review.rating }}/5</p>
+      <!-- <p class="card-text fw-bold">{{ review.rating }}/5</p> -->
+      <stars :ratings="review.rating"></stars>
       <p class="card-text fst-italic">
         Recensito da:
         {{ review.reviewer_name }}
@@ -16,10 +17,9 @@
 </template>
 
 <script>
-import VueSnip from "vue-snip";
-Vue.use(VueSnip);
 import Stars from "./Stars.vue";
 export default {
+  components: { Stars },
   data() {
     return {};
   },
