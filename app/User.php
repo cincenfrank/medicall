@@ -16,7 +16,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+
         'first_name', 'last_name', 'password','email'
+
     ];
 
     /**
@@ -37,24 +39,29 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function userDetail() {
-        return $this->hasOne(UserDetail::class); 
+    public function userDetail()
+    {
+        return $this->hasOne(UserDetail::class);
     }
 
-    public function reviews() {
-        return $this->hasMany(Review::class); 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 
-    public function messages() {
+    public function messages()
+    {
         return $this->hasMany(Message::class);
     }
-
+  
     public function subscriptions() {
-        return $this->belongsToMany(Subscription::class);
+        return $this->belongsToMany(Subscription::class)->withPivot('expiration_date');
     }
+
 
     public function services() {
         return $this->belongsToMany(Service::class)
         ->withPivot('price');
+
     }
 }

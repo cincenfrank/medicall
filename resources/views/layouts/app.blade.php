@@ -24,11 +24,13 @@
 
 <body>
     <div id="app">
+
         @include('pages.partials.navbar')
         <main class="">
             @yield('content')
         </main>
         <the-footer></the-footer>
+
 
     </div>
 </body>

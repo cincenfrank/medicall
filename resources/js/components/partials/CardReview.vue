@@ -1,19 +1,18 @@
 <template>
-    <div class="col">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{ review.title }}</h5>
-                <h5 class="card-title">From: {{ review.reviewer_name }}</h5>
-                <!-- Component Stars -->
-                <stars :ratings="review.rating"></stars>
-
-                <p v-snip="3" class="card-text">{{ review.content }}</p>
-                <!-- <p class="card-text">
-                    Recensito il {{ $review->created_at->format('d F y') }}
-                </p> -->
-            </div>
-        </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-text text-truncate mb-0 fw-bold">{{ review.title }}</h5>
+      <p class="card-text text-truncate">"{{ review.content }}"</p>
+      <h5 class="card-text mb-0">
+        Dr. {{ review.user.last_name }} {{ review.user.first_name }}
+      </h5>
+      <p class="card-text fw-bold">{{ review.rating }}/5</p>
+      <p class="card-text fst-italic">
+        Recensito da:
+        {{ review.reviewer_name }}
+      </p>
     </div>
+  </div>
 </template>
 
 <script>
@@ -21,18 +20,14 @@ import VueSnip from "vue-snip";
 Vue.use(VueSnip);
 import Stars from "./Stars.vue";
 export default {
-    components: { Stars },
-    name: "card-review",
-    data() {
-        return {
-            page: 1,
-        };
-    },
-    props: {
-        review: Object,
-        // rating: Number,
-    },
+  data() {
+    return {};
+  },
+  props: {
+    review: Object,
+  },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>
