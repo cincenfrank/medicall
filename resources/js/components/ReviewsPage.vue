@@ -14,9 +14,11 @@
   </div>
 </template>
 
+
 <script>
 import CardReview from "./partials/CardReview.vue";
 export default {
+
   components: { CardReview },
   props: {
     loggedUserId: String,
@@ -42,4 +44,3 @@ export default {
 
 <style>
 </style>
-

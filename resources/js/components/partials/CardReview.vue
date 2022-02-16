@@ -16,6 +16,9 @@
 </template>
 
 <script>
+import VueSnip from "vue-snip";
+Vue.use(VueSnip);
+import Stars from "./Stars.vue";
 export default {
   data() {
     return {};
