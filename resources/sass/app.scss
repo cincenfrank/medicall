@@ -1,8 +1,26 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+.btn-custom-blue {
+    background-color: $customBlue;
+    color: white;
+    border-radius: 5px;
+    transition: all $customAnimationTime ease-out;
+    &:hover {
+        color: white;
+        background-color: $customRed;
+    }
+}
+.link-custom-blue {
+    color: $customBlue;
+
+    transition: all $customAnimationTime ease-out;
+    &:hover {
+        color: $customRed;
+    }
+}
