@@ -1,11 +1,31 @@
 <template>
 
-    <div class="list-group">
+    <!-- <div class="list-group">
    
-    <a href="#" class="list-group-item list-group-item-action">{{}}</a>
+    <a href="#"  v-for="conversation in conversations" :key="conversation.id" class="list-group-item list-group-item-action">{{loggedUserId}}</a>
     
 </div>
+<ul>
+    <li v-for="conversation in conversations" :key="conversation.id">
+       {{conversation.patient_name + " " + conversation.content.substring(0, 50) }}
+    </li>
+</ul> -->
 
+
+    <div class="list-group">
+          <a :href="`/dashboard/conversations/${conversation.id}`"  v-for="conversation in conversations" :key="conversation.id" class="list-group-item list-group-item-action ">
+        <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{conversation.patient_name}}</h5>
+      <small class="text-muted">{{conversation.created_at}}</small>
+    </div>
+    <p class="mb-1"> {{conversation.content.substring(0, 200)}}</p>
+    <small class="text-muted">{{conversation.patient_email}}</small>
+  </a>
+    </div>
+
+   
+    
+ 
 </template>
 
 <script>

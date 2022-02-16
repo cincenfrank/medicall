@@ -13,6 +13,13 @@ class MessageController extends Controller
 
         return $doctorMessages;
     }
+
+    public function getSingleMessage($message_id, $doctor_id){
+        $singleMessage= Message::with("user")->where("user_id", "=", $doctor_id)->where("id", "=", $message_id)->get();
+
+        return $singleMessage;
+    }
+
     
     
 }

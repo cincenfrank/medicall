@@ -30,7 +30,7 @@ Route::namespace('Dashboard')
     ->group(function () {
         Route::get('/', 'DashboardController@index')->name('dashboard');
         Route::get('conversations', 'ConversationController@index')->name('conversations');
-        Route::get('conversations/{id}', 'ConversationController@edit')->name('message');
+        Route::get('conversations/{id}', 'ConversationController@show')->name('message');
         Route::get('profile', 'EditDoctorController@edit')->name('profile');
         Route::get('reviews', 'ReviewController@index')->name('reviews');
         Route::get('subscriptions', 'SubscriptionController@index')->name('subscriptions');
