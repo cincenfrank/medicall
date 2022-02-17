@@ -1,26 +1,54 @@
 @extends('layouts.app')
+@section('add_head_scripts')
+    @include('pages.partials.head_scripts')
+@endsection
+
+{{-- <Navbar></Navbar> --}}
+
 @section('content')
-    <div class="container">
-        <h1>Ciao da MediCall</h1>
-        {{-- <div class="row row-cols-1 row-cols-md-3 g-4">
-            @foreach ($reviews as $review)
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $review->title }}</h5>
-                            <p class="card-text fw-bolder">{{ $review->rating }}/5</p>
-                            <p class="card-text fw-bolder fst-italic">{{ $review->reviewer_name }}</p>
-                            <p class="card-text fst-italic">{{ $review->reviewer_email }}</p>
+<jumbo-home></jumbo-home>
 
-                            <p class="card-text fst-italic">{{ $review->user_id }}</p>
-
-                            <p class="card-text">{{ $review->content }}</p>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-
-        </div> --}}
+{{-- sezione carosello dottori --}}
+<homepage-section-carousel
+:title="'Our best doctors'"
+:subtitle="'best in class'"
+:description="'Descrizione della section dei dottori'"
+>
+    <div class="bottom">
+        {{-- carousel with card-doctor --}}
+        <card-doctor></card-doctor>
     </div>
-    <card-review></card-review>
+</homepage-section-carousel>
+
+{{-- sezione carosello servizi --}}
+<homepage-section-carousel
+:title="'Our services'"
+:subtitle="'best in class'"
+:description="'Descrizione della section dei servizi'"
+>
+    <div class="bottom">
+        <h1>Carosello con lista dei servizi</h1>
+    </div>
+</homepage-section-carousel>
+
+{{-- sezione testi con immagini --}}
+<homepage-section-steps></homepage-section-steps>
+
+{{-- sezione carosello recensioni --}}
+<homepage-section-carousel
+:title="'Our latest reviews'"
+:subtitle="'best in class'"
+:description="''"
+>
+    <div class="bottom">
+        <h1>Carosello con lista dei servizi</h1>
+    </div>
+</homepage-section-carousel>
+<homepage-section-carousel title="Latest Reviews" subtitle="Reviews about our best doctors" description="">
+        <home-review-carousel class="bottom">
+
+        </home-review-carousel>
+    </homepage-section-carousel>
+{{-- footer --}}
+<the-footer></the-footer>
 @endsection

@@ -1,49 +1,30 @@
 <template>
-  <div>
-    <div class="container">
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <!-- qui va il ciclo sulla card intera -->
-        <div class="col" v-for="review in reviews" :key="review.id">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">{{ review.title }}</h5>
-              <h5 class="card-title">{{ review.user.first_name }}</h5>
-              <p class="card-text fw-bolder">{{ review.rating }}/5</p>
-              <p class="card-text fw-bolder fst-italic">
-                {{ review.reviewer_name }}
-              </p>
-              <p class="card-text fst-italic">{{ review.reviewer_email }}</p>
-
-              <p class="card-text fst-italic">{{ review.user_id }}</p>
-
-              <p class="card-text">{{ review.content }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-text text-truncate mb-0 fw-bold">{{ review.title }}</h5>
+      <p class="card-text text-truncate">"{{ review.content }}"</p>
+      <h5 class="card-text mb-0">
+        Dr. {{ review.user.last_name }} {{ review.user.first_name }}
+      </h5>
+      <!-- <p class="card-text fw-bold">{{ review.rating }}/5</p> -->
+      <stars :ratings="review.rating"></stars>
+      <p class="card-text fst-italic">
+        Recensito da:
+        {{ review.reviewer_name }}
+      </p>
     </div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
-
+import Stars from "./Stars.vue";
 export default {
+  components: { Stars },
   data() {
-    return {
-      reviews: [],
-    };
+    return {};
   },
-  methods: {
-    fetchReviewData() {
-      axios.get("/api/reviews").then((resp) => {
-        this.reviews = resp.data;
-      });
-    },
-  },
-  mounted() {
-    //console.log(this.$route);
-    this.fetchReviewData();
+  props: {
+    review: Object,
   },
 };
 </script>

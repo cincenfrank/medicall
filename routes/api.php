@@ -19,6 +19,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
+Route::get('/doctors/sponsored', 'Api\DoctorController@getSponsoredDoctors');
+
+Route::get('doctor/{id}','Api\DoctorController@fetchReviews')->name('fetchReviews');
+
+
+
 
 
 // TODO create a namespace and evaluate if it's better to separate logic between filter and search
@@ -29,8 +35,18 @@ Route::get('filter/doctors/{id}', 'Api\SearchController@getDoctorById');
 Route::get('filter/services/{id}', 'Api\SearchController@getServiceById');
 
 Route::get("service/{id}", "Api\ServiceController@getServiceData");
+
+// xxxx 
+Route::get("service/{id}/doctors", "Api\ServiceController@serviceDoctorsData");
+
+
 Route::get("reviews", "Api\ReviewController@getReviewData");
+
 
 Route::get("/messages/doctor/{id}", "Api\MessageController@getDoctorMessages");
 Route::get("/message/{message_id}/doctor/{doctor_id}", "Api\MessageController@getSingleMessage");
+
+Route::get("reviews/dashboard/{id}", "Api\ReviewController@dashReviewData");
+
+
 

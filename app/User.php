@@ -16,7 +16,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password',
+
+        'first_name', 'last_name', 'password','email'
+
     ];
 
     /**
@@ -56,8 +58,10 @@ class User extends Authenticatable
         return $this->belongsToMany(Subscription::class)->withPivot('expiration_date');
     }
 
-    public function services()
-    {
-        return $this->belongsToMany(Service::class);
+
+    public function services() {
+        return $this->belongsToMany(Service::class)
+        ->withPivot('price');
+
     }
 }
