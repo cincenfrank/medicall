@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Guest\DoctorController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -33,7 +34,7 @@ Route::namespace('Dashboard')
         Route::get('conversations/{id}', 'ConversationController@edit')->name('message');
         Route::get('profile', 'EditDoctorController@edit')->name('profile');
         Route::get('reviews', 'ReviewController@index')->name('reviews');
-        Route::get('subscriptions', 'SubscriptionsController@index')->name('subscriptions');
+        Route::get('subscriptions', 'SubscriptionController@index')->name('subscriptions');
     });
 
 Route::namespace('Guest')
@@ -42,5 +43,9 @@ Route::namespace('Guest')
         Route::get('/', 'HomeController@index')->name('home');
         Route::get('search', 'SearchController@index')->name('search');
         Route::get('service', 'ServiceController@index')->name('service');
-        Route::get('doctors/{id}', 'DoctorController@index')->name('doctors');
+        Route::get('doctors/{id}', 'DoctorController@show')->name('doctors');
+        Route::post('message/create',"DoctorController@addMessage")->name('addMessage');
+        Route::post('reviews/create','DoctorController@addReview')->name('addReview');
+        Route::get('service/{id}', 'ServiceController@index')->name('service');
+        //Route::get('doctors/{id}', 'DoctorController@index')->name('doctors');
     });

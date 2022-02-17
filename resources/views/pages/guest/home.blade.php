@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('add_head_scripts')
+    @include('pages.partials.head_scripts')
+@endsection
+
 {{-- <Navbar></Navbar> --}}
 
 @section('content')
@@ -40,7 +44,11 @@
         <h1>Carosello con lista dei servizi</h1>
     </div>
 </homepage-section-carousel>
+<homepage-section-carousel title="Latest Reviews" subtitle="Reviews about our best doctors" description="">
+        <home-review-carousel class="bottom">
 
+        </home-review-carousel>
+    </homepage-section-carousel>
 {{-- footer --}}
 <the-footer></the-footer>
 @endsection

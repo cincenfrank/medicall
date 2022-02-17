@@ -15,6 +15,7 @@
 
 <script>
 export default {
+
     name: 'HomepageSectionCarousel',
     props: {
         title: String,
@@ -26,5 +27,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 </style>
