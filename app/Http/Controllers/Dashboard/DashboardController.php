@@ -13,10 +13,10 @@ class DashboardController extends Controller
 {
     public function index() {
         // gets the messages for one doctor and groups them by day
-        $messagesCountGroupedByDate = DB::select("SELECT DATE_FORMAT(created_at, '%d/%m/%Y') as `date`, COUNT(id) as `count` FROM `messages` WHERE user_id = 1 GROUP BY DATE_FORMAT(created_at, '%d/%m/%Y');");
+        $messagesCountGroupedByDate = DB::select("SELECT DATE_FORMAT(created_at, '%d/%m/%Y') as `date`, COUNT(id) as `count` FROM `messages` WHERE user_id = " . Auth::id() . " GROUP BY DATE_FORMAT(created_at, '%d/%m/%Y');");
 
         // gets the reviews for one doctor and groups them by day
-        $reviewsCountGroupedByDate = DB::select("SELECT DATE_FORMAT(created_at, '%d/%m/%Y') as `date`, COUNT(id) as `count` FROM `reviews` WHERE user_id = 1 GROUP BY DATE_FORMAT(created_at, '%d/%m/%Y');");
+        $reviewsCountGroupedByDate = DB::select("SELECT DATE_FORMAT(created_at, '%d/%m/%Y') as `date`, COUNT(id) as `count` FROM `reviews` WHERE user_id = " . Auth::id() . " GROUP BY DATE_FORMAT(created_at, '%d/%m/%Y');");
 
         // calculate the vote avg for the reviews for the doctor
         $voteAvg = Review::avg('rating');
