@@ -18,6 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+Route::get('/doctors/sponsored', 'Api\DoctorController@getSponsoredDoctors');
+
 Route::get('doctor/{id}','Api\DoctorController@fetchReviews')->name('fetchReviews');
 
 
@@ -43,5 +46,6 @@ Route::get("reviews", "Api\ReviewController@getReviewData");
 Route::get("/messages/doctor/{id}", "Api\MessageController@getDoctorMessages");
 
 Route::get("reviews/dashboard/{id}", "Api\ReviewController@dashReviewData");
+
 
 
