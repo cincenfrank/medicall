@@ -33,9 +33,11 @@ Route::namespace('Dashboard')
         Route::get('conversations', 'ConversationController@index')->name('conversations');
         Route::get('conversations/{id}', 'ConversationController@show')->name('message');
         Route::get('profile', 'EditDoctorController@edit')->name('profile');
+        Route::put('profile/update', 'EditDoctorController@update')->name('profileUpdate');
         Route::get('reviews', 'ReviewController@index')->name('reviews');
         Route::get('subscriptions', 'SubscriptionController@index')->name('subscriptions');
     });
+        
 
 Route::namespace('Guest')
     ->name('guest.')
