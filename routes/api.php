@@ -44,6 +44,7 @@ Route::get("reviews", "Api\ReviewController@getReviewData");
 
 
 Route::get("/messages/doctor/{id}", "Api\MessageController@getDoctorMessages");
+Route::get("/message/{message_id}/doctor/{doctor_id}", "Api\MessageController@getSingleMessage");
 
 Route::get("reviews/dashboard/{id}", "Api\ReviewController@dashReviewData");
 

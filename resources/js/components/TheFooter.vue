@@ -1,5 +1,6 @@
 <template>
 
+
     <div class="container-fluid bg-primary pt-4">
         <div class="container">
             <footer class="">
@@ -150,6 +151,7 @@
             </footer>
         </div>
     </div>
+
 </template>
 
 <script>
