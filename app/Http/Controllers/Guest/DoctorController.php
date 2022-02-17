@@ -18,12 +18,28 @@ class DoctorController extends Controller
     
     public function addMessage(Request $request){
         // dd($request);
+        // $errorType = ['typeTest' => 'Message'];
+        // $request->validate([
+            // 'content' => 'required | max:500',
+            // 'patient_name' => 'required| max:100',
+            // 'patient_email' => 'required | max:100',
+            // 'user_id' => 'required'
+        // ]);
+        $validator = FacadesValidator::make($request->all(),[    
+        'content' => 'required | max:500',
+        'patient_name' => 'required| max:100',
+        'patient_email' => 'required | max:100',
+        'user_id' => 'required']);
+        if ($validator->fails()) {
+            $validator->getMessageBag()->add('type','Message');
+            return Redirect::back()->withErrors($validator);
+        }
+
         $data = $request->all();
-        // dd($data);
         $newMessage = new Message();
         $newMessage->fill($data);
         $newMessage->save();
-        // return Redirect::back();
+        return Redirect::back();
     }
 
     /**
@@ -52,17 +68,26 @@ class DoctorController extends Controller
     // }
 
     public function addReview(Request $request){
-        $request->validate([
-            // 'name' => 'required| string| max:255',
-            // 'email' => 'required| string| email|min:5 |max:255| unique:users',
-            // 'password' => 'required| string| min:8| confirmed',
+        // $errorType = ['typeTest' => 'Review'];
+        $validator = FacadesValidator::make($request->all(),[    
             'title'=>'required|string|max:100',
             'reviewer_name'=>'required|string|max:100',
             'reviewer_email'=>'required|string|max:100',
             'content'=>'required|string|max:1000',
             'rating'=>'required',
-            'user_id' => 'required',
-        ]);
+            'user_id' => 'required']);
+            if ($validator->fails()) {
+                $validator->getMessageBag()->add('type','Review');
+                return Redirect::back()->withErrors($validator);
+            }
+        // $request->validate([
+        //     'title'=>'required|string|max:100',
+        //     'reviewer_name'=>'required|string|max:100',
+        //     'reviewer_email'=>'required|string|max:100',
+        //     'content'=>'required|string|max:1000',
+        //     'rating'=>'required',
+        //     'user_id' => 'required',
+        // ],$errorType);
         $data = $request->all();
         // $validazione = validator($data);
         $newReview = new Review();

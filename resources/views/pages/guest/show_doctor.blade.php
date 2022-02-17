@@ -96,13 +96,16 @@
 <script type="text/javascript">
     // console.log(window.modalReview);
     window.addEventListener('DOMContentLoaded', (event) => {
-    @if(count($errors)>0)
-        window.modalReview.show();
-    // });
-    @elseif(Session::get('success'))
-    // window.addEventListener('DOMContentLoaded', (event) => {
-        console.log('prova');
-        window.modalSuccess.show();
+        @if (count($errors) > 0 && $errors->first('type') === 'Message')
+
+            window.modalMessage.show();
+            // });
+        @elseif(count($errors) > 0 && $errors->first('type') === 'Review')
+            window.modalReview.show();
+        @elseif(Session::get('success'))
+            // window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('prova');
+            window.modalSuccess.show();
         @endif
     });
 </script>
