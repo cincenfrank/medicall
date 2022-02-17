@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('add_head_scripts')
+    @include('pages.partials.head_scripts')
+@endsection
 @section('content')
     <div class="container">
         <h1>Ciao da MediCall</h1>
@@ -22,5 +25,9 @@
 
         </div> --}}
     </div>
-    <card-review></card-review>
+    <homepage-section-carousel title="Latest Reviews" subtitle="Reviews about our best doctors" description="">
+        <home-review-carousel class="bottom">
+
+        </home-review-carousel>
+    </homepage-section-carousel>
 @endsection

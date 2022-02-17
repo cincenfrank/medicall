@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Review;
 use App\User;
+use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 
 class ReviewController extends Controller
@@ -39,5 +41,10 @@ class ReviewController extends Controller
             $query->with(['subscriptions' => function ($query) {
             }]);
         }])->get()->unique('user_id');
+    }
+
+    public function dashReviewData($id)
+    {
+        return Review::with('user')->where('user_id', '=', $id)->get();
     }
 }
