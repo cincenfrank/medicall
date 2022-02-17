@@ -3,7 +3,7 @@ import VueCharts from 'vue-chartjs'
 import { Bar, Line, mixins } from 'vue-chartjs'
 
 export default {
-    name: 'LineChart',
+    name: 'BarChart',
     components: { VueCharts, Bar, Line, mixins },
     extends: Bar,
     props: {
@@ -12,7 +12,7 @@ export default {
     // mixins: [mixins.reactiveProp],
     data() {
         return {
-            // chartData: {
+            // oldChartData: {
             //     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
             //     datasets: [
             //         {
@@ -31,7 +31,7 @@ export default {
                 },
                 maintainAspectRatio: false,
                 responsive: true
-            }            
+            }
         }
     },
     mounted() {

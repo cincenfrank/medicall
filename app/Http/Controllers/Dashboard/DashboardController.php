@@ -26,12 +26,12 @@ class DashboardController extends Controller
             $param->where('expiration_date', '>', Date::now());
         })->get()->toArray();
 
-        $chartsData = [
+        $rawChartsData = [
             'messages_time' => $messagesCountGroupedByDate,
             'reviews_time' => $reviewsCountGroupedByDate,
             'vote_avg' => $voteAvg,
             'active_subscription' => $activeSubscription
         ];
-        return view('pages.dashboard.dashboard', compact('chartsData'));
+        return view('pages.dashboard.dashboard', compact('rawChartsData'));
     }
 }
