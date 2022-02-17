@@ -1,5 +1,9 @@
 <template>
-  
+  <div>
+    <div class="card">
+      <h1>card del dottore</h1>
+    </div>
+  </div>
 </template>
 
 <script>

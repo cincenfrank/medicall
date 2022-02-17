@@ -31,6 +31,11 @@ Route::get('filter/doctors/{id}', 'Api\SearchController@getDoctorById');
 Route::get('filter/services/{id}', 'Api\SearchController@getServiceById');
 
 Route::get("service/{id}", "Api\ServiceController@getServiceData");
+
+// xxxx 
+Route::get("service/{id}/doctors", "Api\ServiceController@serviceDoctorsData");
+
+
 Route::get("reviews", "Api\ReviewController@getReviewData");
 Route::get("reviews/dashboard/{id}", "Api\ReviewController@dashReviewData");
 
