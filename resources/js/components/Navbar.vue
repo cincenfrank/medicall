@@ -29,18 +29,17 @@
     </button>
   </div>
 </nav> -->
-<div>
-  <img src="" alt="logo-medicall">
-  <nav>
-    <ul class="menu">
-      <li><a href="">Chi Siamo</a></li>
-      <li><a href="">Servizi</a></li>
-      <li><a href="">Contatti</a></li>
-    </ul>
-    
-  </nav>
-  <button>Accedi</button>
-</div>
+  <div>
+    <img class="navbar-image" src="/img/logo_large.png" alt="logo-medicall" />
+    <nav>
+      <ul class="menu mb-0 ps-0">
+        <li><a href="">Chi Siamo</a></li>
+        <li><a href="">Servizi</a></li>
+        <li><a href="">Contatti</a></li>
+      </ul>
+    </nav>
+    <button>Accedi</button>
+  </div>
 </template>
 
 <script>
@@ -48,53 +47,50 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
- 
+.menu,
+a,
+button {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 300;
+  font-size: 14px;
+  color: grey;
+  text-decoration: none;
+}
+div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10px;
 
-  .menu, a, button{
-        font-family:'Courier New', Courier, monospace;
-        font-weight:300;
-        font-size:14px;
-        color: grey;
-        text-decoration:none;
+  button {
+    background: #0d94a6;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 9px 25px;
+    color: black;
   }
-  div{
-      display:flex;
-      justify-content: space-between;
-      align-items: center;
-      padding:30px 10px;
+}
+.menu {
+  list-style: none;
 
-      button{
-      background: #0d94a6;
-      border:none;
-      border-radius:25px;
-      cursor:pointer;
-      padding:9px 25px;
-      color:black;
-
-    }
-
-        
-  }
-  .menu{
-    list-style: none;
-
-      a:hover{
-        color:#39f;
-      }
-
-     li{
-      display: inline;
-      padding: 0 15px;
-    }
-
-    button{
-      background: #0d94a6;
-      border:none;
-      border-radius:50%;
-      cursor:pointer;
-
-    }
+  a:hover {
+    color: #39f;
   }
 
-  
+  li {
+    display: inline;
+    padding: 0 15px;
+  }
+
+  button {
+    background: #0d94a6;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
+.navbar-image {
+  width: 200px;
+}
 </style>
