@@ -42,10 +42,10 @@ Route::namespace('Guest')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
         Route::get('search', 'SearchController@index')->name('search');
-        Route::get('service', 'ServiceController@index')->name('service');
+        // Route::get('service', 'ServiceController@index')->name('service');
         Route::get('doctors/{id}', 'DoctorController@show')->name('doctors');
-        Route::post('message/create',"DoctorController@addMessage")->name('addMessage');
-        Route::post('reviews/create','DoctorController@addReview')->name('addReview');
+        Route::post('message/create', "DoctorController@addMessage")->name('addMessage');
+        Route::post('reviews/create', 'DoctorController@addReview')->name('addReview');
         Route::get('service/{id}', 'ServiceController@index')->name('service');
         //Route::get('doctors/{id}', 'DoctorController@index')->name('doctors');
     });
