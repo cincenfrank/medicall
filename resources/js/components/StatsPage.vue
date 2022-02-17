@@ -17,14 +17,17 @@
         <div class="card w-50">
             <div class="card-header">Valutazioni</div>
             <div class="card-body">
-                <bar-chart v-if="voteAvg !== 0" :chartData="voteAvg"></bar-chart>
+                <stars v-if="voteAvg !== 0" :ratings="voteAvg"></stars>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import Stars from './partials/Stars.vue'
+
 export default {
+    components: { Stars },
     name: 'StatsPage',
     props: { rawChartsData: Object },
     data() {

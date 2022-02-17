@@ -24,3 +24,56 @@
         color: $customRed;
     }
 }
+
+
+.custom-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10px;
+
+    .menu, a, button {
+    //   font-family: "Courier New", Courier, monospace;
+      font-weight: 300;
+      font-size: 14px;
+      color: grey;
+      text-decoration: none;
+    }
+
+    button {
+        background: #0d94a6;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        padding: 9px 25px;
+        color: black;
+
+        a {
+            color: white;
+        }
+    }
+
+    .menu {
+      list-style: none;
+    
+      a:hover {
+        color: #39f;
+      }
+    
+      li {
+        display: inline;
+        padding: 0 15px;
+      }
+    
+      button {
+        background: #0d94a6;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    }
+
+    .navbar-img {
+      width: 200px;
+    }
+  }

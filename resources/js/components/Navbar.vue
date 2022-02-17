@@ -29,68 +29,33 @@
     </button>
   </div>
 </nav> -->
-  <div>
-    <img class="navbar-image" src="/img/logo_large.png" alt="logo-medicall" />
+  <!-- <div class="custom-navbar">
+    <a href="/">
+      <img class="navbar-image" src="/img/logo_large.png" alt="logo-medicall" />
+    </a>
     <nav>
       <ul class="menu mb-0 ps-0">
         <li><a href="">Chi Siamo</a></li>
         <li><a href="">Servizi</a></li>
         <li><a href="">Contatti</a></li>
+        <li v-if="isLogged">
+          <a href="/dashboard">Dashboard</a>
+        </li>
       </ul>
     </nav>
-    <button>Accedi</button>
-  </div>
+    <button v-if="!isLogged">
+      <a href="/login">Accedi</a>
+    </button>
+  </div> -->
+  <div></div>
 </template>
 
 <script>
-export default {};
+export default {
+
+}
 </script>
 
 <style lang="scss" scoped>
-.menu,
-a,
-button {
-  font-family: "Courier New", Courier, monospace;
-  font-weight: 300;
-  font-size: 14px;
-  color: grey;
-  text-decoration: none;
-}
-div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 10px;
 
-  button {
-    background: #0d94a6;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    padding: 9px 25px;
-    color: black;
-  }
-}
-.menu {
-  list-style: none;
-
-  a:hover {
-    color: #39f;
-  }
-
-  li {
-    display: inline;
-    padding: 0 15px;
-  }
-
-  button {
-    background: #0d94a6;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-}
-.navbar-image {
-  width: 200px;
-}
 </style>

@@ -123,7 +123,11 @@ class DoctorController extends Controller
         foreach ($allVotes as $voto) {
             $somma += $voto;
         };
-        $media = round($somma / count($allVotes),2);
+        if (count($allVotes) > 0) {
+            $media = round($somma / count($allVotes),2);
+        } else {
+            $media = 0;
+        }
         // dump(round($media));
         $reviews = Review::where('user_id',$user->id)->orderBy('created_at','desc')->paginate(6);
 

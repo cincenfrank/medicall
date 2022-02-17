@@ -27,7 +27,7 @@ Auth::routes();
 Route::namespace('Dashboard')
     ->prefix('dashboard')
     ->name('dashboard.')
-    // ->middleware("auth")
+    ->middleware("auth")
     ->group(function () {
         Route::get('/', 'DashboardController@index')->name('dashboard');
         Route::get('conversations', 'ConversationController@index')->name('conversations');

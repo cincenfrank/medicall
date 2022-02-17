@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 @section('add_head_scripts')
     @include('pages.partials.head_scripts')
 @endsection

@@ -1,5 +1,5 @@
 {{-- navbar --}}
-@extends("layouts.app")
+@extends("layouts.dashboard")
 
 @section("content")
 {{-- portiamo la pagina Vue  --}}

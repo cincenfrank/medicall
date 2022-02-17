@@ -25,7 +25,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -73,7 +73,9 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> --}}
+
+        @include('pages.partials.navbar')
 
         <div class="d-flex">
             {{-- sidebar on the left --}}
@@ -132,8 +134,7 @@
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2" />
                         <strong>
-                            {{-- {{ Auth::user()->first_name . ' ' . Auth::user()->last_name }} --}}
-                            Togliere commento nel codice
+                            {{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}
                         </strong>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
@@ -141,7 +142,24 @@
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
-                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+
+                            {{-- <a class="dropdown-item" href="{{ route('logout') }}" 
+                                onclick="event.preventDefault() document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form> --}}
+                        </li>
                     </ul>
                 </div>
             </div>

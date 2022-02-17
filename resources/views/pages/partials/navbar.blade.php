@@ -49,4 +49,27 @@
         </div>
     </div>
 </nav> --}}
-<navbar></navbar>
+
+
+<div class="custom-navbar">
+    <a href="/">
+      <img class="navbar-img" src="/img/logo_large.png" alt="logo-medicall" />
+    </a>
+    <nav>
+      <ul class="menu mb-0 ps-0">
+        <li><a href="">Chi Siamo</a></li>
+        <li><a href="">Servizi</a></li>
+        <li><a href="">Contatti</a></li>
+        @auth
+            <li>
+            <a href="/dashboard">Dashboard</a>
+            </li>
+        @endauth
+      </ul>
+    </nav>
+    @guest
+        <button>
+            <a href="/login">Accedi</a>
+        </button>
+    @endguest
+</div>
