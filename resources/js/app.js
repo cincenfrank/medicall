@@ -4,31 +4,24 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
-import Modal from 'bootstrap/js/dist/modal';
-    document.addEventListener('DOMContentLoaded', function() {
-        // document.getElementById('modal_review').classList.add('show');
-        // document.getElementById('modal_review').style.display='block';
-        let myModalReview = new Modal(
-        document.getElementById('modal_review')
-        );
-        // myModal.show();
-        window.modalReview = myModalReview;
+require("./bootstrap");
+import Modal from "bootstrap/js/dist/modal";
+document.addEventListener("DOMContentLoaded", function () {
+    // document.getElementById('modal_review').style.display='block';
+    let myModalReview = new Modal(document.getElementById("modal_review"));
+    // myModal.show();
+    window.modalReview = myModalReview;
 
-        let myModalSuccess = new Modal(
-            document.getElementById('modal_success')
-            );
-            // myModal.show();
-            window.modalSuccess = myModalSuccess;
+    let myModalSuccess = new Modal(document.getElementById("modal_success"));
+    // myModal.show();
+    window.modalSuccess = myModalSuccess;
 
-        let myMessageModal = new Modal(
-            document.getElementById('contact_doctor')
-            );
-            // myModal.show();
-            window.modalMessage = myMessageModal;
-    });
+    let myMessageModal = new Modal(document.getElementById("contact_doctor"));
+    // myModal.show();
+    window.modalMessage = myMessageModal;
+});
 
-window.Vue = require('vue');
+window.Vue = require("vue");
 
 /**
  * The following block of code may be used to automatically register your
@@ -39,8 +32,12 @@ window.Vue = require('vue');
  */
 
 // Con questo blocco di codice risparmiamo di richiamare ogni componente manualmente
-const files = require.context('./', true, /\.vue$/i)
-files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+const files = require.context("./", true, /\.vue$/i);
+files
+    .keys()
+    .map((key) =>
+        Vue.component(key.split("/").pop().split(".")[0], files(key).default)
+    );
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
@@ -51,5 +48,5 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  */
 
 const app = new Vue({
-    el: '#app',
+    el: "#app",
 });
