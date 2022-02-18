@@ -13,7 +13,7 @@
                     <div id="dropin-wrapper">
                         <div id="checkout-message"></div>
                         <div id="dropin-container"></div>
-                        <button id="submit-button">Submit payment</button>
+                        {{-- <button id="">Submit payment</button> --}}
                     </div>
                     {{--FINE id Braintree --}}
 
@@ -51,7 +51,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" id="submit-button" class="btn btn-primary">Acquista</button>
             </div>
         </div>
     </div>
