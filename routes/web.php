@@ -38,6 +38,8 @@ Route::namespace('Dashboard')
         Route::get('subscriptions', 'SubscriptionController@index')->name('subscriptions');
         Route::post('profile/addService', 'EditDoctorController@createDoctorService')->name('addDoctorService');
         Route::delete('profile/removeService', 'EditDoctorController@deleteDoctorService')->name('deleteDoctorService');
+        // pagamento
+        Route::get('/payment/make', 'SubscriptionController@make')->name('payment.make');
     });
 
 
