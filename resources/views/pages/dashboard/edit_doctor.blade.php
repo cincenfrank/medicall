@@ -6,7 +6,12 @@
     @method("put")
     <div class="row">
         <div class=" col-lg-4">
-            <img class="w-100" src="/img/bg-login.jpg" alt="">
+            <img class="w-100" @if(!$user->userDetail->img_path)
+            src="/img/bg-login.jpg"
+            @else
+            src="{{asset("storage/".$user->userDetail->img_path)}}"
+            @endif
+            alt="">
         </div>
         <div class="col-lg-8">
 

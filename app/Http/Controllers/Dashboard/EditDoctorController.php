@@ -40,17 +40,28 @@ class EditDoctorController extends Controller
         //  Storage::delete($oldImg);
         // }
 
+        //Caricamento img
+
         if ($oldImg && $request->file('img_path')) {
             Storage::delete($oldImg);
         };
-        $img_path = Storage::put('img', $data['img_path']);
-        $data['img_path'] = $img_path;
+        if (array_key_exists('img_path', $data)) {
+            $img_path = Storage::put('img', $data['img_path']);
+            $data['img_path'] = $img_path;
+        }
+        //FINE Caricamento img
 
+        //Caricamento CV PATH
         if ($oldCv && $request->file('cv_path')) {
             Storage::delete($oldCv);
         };
-        $cv_path = Storage::put('CV', $data['cv_path']);
-        $data['cv_path'] = $cv_path;
+
+        if (array_key_exists('cv_path', $data)) {
+            $cv_path = Storage::put('CV', $data['cv_path']);
+            $data['cv_path'] = $cv_path;
+        }
+        //FINE Caricamento CV PATH
+
 
         //Symlink
         //Salviamo il file che ci viene passato con la chiamata all'interno della cartella cv
@@ -68,7 +79,8 @@ class EditDoctorController extends Controller
 
         // aggiorniamo lo user detail passando i parametri ricevuti nella request
         $user->userDetail->update($data);
-        dd($request->all());
+        // dd($request->all());
+        return Redirect::back();
     }
 
     public function createDoctorService(Request $request)
