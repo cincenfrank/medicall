@@ -36,8 +36,10 @@ Route::namespace('Dashboard')
         Route::put('profile/update', 'EditDoctorController@update')->name('profileUpdate');
         Route::get('reviews', 'ReviewController@index')->name('reviews');
         Route::get('subscriptions', 'SubscriptionController@index')->name('subscriptions');
+        Route::post('profile/addService', 'EditDoctorController@createDoctorService')->name('addDoctorService');
+        Route::delete('profile/removeService', 'EditDoctorController@deleteDoctorService')->name('deleteDoctorService');
     });
-        
+
 
 Route::namespace('Guest')
     ->name('guest.')
