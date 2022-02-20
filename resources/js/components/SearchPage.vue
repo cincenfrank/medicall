@@ -8,8 +8,8 @@
       @doctorSelected="onDoctorSelected"
       @serviceSelected="onServiceSelected"
     ></CustomFilter>
-    <div v-if="servicesArray.length > 0">
-      <h2>I servizi ({{ `${servicesArray.length}` }})</h2>
+    <div v-if="servicesArray.length > 0" class="my-4">
+      <h2>Filtra per Servizio</h2>
       <Carousel :visibleItemsNumber="4">
         <div
           class="carousel-element"
@@ -25,7 +25,7 @@
       ></Carousel>
     </div>
     <div v-if="doctorsArray">
-      <h2>I Dottori</h2>
+      <h2>Elenco dei Dottori</h2>
       <div class="row justify-content-center">
         <div
           v-for="doctor in doctorsArray"
