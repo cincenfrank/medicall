@@ -31,7 +31,7 @@
 
         <div class="d-flex flex-grow-1 h-100 overflow-hidden">
             {{-- sidebar on the left --}}
-            <div class="dashboard-sidebar d-flex flex-column  p-3 text-white bg-dark" style="width: 280px">
+            <div class="dashboard-sidebar flex-shrink-0 d-flex flex-column  p-3 text-white bg-dark" style="width: 280px">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <svg class="bi me-2" width="40" height="32">
                         <use xlink:href="#bootstrap"></use>
@@ -41,7 +41,7 @@
                 <hr />
                 <ul class="nav nav-pills flex-column mb-auto flex-grow-1">
                     <li class="nav-item">
-                        <a href="/dashboard" class="nav-link active" aria-current="page">
+                        <a href="/dashboard" class="nav-link {{ Request::is('dashboard') ? 'active' : 'text-white' }}" aria-current="page">
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#home"></use>
                             </svg>
@@ -49,7 +49,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard/profile" class="nav-link text-white">
+                        <a href="/dashboard/profile" class="nav-link {{ Request::is('dashboard/profile') ? 'active' : 'text-white' }}">
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2"></use>
                             </svg>
@@ -57,7 +57,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard/conversations" class="nav-link text-white">
+                        <a href="/dashboard/conversations" class="nav-link {{ Request::is('dashboard/conversations') ? 'active' : 'text-white' }}">
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#table"></use>
                             </svg>
@@ -65,7 +65,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard/reviews" class="nav-link text-white">
+                        <a href="/dashboard/reviews" class="nav-link {{ Request::is('dashboard/reviews') ? 'active' : 'text-white' }} ">
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#grid"></use>
                             </svg>
@@ -73,7 +73,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard/subscriptions" class="nav-link text-white">
+                        <a href="/dashboard/subscriptions" class="nav-link  {{ Request::is('dashboard/subscriptions') ? 'active' : 'text-white' }} ">
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#people-circle"></use>
                             </svg>
