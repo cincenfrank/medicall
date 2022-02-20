@@ -12,7 +12,7 @@ class ServiceController extends Controller
 {
     public function getServiceData($id)
     {
-        return Service::select("name", "description")->where("id", "=", $id)->first();
+        return Service::select("name", "description", "img_path")->where("id", "=", $id)->first();
     }
 
 
