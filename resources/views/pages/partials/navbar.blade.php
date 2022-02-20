@@ -51,24 +51,24 @@
 </nav> --}}
 
 
-<div class="custom-navbar">
-    <a href="/">
-      <img class="navbar-img" src="/img/logo_large.png" alt="logo-medicall" />
+<div class="custom-navbar d-flex justify-content-between align-items-center p-3">
+    <a class="align-self-start" href="/">
+        <img class="navbar-img" src="/img/logo_large.png" alt="logo-medicall" />
     </a>
     <nav>
-      <ul class="menu mb-0 ps-0">
-        <li><a href="">Chi Siamo</a></li>
-        <li><a href="">Servizi</a></li>
-        <li><a href="">Contatti</a></li>
-        @auth
-            <li>
-            <a href="/dashboard">Dashboard</a>
-            </li>
-        @endauth
-      </ul>
+        <ul class="mb-0 ps-0">
+            <li><a class="px-3" href="">Chi Siamo</a></li>
+            <li><a class="px-3" href="">Servizi</a></li>
+            <li><a class="px-3" href="">Contatti</a></li>
+            @auth
+                <li class="px-3">
+                    <a href="/dashboard">Dashboard</a>
+                </li>
+            @endauth
+        </ul>
     </nav>
     @guest
-        <button>
+        <button class="btn p-2">
             <a href="/login">Accedi</a>
         </button>
     @endguest

@@ -6,74 +6,135 @@
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
-.btn-custom-blue {
-    background-color: $customBlue;
-    color: white;
-    border-radius: 5px;
-    transition: all $customAnimationTime ease-out;
-    &:hover {
-        color: white;
-        background-color: $customRed;
-    }
-}
-.link-custom-blue {
-    color: $customBlue;
 
-    transition: all $customAnimationTime ease-out;
-    &:hover {
-        color: $customRed;
-    }
-}
-
-
+// navbar for all pages
 .custom-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 10px;
-
-    .menu, a, button {
-    //   font-family: "Courier New", Courier, monospace;
-      font-weight: 300;
-      font-size: 14px;
-      color: grey;
-      text-decoration: none;
-    }
-
-    button {
-        background: #0d94a6;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        padding: 9px 25px;
-        color: black;
-
-        a {
-            color: white;
+  img {
+    width: 12rem;
+  }
+  ul {
+    list-style: none;
+    li {
+      display: inline-block;
+      a {
+        text-decoration: none;
+        color: $my-blue;
+        font-weight: 600;
+        transition: color 0.75s;
+        &:hover {
+          color: $my-red;
         }
-    }
-
-    .menu {
-      list-style: none;
-    
-      a:hover {
-        color: #39f;
       }
-    
-      li {
-        display: inline;
-        padding: 0 15px;
-      }
-    
-      button {
-        background: #0d94a6;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-      }
-    }
-
-    .navbar-img {
-      width: 200px;
     }
   }
+  button {
+    background: $my-blue;
+    border-bottom: 0;
+    box-shadow: 0 $my-blue;
+    transition: box-shadow 0.75s;
+    &:hover {
+      box-shadow: 0rem 0.25rem 0rem $my-red;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+// homepage central steps
+.home-steps {
+  .row {
+    cursor: pointer;
+    h1 span {
+      text-shadow: 0 $my-blue;
+      transition: all 0.75s;
+    }
+    img {
+      box-shadow: 0 $my-blue;
+      transition: box-shadow 0.75s;
+    }
+    .p-steps {
+      color: $body-bg;
+      transition: color 0.75s;
+    }
+    &:hover {
+      .p-steps {
+        color: $my-blue;
+      }
+      img {
+        box-shadow: 0rem 0.5rem 0.5rem $my-blue;
+      }
+      h1 span {
+        color: $my-red;
+        text-shadow: 0rem 0.25rem 0.5rem $my-blue;
+      }
+    }
+  }
+}
+// .btn-custom-blue {
+//   background-color: $customBlue;
+//   color: white;
+//   border-radius: 5px;
+//   transition: all $customAnimationTime ease-out;
+//   &:hover {
+//     color: white;
+//     background-color: $customRed;
+//   }
+// }
+// .link-custom-blue {
+//   color: $customBlue;
+
+//   transition: all $customAnimationTime ease-out;
+//   &:hover {
+//     color: $customRed;
+//   }
+// }
+
+// .menu,
+// a,
+// button {
+//   //   font-family: "Courier New", Courier, monospace;
+//   font-weight: 300;
+//   font-size: 14px;
+//   color: $my-blue;
+//   text-decoration: none;
+// }
+
+// button {
+//   background: $my-blue;
+//   border: none;
+//   border-radius: 25px;
+//   cursor: pointer;
+//   padding: 9px 25px;
+//   color: black;
+
+//   a {
+//     color: white;
+//   }
+// }
+
+// .menu {
+//   list-style: none;
+
+//   a:hover {
+//     color: $my-red;
+//   }
+
+//   li {
+//     display: inline;
+//     padding: 0 15px;
+//   }
+
+//   button {
+//     background: $my-blue;
+//     border: none;
+//     border-radius: 50%;
+//     cursor: pointer;
+//     }
+//   }
+// }
+
+// .navbar-img {
+//   width: 200px;
+// }
