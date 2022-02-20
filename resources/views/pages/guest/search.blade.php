@@ -1,5 +1,5 @@
 @extends('layouts.app')
 @section('content')
 {{-- Import Vue Page Component  --}}
-<search-page></search-page>
+<search-page query="{{$query}}"></search-page>
 @endsection

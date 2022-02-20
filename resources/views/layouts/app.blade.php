@@ -26,7 +26,7 @@
     <div id="app">
 
         @include('pages.partials.navbar')
-        <main class="">
+        <main class="mb-5">
             @yield('content')
         </main>
         <the-footer></the-footer>
