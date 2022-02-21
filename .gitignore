@@ -20,3 +20,4 @@ public/.DS_Store
 storage/.DS_Store
 resources/.DS_Store
 tests/.DS_Store
+public/resources/js/modal.js

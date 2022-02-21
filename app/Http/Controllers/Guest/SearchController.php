@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
-    public function index() {
-        return view('pages.guest.search');
+    public function index(Request $request)
+    {
+
+        $query = $request->input('query');
+
+        return view('pages.guest.search', compact('query'));
     }
 }

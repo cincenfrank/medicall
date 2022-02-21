@@ -8,8 +8,8 @@
       @doctorSelected="onDoctorSelected"
       @serviceSelected="onServiceSelected"
     ></CustomFilter>
-    <div v-if="servicesArray.length > 0">
-      <h2>I servizi ({{ `${servicesArray.length}` }})</h2>
+    <div v-if="servicesArray.length > 0" class="my-4">
+      <h2>Filtra per Servizio</h2>
       <Carousel :visibleItemsNumber="4">
         <div
           class="carousel-element"
@@ -18,30 +18,27 @@
         >
           <CardService
             :title="num.name"
-            :imgPath="num.image_path"
+            :imgPath="'/' + num.img_path"
             :serviceId="num.id"
+            @serviceCardClicked="onServiceSelected"
           ></CardService></div
       ></Carousel>
     </div>
     <div v-if="doctorsArray">
-      <h2>I Dottori</h2>
+      <h2>Elenco dei Dottori</h2>
       <div class="row justify-content-center">
         <div
           v-for="doctor in doctorsArray"
           :key="doctor.id + ' doctor card'"
-          class="col-3"
+          class="col-3 g-0"
         >
-          <CardService
-            :title="doctor.first_name + ' ' + doctor.last_name"
-            :imgPath="null"
-            :serviceId="doctor.id"
-          ></CardService>
+          <card-doctor :doctor="doctor"> </card-doctor>
         </div>
       </div>
       <Pagination
         :currentPage="currentPage"
         :totalPages="totalPages"
-        v-on:test="changeCurrentPage"
+        v-on:pageClicked="changeCurrentPage"
       ></Pagination>
     </div>
   </div>
@@ -58,11 +55,14 @@ export default {
   data() {
     return {
       textQuery: "",
-      servicesArray: null,
+      servicesArray: [],
       doctorsArray: null,
       currentPage: 1,
       totalPages: null,
     };
+  },
+  props: {
+    query: String,
   },
   methods: {
     onSearched(searchedText) {
@@ -80,6 +80,8 @@ export default {
       window.axios.get(`/api/filter/services/${serviceId}`).then((resp) => {
         this.servicesArray = resp.data;
         this.doctorsArray = resp.data[0].users.data;
+        this.currentPage = 1;
+        this.totalPages = resp.data[0].users.last_page;
       });
     },
     getServices() {
@@ -111,10 +113,12 @@ export default {
     },
   },
   mounted() {
+    if (this.query) {
+      this.textQuery = this.query;
+    }
     this.getServices();
     this.getDoctors();
   },
 };
 </script>
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

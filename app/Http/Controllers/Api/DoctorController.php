@@ -12,7 +12,7 @@ class DoctorController extends Controller
 {
     public function getSponsoredDoctors(Request $request)
     {
-        $sponsoredDoctors = User::with('subscriptions')->whereHas('subscriptions', function ($param) {
+        $sponsoredDoctors = User::with('subscriptions')->with('userDetail')->whereHas('subscriptions', function ($param) {
             $param->where('expiration_date', '>', Date::now());
         })->get();
         return response()->json($sponsoredDoctors);

@@ -9,7 +9,7 @@
     and with a ref tag that is used to handle the scroll with js.
     If the number of items to display is lower than the number of items per row, the items will be centered -->
     <div
-      class="d-flex overflow-hidden carousel-container mx-3"
+      class="d-flex overflow-hidden carousel-container w-100 mx-3"
       :class="
         children.length < visibleItemsNumber ? 'justify-content-center' : ''
       "
@@ -20,12 +20,14 @@
     </div>
     <div
       class="btn btn-custom-blue position-absolute rounded rounded-circle"
+      :class="children.length < visibleItemsNumber ? 'disabled' : ''"
       @click="onScrollRequested(false)"
     >
       &lt;
     </div>
     <div
       class="btn btn-custom-blue position-absolute end-0 rounded rounded-circle"
+      :class="children.length < visibleItemsNumber ? 'disabled' : ''"
       @click="onScrollRequested(true)"
     >
       &gt;
