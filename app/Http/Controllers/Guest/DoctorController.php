@@ -123,16 +123,17 @@ class DoctorController extends Controller
             ],
         ];
         $user = User::where('slug', '=', $slug)->firstOrFail();
-        $allVotes = Review::where('user_id', $user->id)->pluck('rating')->toArray();
-        $somma = 0;
-        foreach ($allVotes as $voto) {
-            $somma += $voto;
-        };
-        if (count($allVotes) > 0) {
-            $media = round($somma / count($allVotes), 2);
-        } else {
-            $media = 0;
-        }
+        // $allVotes = Review::where('user_id', $user->id)->pluck('rating')->toArray();
+        // $somma = 0;
+        // foreach ($allVotes as $voto) {
+        //     $somma += $voto;
+        // };
+        // if (count($allVotes) > 0) {
+        //     $media = round($somma / count($allVotes), 2);
+        // } else {
+        //     $media = 0;
+        // }
+        $media = round(Review::where('user_id', $user->id)->avg('rating'), 2);
         // dump(round($media));
         $reviews = Review::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(6);
 

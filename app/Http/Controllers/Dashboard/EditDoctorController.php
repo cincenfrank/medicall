@@ -32,6 +32,9 @@ class EditDoctorController extends Controller
         // fatto una variabile che contiene tutti i parametri ricevuti nella request
         $data = $request->all();
 
+        // se lo user ha cambiato nome devo modificare lo slug
+        
+
         $oldImg = $user->userDetail->img_path;
         $oldCv = $user->userDetail->cv_path;
 

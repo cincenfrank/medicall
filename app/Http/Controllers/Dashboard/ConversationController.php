@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Message;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,7 +12,6 @@ class ConversationController extends Controller
 {
     public function index()
     {
-
         $conversations = Message::with("user")->where("user_id", "=", Auth::id())->get()->toArray();
 
         if (!$conversations) {
@@ -23,8 +23,11 @@ class ConversationController extends Controller
 
     public function show($message_id)
     {
-
         $message = Message::with("user")->where("user_id", "=", Auth::id())->where("id", "=", $message_id)->get()->first();
+
+        $parsedDate = $message['created_at']->isoFormat('DD/MM/Y, HH:mm');
+        //dd($parsedDate);
+        // $message->created_at = $parsedDate;
 
         if (!$message) {
             return abort(401);

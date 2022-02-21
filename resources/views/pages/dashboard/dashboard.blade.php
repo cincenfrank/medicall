@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-<stats-page :raw-charts-data="{{ json_encode($rawChartsData) }}"></stats-page>
+    <stats-page :raw-charts-data="{{ json_encode($rawChartsData) }}"></stats-page>
 @endsection

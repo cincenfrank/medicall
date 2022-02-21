@@ -8,16 +8,17 @@
             @csrf
             @method("put")
             <div class="row">
+                <h1>Modificare slug se cambio il nome e cognome</h1>
                 <div class=" col-lg-4">
                     <img class="w-100 h-100" @if(!$user->userDetail->img_path)
-                    src="/img/bg-login.jpg"
+                        src="/img/bg-login.jpg"
                     @else
-                    src="{{asset("storage/".$user->userDetail->img_path)}}"
+                        src="{{ asset("storage/".$user->userDetail->img_path) }}"
                     @endif
-                    alt="">
+                    alt="doctor-profile-img">
                 </div>
-                <div class="col-lg-8">
 
+                <div class="col-lg-8">
                     <div class="mb-3">
                         <label for="first_name" class="form-label">Nome</label>
                         <input type="text" class="form-control" id="first_name" value="{{ $user->first_name }}" name="first_name">
@@ -31,12 +32,13 @@
                         <input type="text" class="form-control" id="phone" value="{{ $user->userDetail->phone }}" name="phone">
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="available" name="available" {{-- se l´availble e´´ zero(falso) spuntami la checkbox --}} @if (!$user->userDetail->available) checked @endif>
+                        <input type="checkbox" class="form-check-input" id="available" name="available" {{-- se l´available è zero(falso) spuntami la checkbox --}} 
+                        @if (!$user->userDetail->available) checked @endif>
                         <label class="form-check-label" for="available">In vacanza</label>
                     </div>
 
                     <div class="mb-3">
-                        <label for="cv_path" class="form-label">Aggiungi Cv</label>
+                        <label for="cv_path" class="form-label">Aggiungi CV</label>
                         <input class="form-control" type="file" id="cv_path" name="cv_path">
                     </div>
 
@@ -44,7 +46,6 @@
                         <label for="img_path" class="form-label">Aggiungi Immagine</label>
                         <input class="form-control" type="file" id="img_path" name="img_path">
                     </div>
-
                 </div>
             </div>
 
@@ -53,7 +54,8 @@
                 <label for="bio">Biografia</label>
             </div>
             <div class="d-flex justify-content-end my-3">
-                <button type="submit" class="btn btn-success">Salva</button></div>
+                <button type="submit" class="btn btn-success">Salva</button>
+            </div>
         </form>
     </div>
     <div class="">
@@ -68,8 +70,8 @@
                 <div class=" flex-grow-1 ">
                     {{$service->name}}
                 </div>
-                <span class="badge bg-primary rounded-pill me-2">€ {{$service->pivot->price}}</span>
-                <form action="{{route('dashboard.deleteDoctorService', ['serviceId' => $service->id])}}" method="post">
+                <span class="badge bg-primary rounded-pill me-2">€ {{ $service->pivot->price }}</span>
+                <form action="{{ route('dashboard.deleteDoctorService', ['serviceId' => $service->id]) }}" method="post">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class=" btn text-white btn-danger">Elimina</button>

@@ -35,6 +35,21 @@
     }
 }
 
+.dashboard-sidebar {
+    a {
+        color: white !important;
+    }
+}
+
+.btn-outline-primary {
+    &:hover {
+        a {
+            color: white;
+            transition: all .3s;
+        }
+    }
+}
+
 .custom-navbar {
     display: flex;
     justify-content: space-between;

@@ -45,7 +45,7 @@
             buttons.forEach(button => {
                 button.addEventListener('click', function() {
                     paymentPrice = button.value;
-                    document.getElementById('checkout-message').innerText = "Stai per effettuare un pagamento di €. " + paymentPrice;
+                    document.getElementById('checkout-message').innerText = "Stai per effettuare un pagamento di € " + paymentPrice;
                 })
             });
         });
