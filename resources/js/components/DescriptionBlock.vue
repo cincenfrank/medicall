@@ -2,9 +2,9 @@
   <div>
     <div class="container">
       <div class="row">
-        <h3 class="mt-5">
+        <p class="mt-5">
           {{ service.description }}
-        </h3>
+        </p>
       </div>
     </div>
   </div>

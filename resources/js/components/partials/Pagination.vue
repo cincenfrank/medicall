@@ -3,7 +3,7 @@
   <!-- Pagination List -->
   <ul class="pagination justify-content-center overflow-scroll">
     <!-- Previous Pagination List Item  -->
-    <li class="page-item">
+    <li class="page-item" @click="onPageClick(1)">
       <a class="page-link" href="#" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
@@ -16,13 +16,13 @@
       class="page-item"
       :class="page === currentPage ? 'active' : ''"
     >
-      <div class="page-link">{{ page }}</div>
+      <a class="page-link" href="#">{{ page }}</a>
     </li>
     <!-- Next Pagination List Item  -->
-    <li class="page-item">
-      <div class="page-link" aria-label="Next">
+    <li class="page-item" @click="onPageClick(totalPages)">
+      <a class="page-link" href="#" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
-      </div>
+      </a>
     </li>
   </ul>
 </template>

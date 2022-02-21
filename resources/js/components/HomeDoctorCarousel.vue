@@ -1,8 +1,8 @@
 <template>
   <div class="overflow-hidden w-100" v-if="doctors.length > 0">
-    <carousel :visibleItemsNumber="4">
+    <carousel class="" :visibleItemsNumber="5">
       <div class="carousel-element" v-for="doctor in doctors" :key="doctor.id">
-        <card-doctor :doctor="doctor"></card-doctor>
+        <card-doctor class="" :doctor="doctor"></card-doctor>
       </div>
     </carousel>
   </div>

@@ -40,11 +40,11 @@ class SearchController extends Controller
         $queryParamsSearchText = $request->query('text');
         $queryParamsUserId = $request->query('userId');
         if ($queryParamsSearchText) {
-            return User::select('id', 'first_name', 'last_name',)->where('first_name', 'LIKE', "%" . $queryParamsSearchText . "%")->orWhere('last_name', 'LIKE', "%" . $queryParamsSearchText . "%")->paginate(20);
+            return User::select('id', 'first_name', 'last_name',)->with('userDetail')->where('first_name', 'LIKE', "%" . $queryParamsSearchText . "%")->orWhere('last_name', 'LIKE', "%" . $queryParamsSearchText . "%")->paginate(20);
         } else if ($queryParamsUserId) {
-            return User::select('id', 'first_name', 'last_name')->where('id', '=', $queryParamsUserId)->paginate(20);
+            return User::select('id', 'first_name', 'last_name')->with('userDetail')->where('id', '=', $queryParamsUserId)->paginate(20);
         } else {
-            return User::select('id', 'first_name', 'last_name')->paginate(20);
+            return User::select('id', 'first_name', 'last_name')->with('userDetail')->paginate(20);
         }
     }
     public function getDoctorById($id)
@@ -54,7 +54,7 @@ class SearchController extends Controller
     public function getServiceById($id)
     {
         $services = Service::select('id', 'name', 'img_path')->where('id', '=', $id)->get();
-        $users = User::select('id', 'first_name', 'last_name')->whereHas('services', function ($query) use ($id) {
+        $users = User::select('id', 'first_name', 'last_name')->with('userDetail')->whereHas('services', function ($query) use ($id) {
             $query->where('services.id', '=', $id);
         })->paginate(20);
         $services[0]->users = $users;

@@ -27,7 +27,13 @@
       </li>
     </ul>
     <!-- Search Button, on search triggers "onSearch" method -->
-    <div class="btn btn-custom-blue" @click="onSearch">Cerca</div>
+    <div
+      class="btn btn-custom-blue"
+      :class="this.filterText.length <= 2 ? 'disabled' : ''"
+      @click="onSearch"
+    >
+      Cerca
+    </div>
   </div>
 </template>
 
@@ -44,6 +50,10 @@ export default {
        * String representing the custom searched text that the user may write in the input box
        */
       filterText: "",
+      /**
+       * Integer representing the minimum number of digits to start the search
+       */
+      searchThreshold: 3,
     };
   },
   methods: {
@@ -57,10 +67,13 @@ export default {
       /**
        * Triggers when the user writes a custom search text and starts
        * the search without selecting a service or a doctor.
+       * It works only if filterText is bigger or equal than searchThreshold
        *
        * @property {number} filterText text value searched by the user.
        */
-      this.$emit("onSearched", this.filterText);
+      if (this.filterText.length >= this.searchThreshold) {
+        this.$emit("onSearched", this.filterText);
+      }
     },
     /**
      * Handle when the user clicks on an item inside the suggestions' list

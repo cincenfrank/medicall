@@ -1,17 +1,40 @@
 <template>
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-text text-truncate mb-0 fw-bold">{{ review.title }}</h5>
-      <p class="card-text text-truncate">"{{ review.content }}"</p>
-      <h5 class="card-text mb-0">
-        Dr. {{ review.user.last_name }} {{ review.user.first_name }}
-      </h5>
-      <!-- <p class="card-text fw-bold">{{ review.rating }}/5</p> -->
-      <stars :ratings="review.rating"></stars>
-      <p class="card-text fst-italic">
-        Recensito da:
-        {{ review.reviewer_name }}
-      </p>
+  <div class="h-100 px-4 py-4">
+    <div class="card-review-container h-100">
+      <div class="card card-review h-100">
+        <div class="card-header text-center position-relative">
+          <div class="doctor-emoji rounded-pill">🩺</div>
+          <a
+            class="card-text card-doctor-link mb-0"
+            :href="`/doctors/${review.user_id}`"
+          >
+            {{ review.user.last_name }}
+            {{ review.user.first_name }}
+          </a>
+        </div>
+        <div
+          class="
+            card-body
+            d-flex
+            flex-column
+            align-items-center
+            justify-content-between
+          "
+        >
+          <stars class="d-inline-block" :ratings="review.rating"></stars>
+          <div class="text-center">
+            <h5 class="card-text mb-0 fw-bold text-center">
+              {{ review.title }}
+            </h5>
+            <a href="">vedi recensione</a>
+          </div>
+
+          <!-- <p class="card-text text-truncate">"{{ review.content }}"</p> -->
+          <p class="card-text fst-italic text-end align-self-end mt-3">
+            {{ review.reviewer_name }}
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -30,4 +53,44 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card-review-container {
+  overflow: hidden;
+  border-radius: 5px;
+  width: 100%;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  transition: all 0.2s linear;
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+    transform: scale(1.01);
+  }
+
+  .card-review {
+    // border: 2px solid #12286a;
+    // transition: all 0.5s linear;
+    // &:hover {
+    //   border: 2px solid #bb0f13;
+    // }
+
+    .card-header {
+      background-color: #12286a;
+      border-color: #12286a;
+      color: white;
+      font-weight: bold;
+      .doctor-emoji {
+        background-color: white;
+        display: inline-block;
+        width: 23px;
+        position: absolute;
+        left: 10px;
+      }
+      .card-doctor-link {
+        text-decoration: none;
+
+        font-size: 50;
+        color: white;
+      }
+    }
+  }
+}
 </style>

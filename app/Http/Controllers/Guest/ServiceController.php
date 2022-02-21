@@ -10,7 +10,7 @@ class ServiceController extends Controller
 {
     public function index($id)
     {
-        $doctorList = User::with('subscriptions')->whereHas('subscriptions', function ($param) {
+        $doctorList = User::with('userDetail')->with('subscriptions')->whereHas('subscriptions', function ($param) {
             $param->where('expiration_date', '>', Date::now());
         })->with('services')->whereHas('services', function ($param) use ($id) {
             $param->where('service_id', '=', $id);

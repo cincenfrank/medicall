@@ -36,8 +36,12 @@ Route::namespace('Dashboard')
         Route::put('profile/update', 'EditDoctorController@update')->name('profileUpdate');
         Route::get('reviews', 'ReviewController@index')->name('reviews');
         Route::get('subscriptions', 'SubscriptionController@index')->name('subscriptions');
+        Route::post('profile/addService', 'EditDoctorController@createDoctorService')->name('addDoctorService');
+        Route::delete('profile/removeService', 'EditDoctorController@deleteDoctorService')->name('deleteDoctorService');
+        // pagamento
+        Route::get('/payment/make', 'SubscriptionController@make')->name('payment.make');
     });
-        
+
 
 Route::namespace('Guest')
     ->name('guest.')
@@ -48,6 +52,6 @@ Route::namespace('Guest')
         Route::get('doctors/{id}', 'DoctorController@show')->name('doctors');
         Route::post('message/create', "DoctorController@addMessage")->name('addMessage');
         Route::post('reviews/create', 'DoctorController@addReview')->name('addReview');
-        Route::get('service/{id}', 'ServiceController@index')->name('service');
+        Route::get('services/{id}', 'ServiceController@index')->name('service');
         //Route::get('doctors/{id}', 'DoctorController@index')->name('doctors');
     });

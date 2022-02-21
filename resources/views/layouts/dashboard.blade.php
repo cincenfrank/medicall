@@ -23,63 +23,15 @@
     @yield('add_head_scripts')
 </head>
 
-<body>
-    <div id="app">
-        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<body class=" overflow-hidden">
+    @yield('script_brain_tree')
+    <div id="app" class="d-flex flex-column vh-100 overflow-hidden">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
 
-                    </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                        @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav> --}}
-
-        @include('pages.partials.navbar')
-
-        <div class="d-flex">
+        <div class="d-flex flex-grow-1 h-100 overflow-hidden">
             {{-- sidebar on the left --}}
-            <div class="dashboard-sidebar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px">
+            <div class="dashboard-sidebar flex-shrink-0 d-flex flex-column  p-3 text-white bg-dark" style="width: 280px">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <svg class="bi me-2" width="40" height="32">
                         <use xlink:href="#bootstrap"></use>
@@ -87,9 +39,9 @@
                     <span class="fs-4">Dashboard</span>
                 </a>
                 <hr />
-                <ul class="nav nav-pills flex-column mb-auto">
+                <ul class="nav nav-pills flex-column mb-auto flex-grow-1">
                     <li class="nav-item">
-                        <a href="/dashboard" class="nav-link active" aria-current="page">
+                        <a href="/dashboard" class="nav-link {{ Request::is('dashboard') ? 'active' : 'text-white' }}" aria-current="page">
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#home"></use>
                             </svg>
@@ -97,7 +49,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard/profile" class="nav-link text-white">
+                        <a href="/dashboard/profile" class="nav-link {{ Request::is('dashboard/profile') ? 'active' : 'text-white' }}">
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2"></use>
                             </svg>
@@ -105,7 +57,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard/conversations" class="nav-link text-white">
+                        <a href="/dashboard/conversations" class="nav-link {{ Request::is('dashboard/conversations') ? 'active' : 'text-white' }}">
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#table"></use>
                             </svg>
@@ -113,7 +65,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard/reviews" class="nav-link text-white">
+                        <a href="/dashboard/reviews" class="nav-link {{ Request::is('dashboard/reviews') ? 'active' : 'text-white' }} ">
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#grid"></use>
                             </svg>
@@ -121,7 +73,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard/subscriptions" class="nav-link text-white">
+                        <a href="/dashboard/subscriptions" class="nav-link  {{ Request::is('dashboard/subscriptions') ? 'active' : 'text-white' }} ">
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#people-circle"></use>
                             </svg>
@@ -152,9 +104,9 @@
                                 @csrf
                             </form>
 
-                            {{-- <a class="dropdown-item" href="{{ route('logout') }}" 
-                                onclick="event.preventDefault() document.getElementById('logout-form').submit();">
-                                Logout
+                            {{-- <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault() document.getElementById('logout-form').submit();">
+                            Logout
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
@@ -164,13 +116,20 @@
                 </div>
             </div>
 
-            {{-- main content --}}
-            <main class="w-100">
-                @yield('content')
-            </main>
-        </div>
 
-        <the-footer></the-footer>
+
+            {{-- main content --}}
+            <div class=" flex-grow-1 d-flex flex-column overflow-scroll">
+                {{-- @include('pages.partials.navbar') --}}
+                <main class=" flex-grow-1">
+                    @yield('content')
+                </main>
+                <the-footer></the-footer>
+            </div>
+        </div>
+    </div>
+
+
 
     </div>
 </body>

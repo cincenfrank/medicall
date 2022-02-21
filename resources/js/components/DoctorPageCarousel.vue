@@ -6,7 +6,7 @@
         v-for="doctor in doctorList"
         :key="doctor.id"
       >
-        <card-doctor :doctor="doctor"></card-doctor>
+        <card-doctor class="mx-1" :doctor="doctor"></card-doctor>
       </div>
     </carousel>
   </div>
