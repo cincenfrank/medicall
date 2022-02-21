@@ -103,7 +103,7 @@ class DoctorController extends Controller
         // return view('pages.guest.show_doctor',[]);
     }
 
-    public function show($id)
+    public function show($slug)
     {
         $ratings = [
             [
@@ -122,7 +122,7 @@ class DoctorController extends Controller
                 'voto' => 5,
             ],
         ];
-        $user = User::findOrFail($id);
+        $user = User::where('slug', '=', $slug)->firstOrFail();
         $allVotes = Review::where('user_id', $user->id)->pluck('rating')->toArray();
         $somma = 0;
         foreach ($allVotes as $voto) {

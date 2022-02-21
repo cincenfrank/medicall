@@ -58,6 +58,16 @@ class RegisterController extends Controller
         ]);
     }
 
+    protected function randomCustomString()
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randstring = '';
+        for ($i = 0; $i < 4; $i++) {
+            $randstring = $randstring . $characters[rand(0, strlen($characters))];
+        }
+        return $randstring;
+    }
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -66,11 +76,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        //creo lo slug concatenando firstName e lastName in minuscolo
+        $slug = strtolower($data['first_name'] . "-" . $data['last_name']);
+        //controllo se esiste o meno nel DB
+        $isSlugAlreadyPresent = User::where('slug', '=', $slug)->count() > 0;
+        //se esiste faccio un ciclo 
+        while ($isSlugAlreadyPresent) {
+            //aggiungo alla stringa 4 lettere casuali con una funzione esterna
+            $slug = strtolower($data['first_name'] . "-" . $data['last_name']) . '-' . $this->randomCustomString();
+            $isSlugAlreadyPresent = User::where('slug', '=', $slug)->count() > 0;
+        }
+
         $user = User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
+            'slug' => $slug,
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => Hash::make(
+                $data['password'],
+            ),
         ]);
         $userDetail = new UserDetail();
         $userDetail->user_id = $user->id;

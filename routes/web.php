@@ -49,9 +49,9 @@ Route::namespace('Guest')
         Route::get('/', 'HomeController@index')->name('home');
         Route::get('search', 'SearchController@index')->name('search');
         // Route::get('service', 'ServiceController@index')->name('service');
-        Route::get('doctors/{id}', 'DoctorController@show')->name('doctors');
+        Route::get('doctors/{slug}', 'DoctorController@show')->name('doctors');
         Route::post('message/create', "DoctorController@addMessage")->name('addMessage');
         Route::post('reviews/create', 'DoctorController@addReview')->name('addReview');
-        Route::get('services/{id}', 'ServiceController@index')->name('service');
+        Route::get('services/{slug}', 'ServiceController@index')->name('service');
         //Route::get('doctors/{id}', 'DoctorController@index')->name('doctors');
     });
