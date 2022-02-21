@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <div class="row p-5">
+    <div class="row p-5 align-items-center">
       <div class="col-md-6">
         <div class="jumbo-text">
           <div class="w-75 mb-20">
@@ -27,12 +27,8 @@
         </div>
       </div>
       <div class="col-md-6">
-        <div class="jumbo-img text-center">
-          <img
-            src="https://picsum.photos/300"
-            alt="jumbo-home-img"
-            class="rounded-circle"
-          />
+        <div class="jumbo-img text-center w-100">
+          <img src="/img/home_image.jpg" alt="jumbo-home-img" class="w-100" />
         </div>
       </div>
     </div>
@@ -57,4 +53,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.jumbo-img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 35%;
+  overflow: hidden;
+  .jumbo-home-img {
+    object-fit: fill;
+  }
+}
+</style>
