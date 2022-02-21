@@ -31,8 +31,8 @@ Route::get('doctor/{id}','Api\DoctorController@fetchReviews')->name('fetchReview
 Route::get('filter', 'Api\SearchController@getFilterList');
 Route::get('filter/services', 'Api\SearchController@getFilteredServices');
 Route::get('filter/doctors', 'Api\SearchController@getFilteredDoctors');
-Route::get('filter/doctors/{id}', 'Api\SearchController@getDoctorById');
-Route::get('filter/services/{id}', 'Api\SearchController@getServiceById');
+Route::get('filter/doctors/{slug}', 'Api\SearchController@getDoctorById');
+Route::get('filter/services/{slug}', 'Api\SearchController@getServiceById');
 
 Route::get("service/{id}", "Api\ServiceController@getServiceData");
 
@@ -43,8 +43,8 @@ Route::get("service/{id}/doctors", "Api\ServiceController@serviceDoctorsData");
 Route::get("reviews", "Api\ReviewController@getReviewData");
 
 
-Route::get("/messages/doctor/{id}", "Api\MessageController@getDoctorMessages");
-Route::get("/message/{message_id}/doctor/{doctor_id}", "Api\MessageController@getSingleMessage");
+// Route::get("/messages/doctor/{id}", "Api\MessageController@getDoctorMessages");
+// Route::get("/message/{message_id}/doctor/{doctor_id}", "Api\MessageController@getSingleMessage");
 
 Route::get("reviews/dashboard/{id}", "Api\ReviewController@dashReviewData");
 

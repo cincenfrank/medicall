@@ -99,7 +99,7 @@ export default {
                  *
                  * @property {Integer} element.id the id of the selected service.
                  */
-                this.$emit("serviceSelected", element.id);
+                this.$emit("serviceSelected", element.slug);
             }
         },
         /**

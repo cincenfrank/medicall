@@ -47,15 +47,15 @@ class SearchController extends Controller
             return User::select('id', 'slug', 'first_name', 'last_name')->with('userDetail')->paginate(20);
         }
     }
-    public function getDoctorById($id)
+    public function getDoctorById($slug)
     {
-        return User::select('id', 'slug', 'first_name', 'last_name')->where('id', '=', $id)->with('services:id,name,img_path')->paginate(20);
+        return User::select('id', 'slug', 'first_name', 'last_name')->where('slug', '=', $slug)->with('userDetail')->with('services:id,name,img_path')->paginate(20);
     }
-    public function getServiceById($id)
+    public function getServiceById($slug)
     {
-        $services = Service::select('id', 'slug', 'name', 'img_path')->where('id', '=', $id)->get();
-        $users = User::select('id', 'slug', 'first_name', 'last_name')->with('userDetail')->whereHas('services', function ($query) use ($id) {
-            $query->where('services.id', '=', $id);
+        $services = Service::select('id', 'slug', 'name', 'img_path')->where('slug', '=', $slug)->get();
+        $users = User::select('id', 'slug', 'first_name', 'last_name')->with('userDetail')->whereHas('services', function ($query) use ($slug) {
+            $query->where('services.slug', '=', $slug);
         })->paginate(20);
         $services[0]->users = $users;
         //dd(json_encode($services));

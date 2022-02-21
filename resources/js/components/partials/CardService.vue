@@ -80,7 +80,7 @@ export default {
     methods: {
         //TODO add explanation
         onCardClicked() {
-            this.$emit("serviceCardClicked", this.serviceId);
+            this.$emit("serviceCardClicked", this.slug);
         },
     },
     computed: {

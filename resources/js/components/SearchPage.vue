@@ -20,6 +20,7 @@
             :title="num.name"
             :imgPath="'/' + num.img_path"
             :serviceId="num.id"
+            :slug="num.slug"
             @serviceCardClicked="onServiceSelected"
           ></CardService></div
       ></Carousel>
@@ -70,8 +71,8 @@ export default {
       this.getServices();
       this.getDoctors(true);
     },
-    onDoctorSelected(doctorId) {
-      window.axios.get(`/api/filter/doctors/${doctorId}`).then((resp) => {
+    onDoctorSelected(doctorSlug) {
+      window.axios.get(`/api/filter/doctors/${doctorSlug}`).then((resp) => {
         this.servicesArray = resp.data.data[0].services;
         this.doctorsArray = resp.data.data;
       });
