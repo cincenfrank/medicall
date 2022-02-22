@@ -30,7 +30,7 @@ class SubscriptionController extends Controller
 
 
         if ($status->success) {
-            $currentUser = User::where('id', '=', Auth::id());
+            $currentUser = User::where('id', '=', Auth::id())->get()->first();
             $typeOfSubscription = 0;
             $expirationDate = Carbon::now();
             switch ($price) {
@@ -52,7 +52,7 @@ class SubscriptionController extends Controller
                 
             $currentUser->subscriptions()->sync($syncData);
         }
-
+        
         return response()->json($status);
     }
 }

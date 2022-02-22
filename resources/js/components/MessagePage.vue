@@ -7,7 +7,7 @@
       </div>
       <div class="message-bubble">
         {{ message.content }}
-        <span class="message-time">{{ message.created_at }}</span>
+        <span class="message-time">{{ getParsedDate() }}</span>
       </div>
     </div>
     <div class="d-flex border border-top p-2">
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
+
 export default {
   name: "MessagePage",
   props: {
@@ -35,25 +37,13 @@ export default {
     return { message: {} };
   },
   methods: {
-    // getSingleMessage() {
-    //   // creato una costante che ci da l´URL della pagina
-    //   const url = window.location.href;
-    //   // abbiamo splittato in array ogni parametro dopo lo slash e abbiamo presp l´ultimo elemnto (pop)
-    //   const messageId = url.split("/").pop();
-    //   // abbiamo fatto la chiamata AXIOS all´url che abbiamo creato in api.php
-    //   //
-    //   window.axios
-    //     .get(`/api/message/${messageId}/doctor/${this.doctorId}`)
-    //     .then((resp) => {
-    //       this.message = resp.data[0];
-    //     });
-    // },
+    getParsedDate() {
+      return dayjs(this.message.created_at).format('DD/MM/YYYY, HH:mm')
+    }
   },
 
   mounted() {
-    // this.getSingleMessage();
     this.message = JSON.parse(this.messageProp);
-    console.log(this.message)
   },
 };
 </script>

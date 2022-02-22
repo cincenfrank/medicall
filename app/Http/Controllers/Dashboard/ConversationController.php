@@ -25,10 +25,6 @@ class ConversationController extends Controller
     {
         $message = Message::with("user")->where("user_id", "=", Auth::id())->where("id", "=", $message_id)->get()->first();
 
-        $parsedDate = $message['created_at']->isoFormat('DD/MM/Y, HH:mm');
-        //dd($parsedDate);
-        // $message->created_at = $parsedDate;
-
         if (!$message) {
             return abort(401);
         }
