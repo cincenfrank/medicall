@@ -37,23 +37,24 @@ class ServiceController extends Controller
         })->get()->toArray();
 
 
-        $doctorListNoSub = User::with('userDetail')->doesntHave('subscriptions')->with('services')->whereHas('services', function ($param) use ($slug) {
+        $doctorListExpiredSub = User::with('userDetail')->with('subscriptions')->whereHas('subscriptions', function ($param) {
+            $param->where('expiration_date', '<=', Date::now());
+        })->with('services')->whereHas('services', function ($param) use ($slug) {
             $param->where('slug', '=', $slug);
         })->get()->toArray();
 
 
-        $mergedDoctors = array_merge($doctorList, $doctorListNoSub);
+        $doctorListNoSub = User::with('userDetail')->doesntHave('subscriptions')->with('services')->whereHas('services', function ($param) use ($slug) {
+            $param->where('slug', '=', $slug);
+        })->get()->toArray();
 
-        //$doctorList = DB::select("select * from `users` where exists (select * from `services` inner join `service_user` on `services`.`id` = `service_user`.`service_id` where `users`.`id` = `service_user`.`user_id` and `slug` = '" . $slug . "') and exists (select * from `subscriptions` inner join `subscription_user` on `subscriptions`.`id` = `subscription_user`.`subscription_id` where `users`.`id` = `subscription_user`.`user_id` order by `expiration_date` asc) union all select * from `users` where exists (select * from `services` inner join `service_user` on `services`.`id` = `service_user`.`service_id` where `users`.`id` = `service_user`.`user_id` and `slug` = 'allergologia') and not exists (select * from `subscriptions` inner join `subscription_user` on `subscriptions`.`id` = `subscription_user`.`subscription_id` where `users`.`id` = `subscription_user`.`user_id` order by `expiration_date` asc);");
-        //dd($mergedDoctors);
+        $mergedDoctors = array_merge($doctorList, $doctorListNoSub, $doctorListExpiredSub);
 
         $service = Service::where('slug', '=', $slug)->firstOrFail();
 
         return view('pages.guest.service', [
             "service" => $service,
             "mergedDoctors" => $mergedDoctors
-            // "doctorList" => $doctorList,
-            // "doctorListNoSub" => $doctorListNoSub
         ]);
     }
 }

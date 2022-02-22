@@ -32,7 +32,7 @@
                             price: paymentPrice,
                         }, function(response) {
                             if (response.success) {
-                                alert('Payment successfull!');
+                                window.location.reload()
                             } else {
                                 alert('Payment failed');
                             }
