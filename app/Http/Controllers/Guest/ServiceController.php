@@ -7,10 +7,12 @@ use App\Service;
 use App\User;
 use CustomUtilities;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\DB;
 
 class ServiceController extends Controller
 {
-    static public function generateServiceSlug($serviceName) {
+    static public function generateServiceSlug($serviceName)
+    {
         $serviceNameParsed = str_replace(' ', '-', $serviceName);
         //creo lo slug concatenando firstName e lastName in minuscolo
         $slug = strtolower($serviceNameParsed);
@@ -28,26 +30,31 @@ class ServiceController extends Controller
 
     public function index($slug)
     {
-        // $doctorList = User::with('userDetail')->with('subscriptions')->whereHas('subscriptions', function ($param) {
-        //     $param->where('expiration_date', '>', Date::now());
-        // })->with('services')->whereHas('services', function ($param) use ($slug) {
-        //     $param->where('slug', '=', $slug);
-        // })->get()->toArray();
-
-        $doctorList = User::with('userDetail')->with('services')->whereHas('services', function ($param) use ($slug) {
+        $doctorList = User::with('userDetail')->with('subscriptions')->whereHas('subscriptions', function ($param) {
+            $param->where('expiration_date', '>', Date::now());
+        })->with('services')->whereHas('services', function ($param) use ($slug) {
             $param->where('slug', '=', $slug);
-        })->with('subscriptions')->whereHas('subscriptions', function ($param) {
-            $param->orderBy('expiration_date');
         })->get()->toArray();
 
-        dd($doctorList);
+       // dd($doctorList);
 
+         $doctorListNoSub = User::with('userDetail')->doesntHave('subscriptions')->with('services')->whereHas('services', function ($param) use ($slug) {
+             $param->where('slug', '=', $slug);
+         })->get()->toArray();
+
+         //dd($doctorListNoSub);
+
+        $mergedDoctors = array_merge($doctorList, $doctorListNoSub);
+
+        //$doctorList = DB::select("select * from `users` where exists (select * from `services` inner join `service_user` on `services`.`id` = `service_user`.`service_id` where `users`.`id` = `service_user`.`user_id` and `slug` = '" . $slug . "') and exists (select * from `subscriptions` inner join `subscription_user` on `subscriptions`.`id` = `subscription_user`.`subscription_id` where `users`.`id` = `subscription_user`.`user_id` order by `expiration_date` asc) union all select * from `users` where exists (select * from `services` inner join `service_user` on `services`.`id` = `service_user`.`service_id` where `users`.`id` = `service_user`.`user_id` and `slug` = 'allergologia') and not exists (select * from `subscriptions` inner join `subscription_user` on `subscriptions`.`id` = `subscription_user`.`subscription_id` where `users`.`id` = `subscription_user`.`user_id` order by `expiration_date` asc);");
+        dd($mergedDoctors);
 
         $service = Service::where('slug', '=', $slug)->firstOrFail();
 
         return view('pages.guest.service', [
             "service" => $service,
-            "doctorList" => $doctorList
+            "doctorList" => $doctorList,
+            //"doctorListNoSub" => $doctorListNoSub
         ]);
     }
 }
