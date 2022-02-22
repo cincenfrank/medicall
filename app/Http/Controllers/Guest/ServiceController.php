@@ -45,7 +45,7 @@ class ServiceController extends Controller
         $mergedDoctors = array_merge($doctorList, $doctorListNoSub);
 
         //$doctorList = DB::select("select * from `users` where exists (select * from `services` inner join `service_user` on `services`.`id` = `service_user`.`service_id` where `users`.`id` = `service_user`.`user_id` and `slug` = '" . $slug . "') and exists (select * from `subscriptions` inner join `subscription_user` on `subscriptions`.`id` = `subscription_user`.`subscription_id` where `users`.`id` = `subscription_user`.`user_id` order by `expiration_date` asc) union all select * from `users` where exists (select * from `services` inner join `service_user` on `services`.`id` = `service_user`.`service_id` where `users`.`id` = `service_user`.`user_id` and `slug` = 'allergologia') and not exists (select * from `subscriptions` inner join `subscription_user` on `subscriptions`.`id` = `subscription_user`.`subscription_id` where `users`.`id` = `subscription_user`.`user_id` order by `expiration_date` asc);");
-        dd($mergedDoctors);
+        //dd($mergedDoctors);
 
         $service = Service::where('slug', '=', $slug)->firstOrFail();
 
