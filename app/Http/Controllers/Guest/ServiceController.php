@@ -36,13 +36,11 @@ class ServiceController extends Controller
             $param->where('slug', '=', $slug);
         })->get()->toArray();
 
-       // dd($doctorList);
 
-         $doctorListNoSub = User::with('userDetail')->doesntHave('subscriptions')->with('services')->whereHas('services', function ($param) use ($slug) {
-             $param->where('slug', '=', $slug);
-         })->get()->toArray();
+        $doctorListNoSub = User::with('userDetail')->doesntHave('subscriptions')->with('services')->whereHas('services', function ($param) use ($slug) {
+            $param->where('slug', '=', $slug);
+        })->get()->toArray();
 
-         //dd($doctorListNoSub);
 
         $mergedDoctors = array_merge($doctorList, $doctorListNoSub);
 
@@ -53,8 +51,9 @@ class ServiceController extends Controller
 
         return view('pages.guest.service', [
             "service" => $service,
-            "doctorList" => $doctorList,
-            //"doctorListNoSub" => $doctorListNoSub
+            "mergedDoctors" => $mergedDoctors
+            // "doctorList" => $doctorList,
+            // "doctorListNoSub" => $doctorListNoSub
         ]);
     }
 }
