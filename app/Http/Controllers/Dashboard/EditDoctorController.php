@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Controller;
 use App\Service;
 use App\User;
@@ -33,7 +34,9 @@ class EditDoctorController extends Controller
         $data = $request->all();
 
         // se lo user ha cambiato nome devo modificare lo slug
-        
+        if ($user->first_name !== $data['first_name'] || $user->last_name !== $data['last_name']) {
+            $data['slug'] = RegisterController::generateUserSlug($data['first_name'], $data['last_name']);
+        }
 
         $oldImg = $user->userDetail->img_path;
         $oldCv = $user->userDetail->cv_path;

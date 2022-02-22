@@ -8,7 +8,6 @@
             @csrf
             @method("put")
             <div class="row">
-                <h1>Modificare slug se cambio il nome e cognome</h1>
                 <div class=" col-lg-4">
                     <img class="w-100 h-100" @if(!$user->userDetail->img_path)
                         src="/img/bg-login.jpg"

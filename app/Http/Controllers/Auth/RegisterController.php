@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use App\UserDetail;
+use CustomUtilities;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -58,14 +59,21 @@ class RegisterController extends Controller
         ]);
     }
 
-    protected function randomCustomString()
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $randstring = '';
-        for ($i = 0; $i < 4; $i++) {
-            $randstring = $randstring . $characters[rand(0, strlen($characters))];
+    static public function generateUserSlug($firstName, $lastName) {
+        $firstNameParsed = str_replace(' ', '-', $firstName);
+        $lastNameParsed = str_replace(' ', '-', $lastName);
+        //creo lo slug concatenando firstName e lastName in minuscolo
+        $slug = strtolower($firstNameParsed . "-" . $lastNameParsed);
+        //controllo se esiste o meno nel DB
+        $isSlugAlreadyPresent = User::where('slug', '=', $slug)->count() > 0;
+        //se esiste faccio un ciclo 
+        while ($isSlugAlreadyPresent) {
+            //aggiungo alla stringa 4 lettere casuali con una funzione esterna
+            $slug = strtolower($firstNameParsed . "-" . $lastNameParsed) . '-' . CustomUtilities::randomCustomString();
+            $isSlugAlreadyPresent = User::where('slug', '=', $slug)->count() > 0;
         }
-        return $randstring;
+
+        return $slug;
     }
 
     /**
@@ -76,16 +84,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        //creo lo slug concatenando firstName e lastName in minuscolo
-        $slug = strtolower($data['first_name'] . "-" . $data['last_name']);
-        //controllo se esiste o meno nel DB
-        $isSlugAlreadyPresent = User::where('slug', '=', $slug)->count() > 0;
-        //se esiste faccio un ciclo 
-        while ($isSlugAlreadyPresent) {
-            //aggiungo alla stringa 4 lettere casuali con una funzione esterna
-            $slug = strtolower($data['first_name'] . "-" . $data['last_name']) . '-' . $this->randomCustomString();
-            $isSlugAlreadyPresent = User::where('slug', '=', $slug)->count() > 0;
-        }
+        $slug = RegisterController::generateUserSlug($data['first_name'], $data['last_name']);
 
         $user = User::create([
             'first_name' => $data['first_name'],

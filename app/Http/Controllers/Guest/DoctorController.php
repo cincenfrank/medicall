@@ -41,7 +41,12 @@ class DoctorController extends Controller
         $newMessage = new Message();
         $newMessage->fill($data);
         $newMessage->save();
-        return Redirect::back();
+        $response = [
+            "success" => true,
+            "type" => 'message'
+        ];
+
+        return Redirect::back()->with($response);
     }
 
     /**
@@ -97,9 +102,12 @@ class DoctorController extends Controller
         $newReview = new Review();
         $newReview->fill($data);
         $newReview->save();
-        $success = true;
+        $response = [
+            "success" => true,
+            "type" => 'review'
+        ];
 
-        return Redirect::back()->with(compact('success'));
+        return Redirect::back()->with($response);
         // return view('pages.guest.show_doctor',[]);
     }
 
