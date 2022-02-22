@@ -38,6 +38,8 @@ class EditDoctorController extends Controller
             $data['slug'] = RegisterController::generateUserSlug($data['first_name'], $data['last_name']);
         }
 
+        // validation tipologia file cv e img
+
         $oldImg = $user->userDetail->img_path;
         $oldCv = $user->userDetail->cv_path;
 

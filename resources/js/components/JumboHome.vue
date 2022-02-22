@@ -47,13 +47,13 @@ export default {
     components: { CustomFilter },
     methods: {
         goToDoctorPage(slug) {
-            window.location.replace(`/doctors/${slug}`);
+            window.location.assign(`/doctors/${slug}`);
         },
         onServiceClicked(serviceId) {
-            window.location.replace(`/services/${serviceId}`);
+            window.location.assign(`/services/${serviceId}`);
         },
         onSearch(searchedText) {
-            window.location.replace(`/search?query=${searchedText}`);
+            window.location.assign(`/search?query=${searchedText}`);
         },
     },
 };

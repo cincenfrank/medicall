@@ -22,7 +22,7 @@ class DashboardController extends Controller
         $voteAvg = Review::avg('rating');
 
         // gets the active subscription for the doctor
-        $activeSubscription = User::where('id', '=', '39')->with('subscriptions')->whereHas('subscriptions', function($param) {
+        $activeSubscription = User::where('id', '=', Auth::id())->with('subscriptions')->whereHas('subscriptions', function($param) {
             $param->where('expiration_date', '>', Date::now());
         })->get()->toArray();
 

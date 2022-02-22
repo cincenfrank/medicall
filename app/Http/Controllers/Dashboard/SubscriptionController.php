@@ -8,13 +8,21 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Date;
 
 class SubscriptionController extends Controller
 {
     public function index()
     {
         $subscriptions = Subscription::all();
-        return view('pages.dashboard.subscriptions', compact('subscriptions'));
+        $userHasActiveSubscription = User::where('id', '=', Auth::id())->with('subscriptions')->whereHas('subscriptions', function($param) {
+            $param->where('expiration_date', '>', Date::now());
+        })->count() > 0;
+        
+        return view('pages.dashboard.subscriptions', [
+            "subscriptions" => $subscriptions,
+            "hasPremium" => $userHasActiveSubscription
+        ]);
     }
 
     public function make(Request $request)

@@ -28,11 +28,20 @@ class ServiceController extends Controller
 
     public function index($slug)
     {
-        $doctorList = User::with('userDetail')->with('subscriptions')->whereHas('subscriptions', function ($param) {
-            $param->where('expiration_date', '>', Date::now());
-        })->with('services')->whereHas('services', function ($param) use ($slug) {
+        // $doctorList = User::with('userDetail')->with('subscriptions')->whereHas('subscriptions', function ($param) {
+        //     $param->where('expiration_date', '>', Date::now());
+        // })->with('services')->whereHas('services', function ($param) use ($slug) {
+        //     $param->where('slug', '=', $slug);
+        // })->get()->toArray();
+
+        $doctorList = User::with('userDetail')->with('services')->whereHas('services', function ($param) use ($slug) {
             $param->where('slug', '=', $slug);
+        })->with('subscriptions')->whereHas('subscriptions', function ($param) {
+            $param->orderBy('expiration_date');
         })->get()->toArray();
+
+        dd($doctorList);
+
 
         $service = Service::where('slug', '=', $slug)->firstOrFail();
 

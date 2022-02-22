@@ -58,33 +58,36 @@
         <div class="d-flex flex-grow-1 flex-column text-center justify-content-center">
             <h3>Subscriptions</h3>
             <div class="d-flex justify-content-center flex-grow-1 align-items-center">
-                {{-- @dump($subscriptions) --}}
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                    @foreach ($subscriptions as $subscription)
-                        <div class="col">
-                            <div class="card bg-primary" style="min-widht:300px">
-
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $subscription->name }}</h5>
-                                    <h5 class="card-title">{{ $subscription->price }}</h5>
-                                    <h5 class="card-title">Tempo: {{ $subscription->duration_hours }} ore</h5>
-                                    <p class="card-title">{{ $subscription->description }}</p>
-                                    <div>
-                                        {{-- <a class="btn btn-success btn-sm " href="#" role="button">Acquista</a> --}}
-                                        <button type="button" class="btn btn-success button-price" data-bs-toggle="modal"
-                                            data-bs-target="#modalPayment" id="{{ 'btn' . $subscription->id }}"
-                                            value="{{ $subscription->price }}">
-                                            Acquista
-                                        </button>
+                @if(!$hasPremium)
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        @foreach ($subscriptions as $subscription)
+                            <div class="col">
+                                <div class="card bg-primary" style="min-widht:300px">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $subscription->name }}</h5>
+                                        <h5 class="card-title">{{ $subscription->price }}</h5>
+                                        <h5 class="card-title">Tempo: {{ $subscription->duration_hours }} ore</h5>
+                                        <p class="card-title">{{ $subscription->description }}</p>
+                                        <div>
+                                            {{-- <a class="btn btn-success btn-sm " href="#" role="button">Acquista</a> --}}
+                                            <button type="button" class="btn btn-success button-price" data-bs-toggle="modal"
+                                                data-bs-target="#modalPayment" id="{{ 'btn' . $subscription->id }}"
+                                                value="{{ $subscription->price }}">
+                                                Acquista
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
-                </div>
-                @include('pages.partials.modal_payment_braintree')
+                        @endforeach
+                        @include('pages.partials.modal_payment_braintree')
+                    </div>
+                @else
+                    <div class="row">
+                        <h1>Hai già effettuato l'acquisto della subscription</h1>
+                    </div>
+                @endif
             </div>
         </div>
-    </div>
     </div>
 @endsection

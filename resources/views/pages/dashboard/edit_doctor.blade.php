@@ -38,12 +38,12 @@
 
                     <div class="mb-3">
                         <label for="cv_path" class="form-label">Aggiungi CV</label>
-                        <input class="form-control" type="file" id="cv_path" name="cv_path">
+                        <input class="form-control" type="file" accept=".pdf" id="cv_path" name="cv_path">
                     </div>
 
                     <div class="mb-3">
                         <label for="img_path" class="form-label">Aggiungi Immagine</label>
-                        <input class="form-control" type="file" id="img_path" name="img_path">
+                        <input class="form-control" type="file" accept="image/*" id="img_path" name="img_path">
                     </div>
                 </div>
             </div>
