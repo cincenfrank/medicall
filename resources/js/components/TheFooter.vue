@@ -1,37 +1,35 @@
 <template>
-
-
     <div class="container-fluid bg-primary pt-4">
         <div class="container">
-            <footer class="">
+            <footer class="py-4">
                 <div class="row text-white">
                     <div class="col-2">
                         <h5>Company</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-white"
-                                    >Home</a
-                                >
+                                <a href="#" class="nav-link p-0 text-white">
+                                    Home
+                                </a>
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-white"
-                                    >Features</a
-                                >
+                                <a href="#" class="nav-link p-0 text-white">
+                                    Features
+                                </a>
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-white"
-                                    >Pricing</a
-                                >
+                                <a href="#" class="nav-link p-0 text-white">
+                                    Pricing
+                                </a>
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-white"
-                                    >FAQs</a
-                                >
+                                <a href="#" class="nav-link p-0 text-white">
+                                    FAQs
+                                </a>
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-white"
-                                    >About</a
-                                >
+                                <a href="#" class="nav-link p-0 text-white">
+                                    About
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -40,29 +38,29 @@
                         <h5>Policies</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-white"
-                                    >Home</a
-                                >
+                                <a href="#" class="nav-link p-0 text-white">
+                                    Home
+                                </a>
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-white"
-                                    >Features</a
-                                >
+                                <a href="#" class="nav-link p-0 text-white">
+                                    Features
+                                </a>
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-white"
-                                    >Pricing</a
-                                >
+                                <a href="#" class="nav-link p-0 text-white">
+                                    Pricing
+                                </a>
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-white"
-                                    >FAQs</a
-                                >
+                                <a href="#" class="nav-link p-0 text-white">
+                                    FAQs
+                                </a>
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-white"
-                                    >About</a
-                                >
+                                <a href="#" class="nav-link p-0 text-white">
+                                    About
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -71,29 +69,29 @@
                         <h5>Contacts</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-white"
-                                    >Home</a
-                                >
+                                <a href="#" class="nav-link p-0 text-white">
+                                    Home
+                                </a>
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-white"
-                                    >Features</a
-                                >
+                                <a href="#" class="nav-link p-0 text-white">
+                                    Features
+                                </a>
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-white"
-                                    >Pricing</a
-                                >
+                                <a href="#" class="nav-link p-0 text-white">
+                                    Pricing
+                                </a>
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-white"
-                                    >FAQs</a
-                                >
+                                <a href="#" class="nav-link p-0 text-white">
+                                    FAQs
+                                </a>
                             </li>
                             <li class="nav-item mb-2">
-                                <a href="#" class="nav-link p-0 text-white"
-                                    >About</a
-                                >
+                                <a href="#" class="nav-link p-0 text-white">
+                                    About
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -102,13 +100,12 @@
                         <form>
                             <h5>Subscribe to our newsletter</h5>
                             <p>
-                                Monthly digest of whats new and exciting from
-                                us.
+                                Monthly digest of whats new and exciting from us.
                             </p>
                             <div class="d-flex w-100 gap-2">
-                                <label for="newsletter1" class="visually-hidden"
-                                    >Email address</label
-                                >
+                                <label for="newsletter1" class="visually-hidden">
+                                    Email address
+                                </label>
                                 <input
                                     id="newsletter1"
                                     type="text"
@@ -123,9 +120,7 @@
                     </div>
                 </div>
 
-                <div
-                    class="d-flex justify-content-center pt-4 mt-2 border-top text-white"
-                >
+                <div class="d-flex justify-content-center pt-4 mt-2 border-top text-white">
                     <p>© 2021 Company, Inc. All rights reserved.</p>
                     <!-- <ul class="list-unstyled d-flex">
                         <li class="ms-3">
@@ -151,7 +146,6 @@
             </footer>
         </div>
     </div>
-
 </template>
 
 <script>

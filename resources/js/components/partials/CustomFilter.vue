@@ -144,7 +144,7 @@ export default {
         .list-group-item {
             cursor: pointer;
             &:hover {
-                background-color: grey;
+                background-color: rgb(191, 191, 191);
             }
         }
     }

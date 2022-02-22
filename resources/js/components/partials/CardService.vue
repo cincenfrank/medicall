@@ -1,33 +1,18 @@
 <template>
     <div class="placeholder-glow mx-4 my-4 service-card-container">
-        <div
-            v-if="isLoading"
-            class="placeholder col-12 w-100 placeholder-element"
-        ></div>
-        <div
-            v-else
-            class="card service-card w-100 h-100"
-            @click="onCardClicked"
-        >
+        <div v-if="isLoading" class="placeholder col-12 w-100 placeholder-element"></div>
+
+        <div v-else class="card service-card w-100 h-100" @click="onCardClicked">
             <!-- Card Image -->
-            <img
-                class="card-img-bottom service-card-img h-100"
-                :src="serviceImagePath"
-                alt="Card image cap"
-            />
+            <img class="card-img-bottom service-card-img h-100" :src="serviceImagePath" alt="Card image cap" />
             <!-- Card Image Overlay -->
-            <div
-                class="card-img-overlay service-card-overlay custom-bg-black"
-                style=""
-            >
+            <div class="card-img-overlay service-card-overlay custom-bg-black text-center">
                 <!-- Service Name  -->
                 <h5 class="card-title text-white">{{ title }}</h5>
                 <!-- More Info Button  -->
-                <a
-                    :href="`/services/${slug}`"
-                    class="btn btn-custom-blue rounded rounded-pill right"
-                    >Maggiori Informazioni</a
-                >
+                <a :href="`/services/${slug}`" class="btn btn-custom-blue rounded rounded-pill right">
+                    Maggiori Informazioni
+                </a>
             </div>
         </div>
     </div>
@@ -98,6 +83,7 @@ export default {
 .service-card-container {
     overflow: hidden;
     border-radius: 5px;
+    position: relative;
 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
     transition: all 0.2s linear;
@@ -113,10 +99,19 @@ export default {
         width: 100%;
         overflow: hidden;
         cursor: pointer;
+        .card-title {
+            font-size: 30px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
         .service-card-img {
             object-fit: cover;
         }
         .btn-custom-blue {
+            position: absolute;
+            bottom: 7%;
             opacity: 1;
             transition: all 0.2s linear;
             &.left {

@@ -5,6 +5,8 @@
  */
 
 require("./bootstrap");
+import Aos from "aos"
+import "aos/dist/aos.css"
 
 window.Vue = require("vue");
 
@@ -34,4 +36,7 @@ files
 
 const app = new Vue({
     el: "#app",
+    mounted() {
+        Aos.init()
+    }
 });

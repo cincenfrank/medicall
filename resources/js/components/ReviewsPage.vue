@@ -1,6 +1,6 @@
 <template>
   <div class="p-5">
-    <h1 class="py-3">Le Recensioni dei tuoi pazienti</h1>
+    <h1>Le recensioni dei tuoi pazienti</h1>
     <!-- <div class="container"> -->
     <!-- <h1>{{ loggedUserId }}</h1> -->
     <div class="row row-cols-4 gy-3">

@@ -1,23 +1,17 @@
 <template>
     <div class="placeholder-glow mx-4 my-4 card-doctor-container">
-        <div
-            v-if="isLoading"
-            class="placeholder col-12 w-100 placeholder-element"
-        ></div>
+        <div v-if="isLoading" class="placeholder col-12 w-100 placeholder-element"></div>
+
         <div v-else class="card card-doctor">
-            <img
-                :src="serviceImagePath"
-                class="card-img-top w-100"
-                alt="doctor profile img"
-            />
+            <img :src="serviceImagePath" class="card-img-top w-100" alt="doctor profile img" />
             <div class="card-body">
                 <h5 class="card-title">{{ doctor.first_name }}</h5>
                 <p class="card-text">{{ doctor.last_name }}</p>
-                <a
-                    :href="`/doctors/${doctor.slug}`"
-                    class="btn btn-primary btn-custom-red"
-                    >Visualizza profilo</a
-                >
+                <button class="btn btn-danger">
+                    <a :href="`/doctors/${doctor.slug}`">
+                        Visualizza profilo
+                    </a>
+                </button>
             </div>
         </div>
     </div>

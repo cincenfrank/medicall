@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator as FacadesValidator;
 
 class EditDoctorController extends Controller
 {
@@ -39,6 +40,15 @@ class EditDoctorController extends Controller
         }
 
         // validation tipologia file cv e img
+        $validator = FacadesValidator::make($request->all(), [
+            'img_path' => 'required | image',
+            'cv_path' => 'required| mimes:pdf'
+        ]);
+        if ($validator->fails()) {
+            $validator->getMessageBag();
+            //->add('type', 'CV');
+            return Redirect::back()->withErrors($validator);
+        }
 
         $oldImg = $user->userDetail->img_path;
         $oldCv = $user->userDetail->cv_path;

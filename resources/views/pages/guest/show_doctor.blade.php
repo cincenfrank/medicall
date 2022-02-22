@@ -104,7 +104,7 @@
                     @endforeach
                 </div>
             </div>
-            <div class="d-flex justify-content-center py-2">
+            <div class="d-flex justify-content-center py-4 mb-0">
                 {!! $reviews->links() !!}
             </div>
         </div>

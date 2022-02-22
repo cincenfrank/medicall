@@ -54,28 +54,25 @@
 
 
 @section('content')
-    <div class="d-flex">
+    <div class="d-flex py-5">
         <div class="d-flex flex-grow-1 flex-column text-center justify-content-center">
-            <h3>Subscriptions</h3>
+            <h1 class="mb-5">Subscriptions</h1>
             <div class="d-flex justify-content-center flex-grow-1 align-items-center">
                 @if(!$hasPremium)
                     <div class="row row-cols-1 row-cols-md-3 g-4">
                         @foreach ($subscriptions as $subscription)
                             <div class="col">
-                                <div class="card bg-primary" style="min-widht:300px">
+                                <div class="card bg-primary text-white rounded-3 px-2 py-3" style="min-widht:300px; height: 300px">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ $subscription->name }}</h5>
-                                        <h5 class="card-title">{{ $subscription->price }}</h5>
-                                        <h5 class="card-title">Tempo: {{ $subscription->duration_hours }} ore</h5>
-                                        <p class="card-title">{{ $subscription->description }}</p>
-                                        <div>
-                                            {{-- <a class="btn btn-success btn-sm " href="#" role="button">Acquista</a> --}}
-                                            <button type="button" class="btn btn-success button-price" data-bs-toggle="modal"
-                                                data-bs-target="#modalPayment" id="{{ 'btn' . $subscription->id }}"
-                                                value="{{ $subscription->price }}">
-                                                Acquista
-                                            </button>
-                                        </div>
+                                        <h3 class="card-title fw-bolder mt-2">{{ $subscription->name }}</h3>
+                                        <span class="card-body">{{ $subscription->price }}</span> <br>
+                                        <span class="card-body">Tempo: {{ $subscription->duration_hours }} ore</span> <br>
+                                        <p class="card-body">{{ $subscription->description }}</p>
+                                        <button type="button" class="btn btn-success button-price" data-bs-toggle="modal"
+                                            data-bs-target="#modalPayment" id="{{ 'btn' . $subscription->id }}"
+                                            value="{{ $subscription->price }}">
+                                            Acquista
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +81,7 @@
                     </div>
                 @else
                     <div class="row">
-                        <h1>Hai già effettuato l'acquisto della subscription</h1>
+                        <h3>Hai già effettuato l'acquisto della subscription</h3>
                     </div>
                 @endif
             </div>

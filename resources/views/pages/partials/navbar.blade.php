@@ -49,25 +49,39 @@
 </nav> --}}
 
 
-<div class="custom-navbar">
-    <a href="/">
-        <img class="navbar-img" src="/img/logo_large.png" alt="logo-medicall" />
-    </a>
-    <nav>
+<nav class="custom-navbar">
+    <div>
+        <a href="/">
+            <img class="navbar-img" src="/img/logo_large.png" alt="logo-medicall" />
+        </a>
+    </div>
+    <div>
         <ul class="menu mb-0 ps-0">
+            <li><a href="/">Home</a></li>
             <li><a href="/search">Ricerca</a></li>
-            <li><a href="">Servizi</a></li>
-            <li><a href="">Contatti</a></li>
+            {{-- <li><a href="">Servizi</a></li>
+            <li><a href="">Contatti</a></li> --}}
             @auth
-            <li>
-                <a href="/dashboard">Dashboard</a>
-            </li>
+                <li>
+                    <a href="/dashboard">Dashboard</a>
+                </li>
             @endauth
         </ul>
-    </nav>
-    @guest
-    <button>
-        <a href="/login">Accedi</a>
-    </button>
-    @endguest
-</div>
+    </div>
+    <div>
+        <button class="btn btn-primary">
+            @guest
+                <a href="/login">Accedi</a>
+            @endguest
+
+            @auth
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            @endauth
+        </button>
+    </div>
+</nav>

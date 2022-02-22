@@ -1,7 +1,7 @@
 <template>
   <!-- TODO add logic to limit buttons number when total pages number is greater than 10 -->
   <!-- Pagination List -->
-  <ul class="pagination justify-content-center overflow-scroll">
+  <ul class="pagination justify-content-center overflow-scroll py-4 mb-0">
     <!-- Previous Pagination List Item  -->
     <li class="page-item" @click="onPageClick(1)">
       <a class="page-link" href="#" aria-label="Previous">

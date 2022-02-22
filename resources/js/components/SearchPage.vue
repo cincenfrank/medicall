@@ -33,7 +33,7 @@
           :key="doctor.id + ' doctor card'"
           class="col-3 g-0"
         >
-          <card-doctor :doctor="doctor"> </card-doctor>
+          <card-doctor :doctor="doctor"></card-doctor>
         </div>
       </div>
       <Pagination
