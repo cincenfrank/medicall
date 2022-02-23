@@ -1,87 +1,42 @@
-{{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-    <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-{{ config('app.name', 'Laravel') }}
-</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-    <span class="navbar-toggler-icon"></span>
-</button>
-
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <!-- Left Side Of Navbar -->
-    <ul class="navbar-nav mr-auto">
-
-    </ul>
-
-    <!-- Right Side Of Navbar -->
-    <ul class="navbar-nav ml-auto">
-        <!-- Authentication Links -->
-        @guest
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-        </li>
-        @if (Route::has('register'))
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-        </li>
-        @endif
-        @else
-        <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                {{ Auth::user()->name }}
+<nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+    <div class="container-fluid">
+        <div class="navbar-brand">
+            <a href="/">
+                <img class="navbar-img" src="/img/logo_large.png" alt="logo-medicall" style="width:200px" />
             </a>
-
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </div>
-        </li>
-        @endguest
-    </ul>
-</div>
-</div>
-</nav> --}}
-
-
-<nav class="custom-navbar">
-    <div>
-        <a href="/">
-            <img class="navbar-img" src="/img/logo_large.png" alt="logo-medicall" />
-        </a>
-    </div>
-    <div>
-        <ul class="menu mb-0 ps-0">
-            <li><a href="/">Home</a></li>
-            <li><a href="/search">Ricerca</a></li>
-            {{-- <li><a href="">Servizi</a></li>
-            <li><a href="">Contatti</a></li> --}}
-            @auth
-                <li>
-                    <a href="/dashboard">Dashboard</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-grow-1 justify-content-end">
+                <li class="nav-item"><a class="nav-link mx-3" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link mx-3" href="/search">Ricerca</a></li>
+                {{-- <li><a href="">Servizi</a></li>
+                <li><a href="">Contatti</a></li> --}}
+                @auth
+                <li class="nav-item">
+                    <a class="nav-link mx-3" href="/dashboard">Dashboard</a>
                 </li>
-            @endauth
-        </ul>
-    </div>
-    <div>
-        <button class="btn btn-primary">
-            @guest
+                @endauth
+            </ul>
+            {{-- <div class="text-end" style="width: 200px"> --}}
+            <button class="btn btn-primary">
+                @guest
                 <a href="/login">Accedi</a>
-            @endguest
+                @endguest
 
-            @auth
+                @auth
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Logout
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
-            @endauth
-        </button>
+                @endauth
+            </button>
+            {{-- </div> --}}
+        </div>
     </div>
 </nav>
+{{-- custom navbar --}}

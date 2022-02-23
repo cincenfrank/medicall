@@ -26,7 +26,7 @@
 </homepage-section-carousel>
 
 {{-- sezione testi con immagini --}}
-<homepage-section-steps></homepage-section-steps>
+<home-page-steps-section></home-page-steps-section>
 
 {{-- sezione carosello recensioni --}}
 {{-- <homepage-section-carousel :title="'Our latest reviews'" :subtitle="'best in class'" :description="''">

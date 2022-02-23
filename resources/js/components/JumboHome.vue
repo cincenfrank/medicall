@@ -1,7 +1,18 @@
 <template>
     <section class="container">
-        <div class="row p-5 align-items-center">
-            <div class="col-md-6">
+        <div
+            class="row p-5 align-items-center justify-content-center flex-row-reverse"
+        >
+            <div class="col-12 col-md-10 col-lg-4 col-xl-6 mb-5 mb-lg-0">
+                <div class="jumbo-img text-center w-100">
+                    <img
+                        src="/img/home_image.jpg"
+                        alt="jumbo-home-img"
+                        class="w-100"
+                    />
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-8 col-xl-6">
                 <div class="jumbo-text">
                     <div class="w-75 mb-20">
                         <span class="mb-5">LET'S GO</span>
@@ -26,15 +37,6 @@
                         >
                         </custom-filter>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="jumbo-img text-center w-100">
-                    <img
-                        src="/img/home_image.jpg"
-                        alt="jumbo-home-img"
-                        class="w-100"
-                    />
                 </div>
             </div>
         </div>
