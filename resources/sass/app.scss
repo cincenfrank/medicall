@@ -6,6 +6,12 @@
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
+// body {
+//     // background-image: url(/img/bg-logos-transparent.png);
+//     // background-image: url(/img/bg-trans.png);
+//     // backdrop-filter: blur(20px);
+// }
+
 .btn-custom-blue {
     background-color: $customBlue;
     color: white;
@@ -53,6 +59,16 @@
             color: white;
             transition: all .3s;
         }
+    }
+}
+
+.btn-primary {
+    transition: all .3s !important;
+
+    &:hover {
+        background-color: $customRed !important;
+        border-color: $customRed !important;
+        //box-shadow: 0 2px 10px $customRed !important;
     }
 }
 

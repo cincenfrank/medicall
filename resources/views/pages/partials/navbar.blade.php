@@ -12,31 +12,28 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-grow-1 justify-content-end">
                 <li class="nav-item"><a class="nav-link mx-3" href="/">Home</a></li>
                 <li class="nav-item"><a class="nav-link mx-3" href="/search">Ricerca</a></li>
-                {{-- <li><a href="">Servizi</a></li>
-                <li><a href="">Contatti</a></li> --}}
                 @auth
-                <li class="nav-item">
-                    <a class="nav-link mx-3" href="/dashboard">Dashboard</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="/dashboard">Dashboard</a>
+                    </li>
                 @endauth
             </ul>
             {{-- <div class="text-end" style="width: 200px"> --}}
             <button class="btn btn-primary">
                 @guest
-                <a href="/login">Accedi</a>
+                    <a href="/login">Accedi</a>
                 @endguest
 
                 @auth
-                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    Logout
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 @endauth
             </button>
             {{-- </div> --}}
         </div>
     </div>
 </nav>
-{{-- custom navbar --}}

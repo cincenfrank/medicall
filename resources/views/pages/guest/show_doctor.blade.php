@@ -7,32 +7,27 @@
 @section('content')
     {{-- <reviews-section></reviews-section> --}}
     <div class="container">
-        <div class="d-flex justify-content-center mb-5">
-            <div>
+        <div class="row justify-content-center mb-5">
+            <div class="col-12 col-md-3">
                 <img 
                 @if(!$user->userDetail->img_path)
                     src="https://www.ambulatoriobiomedica.it/wp-content/uploads/2013/05/111-1118645_chiropractic-provider-male-doctor-vector-390x260.jpg"
                 @else
                     src="{{ asset("storage/" . $user->userDetail->img_path) }}"
-                    class="w-25"
                 @endif
+                class="w-100 mb-3 mb-md-0"
                 alt="doctor-profile-img">
             </div>
-            <div class="ps-3">
-                <h5 class="card-title fw-bold">{{ $user->first_name . ' ' . $user->last_name }} </h5>
-                <p class="card-text bg-danger text-white">
-                    {{-- CV PATH NULL --}}
-                    {{ $user->userDetail->cv_path ? $user->userDetail->cv_path : '' }}</p>
+            <div class="col-12 col-md-9 ps-3">
+                <h2 class="card-title fw-bold">{{ $user->first_name . ' ' . $user->last_name }} </h2>
                 <p class="card-text">Numero di Telefono: {{ $user->userDetail->phone }}</p>
                 <p class="card-text">Email: {{ $user->email }}</p>
-                <stars-rating :ratings={{ $media }}>
-                    Media delle recensioni:</stars-rating>
+                <stars-rating :ratings={{ $media }}>Media delle recensioni:</stars-rating>
                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
                     data-bs-target="#contact_doctor">
                     <a class="text-decoration-none" href="#" role="button">Contatta il dottore</a>
                 </button>
                 @include('pages.partials.modal_contact_doctor')
-                {{-- conferma da finire --}}
                 @include('pages.partials.modal_sent_message')
             </div>
         </div>
@@ -55,15 +50,17 @@
 
         <div class="mb-4">
             <h3 class="fw-bold">Servizi Offerti</h3>
-            {{-- @dd($user->services) --}}
-            @foreach ($user->services as $servizio)
-                <div class="row g-0 border align-items-center">
-                    <div class="col-6 col-md-8">{{ $servizio->name }}</div>
-                    {{-- Prendere la colonna price dalla tabella ponte --}}
-                    <div class="col-2 col-md-2">€ {{ $servizio->pivot->price }}</div>
-                    <div class="col-3 col-md-2 btn btn-primary text-white">Prenota</div>
-                </div>
-            @endforeach
+            <ul class="list-group py-3 rounded rounded-3">
+                @foreach ($user->services as $key => $service)
+                <li class="list-group-item d-flex justify-content-between align-items-center py-0 pe-0 {{ $key % 2 !== 0 ? 'list-group-item-primary' : '' }}">
+                    <div class=" flex-grow-1 ">
+                        {{ $service->name }}
+                    </div>
+                    <span class="badge bg-primary rounded-pill p-2 me-3">€ {{ $service->pivot->price }}</span>
+                    <button class="btn btn-primary text-white">Prenota</button>
+                </li>
+                @endforeach
+            </ul>
         </div>
 
         <div class="mb-4">
