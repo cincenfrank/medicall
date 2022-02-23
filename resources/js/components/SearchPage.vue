@@ -77,8 +77,8 @@ export default {
         this.doctorsArray = resp.data.data;
       });
     },
-    onServiceSelected(serviceId) {
-      window.axios.get(`/api/filter/services/${serviceId}`).then((resp) => {
+    onServiceSelected(serviceSlug) {
+      window.axios.get(`/api/filter/services/${serviceSlug}`).then((resp) => {
         this.servicesArray = resp.data;
         this.doctorsArray = resp.data[0].users.data;
         this.currentPage = 1;
