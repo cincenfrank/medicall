@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <div class="container">
-      <div class="row">
-        <p class="mt-5">
-          {{ service.description }}
-        </p>
-      </div>
+  <div class="py-5">
+    <div class="row">
+      <p class="m-0">
+        {{ service.description }}
+      </p>
     </div>
   </div>
 </template>
@@ -22,17 +20,16 @@ export default {
   },
   methods: {
     // fetchService() {
-      // const url = window.location.href;
-      // // const lastParam = url.split("/").slice(-1)[0];
-      // const lastParam = url.split("/").pop();
-      // // http://127.0.0.1:8000/services/allergologia
-      // // ['http:', '', '127.0.0.1:8000', 'services', 'allergologia']
-      // // ['allergologia']
-      // // allergologia
-
-      // axios.get("/api/service/" + lastParam).then((resp) => {
-      //   this.service = resp.data;
-      // });
+    // const url = window.location.href;
+    // // const lastParam = url.split("/").slice(-1)[0];
+    // const lastParam = url.split("/").pop();
+    // // http://127.0.0.1:8000/services/allergologia
+    // // ['http:', '', '127.0.0.1:8000', 'services', 'allergologia']
+    // // ['allergologia']
+    // // allergologia
+    // axios.get("/api/service/" + lastParam).then((resp) => {
+    //   this.service = resp.data;
+    // });
     // },
   },
   mounted() {
