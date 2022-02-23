@@ -1,7 +1,7 @@
 <template>
     <div>
         <slot></slot>
-        <ul class="d-flex list-unstyled">
+        <ul class="d-flex list-unstyled mb-0">
             <li class="bg-secondary rounded p-1">
                 <i
                     v-for="i in 5"
