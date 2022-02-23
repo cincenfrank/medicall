@@ -21,22 +21,22 @@
                     </li>
                 @endauth
             </ul>
-            {{-- <div class="text-end" style="width: 200px"> --}}
-            <button class="btn btn-primary">
-                @guest
-                    <a href="/login">Accedi</a>
-                @endguest
+            <div class="mx-auto text-center" style="width: 200px">
+                <button class="btn btn-primary">
+                    @guest
+                        <a href="/login">Accedi</a>
+                    @endguest
 
-                @auth
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        Logout
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                @endauth
-            </button>
-            {{-- </div> --}}
+                    @auth
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    @endauth
+                </button>
+            </div>
         </div>
     </div>
 </nav>

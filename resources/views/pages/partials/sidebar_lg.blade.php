@@ -1,5 +1,5 @@
 {{-- sidebar md lg --}}
-<div class="dashboard-sidebar h-100 flex-shrink-0 d-flex flex-column  p-3 text-white bg-primary" style="width: 280px">
+<div class="dashboard-sidebar h-100 flex-shrink-0 d-flex flex-column  p-3 text-white bg-primary" style="width: 250px">
     <a href="/dashboard" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <svg class="bi me-2" width="40" height="32">
             <use xlink:href="#bootstrap"></use>

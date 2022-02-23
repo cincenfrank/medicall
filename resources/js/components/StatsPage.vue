@@ -1,23 +1,47 @@
 <template>
-    <div>
-        <div class="card w-50">
-            <div class="card-header">Messaggi nel tempo</div>
-            <div class="card-body">
-                <bar-chart v-if="Object.keys(messagesData).length > 0" :chartData="messagesData"></bar-chart>
+    <div class="row justify-content-center pt-5 px-5">
+        <div class="col-12 col-md-4">
+            <div class="card h-100 mb-3 mb-md-0">
+                <div class="card-header text-center fw-bold">Valutazioni</div>
+                <div class="card-body d-flex justify-content-center align-items-center">
+                    <stars v-if="voteAvg !== 0" :ratings="voteAvg"></stars>
+                </div>
             </div>
         </div>
 
-        <div class="card w-50">
-            <div class="card-header">Recensioni nel tempo</div>
-            <div class="card-body">
-                <bar-chart v-if="Object.keys(reviewsData).length > 0" :chartData="reviewsData"></bar-chart>
+        <div class="col-6 col-md-4">
+            <div class="card h-100 mb-3 mb-md-0">
+                <div class="card-header text-center fw-bold">N° messaggi</div>
+                <div class="card-body d-flex justify-content-center align-items-center display-5">
+                    {{ getTotalMessages }}
+                </div>
             </div>
         </div>
 
-        <div class="card w-50">
-            <div class="card-header">Valutazioni</div>
-            <div class="card-body">
-                <stars v-if="voteAvg !== 0" :ratings="voteAvg"></stars>
+        <div class="col-6 col-md-4">
+            <div class="card h-100 mb-3 mb-md-0">
+                <div class="card-header text-center fw-bold">N° reviews</div>
+                <div class="card-body d-flex justify-content-center align-items-center display-5">
+                    {{ getTotalReviews }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-xl-6">
+            <div class="card mb-3 mb-md-0">
+                <div class="card-header">Messaggi nel tempo</div>
+                <div class="card-body">
+                    <bar-chart v-if="Object.keys(messagesData).length > 0" :chartData="messagesData"></bar-chart>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-xl-6">
+            <div class="card mb-3 mb-md-0">
+                <div class="card-header">Recensioni nel tempo</div>
+                <div class="card-body">
+                    <bar-chart v-if="Object.keys(reviewsData).length > 0" :chartData="reviewsData"></bar-chart>
+                </div>
             </div>
         </div>
     </div>
@@ -39,23 +63,6 @@ export default {
         }
     },
     methods: {
-        // active_subscription: []
-        // messages_time: Array(4)
-        // 0: {date: '09/02/2022', count: 2}
-        // 1: {date: '11/02/2022', count: 5}
-        // 2: {date: '12/02/2022', count: 3}
-        // 3: {date: '15/02/2022', count: 6}
-        // length: 4
-        // [[Prototype]]: Array(0)
-        // reviews_time: Array(5)
-        // 0: {date: '08/02/2022', count: 3}
-        // 1: {date: '10/02/2022', count: 3}
-        // 2: {date: '11/02/2022', count: 2}
-        // 3: {date: '12/02/2022', count: 3}
-        // 4: {date: '15/02/2022', count: 69}
-        // length: 5
-        // [[Prototype]]: Array(0)
-        // vote_avg: "2.9885"
         formatSingleObject(datasetsLabel, objectKey, dataVariable) {
             // se il parametro è voto allora ritorna il numero approssimato
             if (objectKey === 'vote_avg') {
@@ -69,7 +76,7 @@ export default {
                 datasets: [ //valori
                     {
                         label: datasetsLabel,
-                        backgroundColor: '#f87979',
+                        backgroundColor: datasetsLabel === 'messaggi' ? '#12286a' : '#bb0f13',
                         data: []
                     }
                 ]
@@ -80,8 +87,6 @@ export default {
                 chartData.datasets[0].data.push(el.count)
             })
 
-            console.log(chartData)
-
             this[dataVariable] = chartData
         },
         prepareDataForChartJs() {
@@ -89,16 +94,18 @@ export default {
             this.formatSingleObject('recensioni', 'reviews_time', 'reviewsData')
             this.formatSingleObject('vote', 'vote_avg', 'voteAvg')
         }
-        // chartData: {
-        //     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        //     datasets: [
-        //         {
-        //             label: 'GitHub Commits',
-        //             backgroundColor: '#f87979',
-        //             data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
-        //         }
-        //     ]
-        // },
+    },
+    computed: {
+        getTotalMessages() {
+            return this.rawChartsData.messages_time.reduce((acc, cur) => {
+                return acc + cur.count
+            }, 0)
+        },
+        getTotalReviews() {
+            return this.rawChartsData.reviews_time.reduce((acc, cur) => {
+                return acc + cur.count
+            }, 0)
+        }
     },
     mounted() {
         this.prepareDataForChartJs()

@@ -5,5 +5,7 @@
 @endsection
 
 @section('content')
+
+    <h1>Ciao {{ Auth::user()->first_name }} benvenuto nella tua pagina personale</h1>
     <stats-page :raw-charts-data="{{ json_encode($rawChartsData) }}"></stats-page>
 @endsection

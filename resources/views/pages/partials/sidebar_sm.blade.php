@@ -3,6 +3,6 @@
     <i class="display-5 p-2 fas fa-bars"></i>
 </button>
 
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="width: 280px">
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="width: 250px">
     @include('pages.partials.sidebar_lg')
 </div>

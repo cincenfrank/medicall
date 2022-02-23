@@ -10,7 +10,7 @@
       >
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">{{ conversation.patient_name }}</h5>
-          <small class="text-muted">{{ conversation.created_at }}</small>
+          <small class="text-muted">{{ getParsedDate(conversation) }}</small>
         </div>
         <p class="mb-1">{{ conversation.content.substring(0, 200) }}...</p>
         <small class="text-muted">{{ conversation.patient_email }}</small>
@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
+
 export default {
   name: "ConversationsPage",
   props: {
@@ -39,6 +41,9 @@ export default {
     //       this.conversations = resp.data;
     //     });
     // },
+    getParsedDate(conversation) {
+      return dayjs(conversation.created_at).format('DD/MM/YYYY, HH:mm')
+    }
   },
 
   mounted() {

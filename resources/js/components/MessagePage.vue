@@ -1,9 +1,9 @@
 <template>
   <div class="d-flex flex-column h-100">
     <div class="chat-container flex-grow-1 p-5">
-      <div class="chat-header d-flex justify-content-between mb-4">
-        <div>{{ message.patient_name }}</div>
-        <div>{{ message.patient_email }}</div>
+      <div class="chat-header row justify-content-between mb-4">
+        <div class="col-12 col-md-6">{{ message.patient_name }}</div>
+        <div class="col-12 col-md-6">{{ message.patient_email }}</div>
       </div>
       <div class="message-bubble">
         {{ message.content }}

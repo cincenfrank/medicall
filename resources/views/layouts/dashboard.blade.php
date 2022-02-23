@@ -20,6 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    @include('pages.partials.head_scripts')
     @yield('add_head_scripts')
 </head>
 
