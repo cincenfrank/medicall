@@ -26,7 +26,17 @@
       ></Carousel>
     </div>
     <div v-if="doctorsArray">
-      <h2>Elenco dei Dottori</h2>
+      <h2 class="d-flex align-items-center">
+        Elenco dei Dottori
+        <span v-if="activeServiceFilter" class="d-flex align-items-center ms-2">
+          di
+          <CustomChip
+            :title="activeServiceFilter.title"
+            :slug="activeServiceFilter.slug"
+            @cancelClicked="onFilterCanceled"
+          ></CustomChip
+        ></span>
+      </h2>
       <div class="row justify-content-center">
         <div
           v-for="doctor in doctorsArray"
@@ -49,10 +59,18 @@
 import Carousel from "./Carousel.vue";
 import CardDoctor from "./partials/CardDoctor.vue";
 import CardService from "./partials/CardService.vue";
+import CustomChip from "./partials/CustomChip.vue";
 import CustomFilter from "./partials/CustomFilter.vue";
 import Pagination from "./partials/Pagination.vue";
 export default {
-  components: { CustomFilter, CardService, CardDoctor, Carousel, Pagination },
+  components: {
+    CustomFilter,
+    CardService,
+    CardDoctor,
+    Carousel,
+    Pagination,
+    CustomChip,
+  },
   data() {
     return {
       textQuery: "",
@@ -60,6 +78,7 @@ export default {
       doctorsArray: null,
       currentPage: 1,
       totalPages: null,
+      activeServiceFilter: null,
     };
   },
   props: {
@@ -79,10 +98,14 @@ export default {
     },
     onServiceSelected(serviceSlug) {
       window.axios.get(`/api/filter/services/${serviceSlug}`).then((resp) => {
-        this.servicesArray = resp.data;
+        // this.servicesArray = resp.data;
         this.doctorsArray = resp.data[0].users.data;
         this.currentPage = 1;
         this.totalPages = resp.data[0].users.last_page;
+        this.activeServiceFilter = {
+          title: resp.data[0].name,
+          slug: resp.data[0].slug,
+        };
       });
     },
     getServices() {
@@ -112,13 +135,20 @@ export default {
           this.totalPages = resp.data.last_page;
         });
     },
+    onFilterCanceled() {
+      this.activeServiceFilter = null;
+      this.initData();
+    },
+    initData() {
+      if (this.query) {
+        this.textQuery = this.query;
+      }
+      this.getServices();
+      this.getDoctors();
+    },
   },
   mounted() {
-    if (this.query) {
-      this.textQuery = this.query;
-    }
-    this.getServices();
-    this.getDoctors();
+    this.initData();
   },
 };
 </script>
