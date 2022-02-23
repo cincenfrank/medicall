@@ -103,3 +103,9 @@
         width: 200px;
     }
 }
+
+.dashboard-sidebar{
+    .active {
+        background-color: $customRed !important;
+    }
+}
