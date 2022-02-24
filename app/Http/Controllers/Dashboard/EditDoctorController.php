@@ -41,8 +41,8 @@ class EditDoctorController extends Controller
 
         // validation tipologia file cv e img
         $validator = FacadesValidator::make($request->all(), [
-            'img_path' => 'required | image',
-            'cv_path' => 'required| mimes:pdf'
+            'img_path' => 'image',
+            'cv_path' => 'mimes:pdf'
         ]);
         if ($validator->fails()) {
             $validator->getMessageBag();
