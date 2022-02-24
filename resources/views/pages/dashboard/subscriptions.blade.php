@@ -58,7 +58,7 @@
         <div class="d-flex flex-grow-1 flex-column text-center justify-content-center">
             <h1 class="mb-5">Subscriptions</h1>
             <div class="d-flex justify-content-center flex-grow-1 align-items-center">
-                @if(!$hasPremium)
+                @if(count($userInfo->subscriptions) === 0)
                     <div class="row row-cols-1 row-cols-md-3 g-4">
                         @foreach ($subscriptions as $subscription)
                             <div class="col">
@@ -82,6 +82,11 @@
                 @else
                     <div class="row">
                         <h3>Hai già effettuato l'acquisto della subscription</h3>
+                        <p>{{$userInfo->subscriptions[0]->pivot->expiration_date}}</p>
+                        <p>{{$userInfo->subscriptions[0]->name}}</p>
+                        <p>{{$userInfo->subscriptions[0]->price}}</p>
+                        <p>{{$userInfo->subscriptions[0]->description}}</p>
+                        
                     </div>
                 @endif
             </div>

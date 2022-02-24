@@ -15,13 +15,18 @@ class SubscriptionController extends Controller
     public function index()
     {
         $subscriptions = Subscription::all();
-        $userHasActiveSubscription = User::where('id', '=', Auth::id())->with('subscriptions')->whereHas('subscriptions', function($param) {
+        // $userHasActiveSubscription = User::where('id', '=', Auth::id())->with('subscriptions')->whereHas('subscriptions', function($param) {
+        //     $param->where('expiration_date', '>', Date::now());
+        // })->count() > 0;
+        $userWithSubscription = User::where('id', '=', Auth::id())->with('subscriptions')->whereHas('subscriptions', function($param) {
             $param->where('expiration_date', '>', Date::now());
-        })->count() > 0;
+        })->get()->first();
         
+       // dd($userWithSubscription);
         return view('pages.dashboard.subscriptions', [
             "subscriptions" => $subscriptions,
-            "hasPremium" => $userHasActiveSubscription
+            "userInfo" => $userWithSubscription,
+            // "hasPremium" => $userHasActiveSubscription
         ]);
     }
 
