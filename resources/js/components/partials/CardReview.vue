@@ -92,7 +92,19 @@ export default {
     //   border: 2px solid #bb0f13;
     // }
     .card-body {
-      overflow: scroll;
+      overflow: hidden;
+      a {
+        cursor: pointer;
+        transition: all 0.3s linear;
+        font-weight: bold;
+        &:hover {
+          color: #bb0f13;
+        }
+      }
+      .card-back {
+        height: 100%;
+        overflow-y: scroll;
+      }
     }
     .card-header {
       background-color: #12286a;
