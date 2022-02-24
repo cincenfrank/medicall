@@ -12,27 +12,42 @@
             {{ review.user.first_name }}
           </a>
         </div>
-        <div
-          class="
-            card-body
-            d-flex
-            flex-column
-            align-items-center
-            justify-content-between
-          "
-        >
-          <stars class="d-inline-block" :ratings="review.rating"></stars>
-          <div class="text-center">
-            <h5 class="card-text mb-0 fw-bold text-center">
-              {{ review.title }}
-            </h5>
-            <a href="">vedi recensione</a>
-          </div>
+        <div class="card-body" @click="flipCard">
+          <div
+            class="
+              card-front
+              d-flex
+              flex-column
+              align-items-center
+              justify-content-between
+            "
+            v-if="isFront"
+          >
+            <stars class="d-inline-block" :ratings="review.rating"></stars>
+            <div class="text-center">
+              <h5 class="card-text mb-0 fw-bold text-center">
+                {{ review.title }}
+              </h5>
+              <a>vedi recensione</a>
+            </div>
 
-          <!-- <p class="card-text text-truncate">"{{ review.content }}"</p> -->
-          <p class="card-text fst-italic text-end align-self-end mt-3">
-            {{ review.reviewer_name }}
-          </p>
+            <!-- <p class="card-text text-truncate">"{{ review.content }}"</p> -->
+            <p class="card-text fst-italic text-end align-self-end mt-3">
+              {{ review.reviewer_name }}
+            </p>
+          </div>
+          <div
+            class="
+              card-back
+              d-flex
+              flex-column
+              align-items-center
+              justify-content-between
+            "
+            v-else
+          >
+            <div>{{ review.content }}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -44,10 +59,15 @@ import Stars from "./Stars.vue";
 export default {
   components: { Stars },
   data() {
-    return {};
+    return { isFront: true };
   },
   props: {
     review: Object,
+  },
+  methods: {
+    flipCard() {
+      this.isFront = !this.isFront;
+    },
   },
 };
 </script>
@@ -57,7 +77,7 @@ export default {
   overflow: hidden;
   border-radius: 5px;
   width: 100%;
-
+  aspect-ratio: 268/208;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
   transition: all 0.2s linear;
   &:hover {
@@ -71,7 +91,9 @@ export default {
     // &:hover {
     //   border: 2px solid #bb0f13;
     // }
-
+    .card-body {
+      overflow: scroll;
+    }
     .card-header {
       background-color: #12286a;
       border-color: #12286a;

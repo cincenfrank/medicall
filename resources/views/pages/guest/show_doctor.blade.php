@@ -9,14 +9,10 @@
     <div class="container">
         <div class="row justify-content-center mb-5">
             <div class="col-12 col-md-3">
-                <img 
-                @if(!$user->userDetail->img_path)
-                    src="https://www.ambulatoriobiomedica.it/wp-content/uploads/2013/05/111-1118645_chiropractic-provider-male-doctor-vector-390x260.jpg"
+                <img @if (!$user->userDetail->img_path) src="/img/avatar_placeholder.jpeg"
                 @else
-                    src="{{ asset("storage/" . $user->userDetail->img_path) }}"
-                @endif
-                class="w-100 mb-3 mb-md-0"
-                alt="doctor-profile-img">
+                    src="{{ asset('storage/' . $user->userDetail->img_path) }}" @endif
+                    class="w-100 mb-3 mb-md-0" alt="doctor-profile-img">
             </div>
             <div class="col-12 col-md-9 ps-3">
                 <h2 class="card-title fw-bold">{{ $user->first_name . ' ' . $user->last_name }} </h2>
@@ -34,11 +30,11 @@
         <div class="mt-3 mb-4">
             <div class="d-flex align-items-center gap-3 mb-2">
                 <h3 class="fw-bold mb-0" style="display: inline-block">Biografia</h3>
-                @if($user->userDetail->cv_path)
+                @if ($user->userDetail->cv_path)
                     <button type="button" class="btn btn-outline-primary">
-                        <a href="{{ asset("storage/" . $user->userDetail->cv_path) }}" 
-                        download="{{ $user->first_name . '_' . $user->last_name . '_curriculum' }}"
-                        class="text-decoration-none">
+                        <a href="{{ asset('storage/' . $user->userDetail->cv_path) }}"
+                            download="{{ $user->first_name . '_' . $user->last_name . '_curriculum' }}"
+                            class="text-decoration-none">
                             Download CV
                         </a>
                     </button>
@@ -52,13 +48,14 @@
             <h3 class="fw-bold">Servizi Offerti</h3>
             <ul class="list-group py-3 rounded rounded-3">
                 @foreach ($user->services as $key => $service)
-                <li class="list-group-item d-flex justify-content-between align-items-center py-0 pe-0 {{ $key % 2 !== 0 ? 'list-group-item-primary' : '' }}">
-                    <div class=" flex-grow-1 ">
-                        {{ $service->name }}
-                    </div>
-                    <span class="badge bg-primary rounded-pill p-2 me-3">€ {{ $service->pivot->price }}</span>
-                    <button class="btn btn-primary text-white">Prenota</button>
-                </li>
+                    <li
+                        class="list-group-item d-flex justify-content-between align-items-center py-0 pe-0 {{ $key % 2 !== 0 ? 'list-group-item-primary' : '' }}">
+                        <div class=" flex-grow-1 ">
+                            {{ $service->name }}
+                        </div>
+                        <span class="badge bg-primary rounded-pill p-2 me-3">€ {{ $service->pivot->price }}</span>
+                        <button class="btn btn-primary text-white">Prenota</button>
+                    </li>
                 @endforeach
             </ul>
         </div>
@@ -111,7 +108,6 @@
     // console.log(window.modalReview);
     window.addEventListener('DOMContentLoaded', (event) => {
         @if (count($errors) > 0 && $errors->first('type') === 'Message')
-
             window.modalMessage.show();
             // });
         @elseif(count($errors) > 0 && $errors->first('type') === 'Review')

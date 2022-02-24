@@ -3,7 +3,7 @@
     <h1>Le recensioni dei tuoi pazienti</h1>
     <!-- <div class="container"> -->
     <!-- <h1>{{ loggedUserId }}</h1> -->
-    <div class="row row-cols-4 gy-3">
+    <div class="row row-cols-3">
       <div class="col" v-for="review in reviews" :key="review.id">
         <card-review :review="review"></card-review>
       </div>

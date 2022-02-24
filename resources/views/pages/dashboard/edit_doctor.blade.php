@@ -10,7 +10,7 @@
             <div class="row">
                 <div class=" col-lg-4">
                     <img class="w-100 h-100" @if(!$user->userDetail->img_path)
-                        src="/img/bg-login.jpg"
+                        src="/img/avatar_placeholder.jpeg"
                     @else
                         src="{{ asset("storage/".$user->userDetail->img_path) }}"
                     @endif

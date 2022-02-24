@@ -82,6 +82,9 @@ export default {
         aspect-ratio: 9/16;
     }
     .card-doctor {
+        .card-img-top {
+            aspect-ratio: 1945/2153;
+        }
         .card-body {
             color: white;
             background-color: #12286a;

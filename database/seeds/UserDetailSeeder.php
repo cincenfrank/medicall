@@ -20,7 +20,7 @@ class UserDetailSeeder extends Seeder
         foreach ($users as $user) {
             $userDetail = new UserDetail();
             $userDetail->bio = $faker->text(200);
-            $userDetail->img_path = 'img/' . $faker->image($filePath, 640, 480, null, false);
+            $userDetail->img_path = 'img/' . $faker->image($filePath, 1945, 2153, null, false);
             $userDetail->phone = $fakerPhone->phoneNumber();
             $userDetail->available = true;
             $userDetail->user_id = $user['id'];
