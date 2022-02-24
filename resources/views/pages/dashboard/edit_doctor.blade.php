@@ -10,9 +10,9 @@
             <div class="row">
                 <div class=" col-lg-4">
                     <img class="w-100 h-100" @if(!$user->userDetail->img_path)
-                        src="/img/avatar_placeholder.jpeg"
+                    src="/img/avatar_placeholder.jpeg"
                     @else
-                        src="{{ asset("storage/".$user->userDetail->img_path) }}"
+                    src="{{ asset("storage/".$user->userDetail->img_path) }}"
                     @endif
                     alt="doctor-profile-img">
                 </div>
@@ -31,8 +31,7 @@
                         <input type="text" class="form-control" id="phone" value="{{ $user->userDetail->phone }}" name="phone">
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="available" name="available" {{-- se l´available è zero(falso) spuntami la checkbox --}} 
-                        @if (!$user->userDetail->available) checked @endif>
+                        <input type="checkbox" class="form-check-input" id="available" name="available" {{-- se l´available è zero(falso) spuntami la checkbox --}} @if (!$user->userDetail->available) checked @endif>
                         <label class="form-check-label" for="available">In vacanza</label>
                     </div>
 
@@ -69,7 +68,7 @@
                 <div class=" flex-grow-1 ">
                     {{$service->name}}
                 </div>
-                <span class="badge bg-primary rounded-pill me-2">€ {{ $service->pivot->price }}</span>
+                <span class="badge bg-primary rounded-pill p-2 me-3">€ {{ $service->pivot->price }}</span>
                 <form action="{{ route('dashboard.deleteDoctorService', ['serviceId' => $service->id]) }}" method="post">
                     @csrf
                     @method('DELETE')
