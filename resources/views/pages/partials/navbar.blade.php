@@ -21,7 +21,7 @@
                     </li>
                 @endauth
             </ul>
-            <div class="mx-auto text-center" style="width: 200px">
+            <div class="mx-auto text-center">
                 <button class="btn btn-primary">
                     @guest
                         <a href="/login">Accedi</a>

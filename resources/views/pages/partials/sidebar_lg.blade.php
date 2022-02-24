@@ -17,7 +17,8 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="/dashboard" class="nav-link {{ Request::is('dashboard') ? 'active' : 'text-white' }}" aria-current="page">
+            <a href="/dashboard" class="nav-link {{ Request::is('dashboard') ? 'active' : 'text-white' }}"
+                aria-current="page">
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#home"></use>
                 </svg>
@@ -25,7 +26,8 @@
             </a>
         </li>
         <li>
-            <a href="/dashboard/profile" class="nav-link {{ Request::is('dashboard/profile') ? 'active' : 'text-white' }}">
+            <a href="/dashboard/profile"
+                class="nav-link {{ Request::is('dashboard/profile') ? 'active' : 'text-white' }}">
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#speedometer2"></use>
                 </svg>
@@ -33,7 +35,8 @@
             </a>
         </li>
         <li>
-            <a href="/dashboard/conversations" class="nav-link {{ Request::is('dashboard/conversations') ? 'active' : 'text-white' }}">
+            <a href="/dashboard/conversations"
+                class="nav-link {{ Request::is('dashboard/conversations') ? 'active' : 'text-white' }}">
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#table"></use>
                 </svg>
@@ -41,7 +44,8 @@
             </a>
         </li>
         <li>
-            <a href="/dashboard/reviews" class="nav-link {{ Request::is('dashboard/reviews') ? 'active' : 'text-white' }} ">
+            <a href="/dashboard/reviews"
+                class="nav-link {{ Request::is('dashboard/reviews') ? 'active' : 'text-white' }} ">
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#grid"></use>
                 </svg>
@@ -49,7 +53,8 @@
             </a>
         </li>
         <li>
-            <a href="/dashboard/subscriptions" class="nav-link  {{ Request::is('dashboard/subscriptions') ? 'active' : 'text-white' }} ">
+            <a href="/dashboard/subscriptions"
+                class="nav-link  {{ Request::is('dashboard/subscriptions') ? 'active' : 'text-white' }} ">
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#people-circle"></use>
                 </svg>
@@ -59,7 +64,8 @@
     </ul>
     <hr />
     <div class="dropdown">
-        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1"
+            data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2" />
             <strong>
                 {{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}
@@ -76,13 +82,6 @@
                     {{ __('Logout') }}
                 </a>
 
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-
-                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault() document.getElementById('logout-form').submit();">
-                    Logout
-                </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
