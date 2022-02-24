@@ -18,7 +18,7 @@
                 <h2 class="card-title fw-bold">{{ $user->first_name . ' ' . $user->last_name }} </h2>
                 <p class="card-text">Numero di Telefono: {{ $user->userDetail->phone }}</p>
                 <p class="card-text">Email: {{ $user->email }}</p>
-                <stars-rating :ratings={{ $media }}>Media delle recensioni:</stars-rating>
+                <stars :ratings={{ $media }} class="py-2">Media delle recensioni:</stars>
                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
                     data-bs-target="#contact_doctor">
                     <a class="text-decoration-none" href="#" role="button">Contatta il dottore</a>
@@ -87,7 +87,7 @@
 
                                     {{-- <h5 class="card-title">Voto: {{ $review->rating }}</h5> --}}
 
-                                    <stars-rating :ratings={{ $review->rating }}></stars-rating>
+                                    <stars :ratings={{ $review->rating }}></stars>
 
                                     <p class="card-text">{{ Str::limit($review->content, 100, '...') }}</p>
                                     <p class="card-text">Recensito il {{ $review->created_at->format('d F y') }}

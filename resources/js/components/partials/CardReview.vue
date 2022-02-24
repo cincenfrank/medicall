@@ -18,7 +18,6 @@
                         v-if="isFront"
                     >
                         <stars
-                            class="d-inline-block stars mb-3"
                             :ratings="review.rating"
                         ></stars>
                         <div class="text-center">

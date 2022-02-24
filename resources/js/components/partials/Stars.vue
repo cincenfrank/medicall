@@ -31,7 +31,7 @@ export default {
 
 <style lang="scss" scoped>
 .single-star {
-    color: #ffd64a;
+    color: #c99f16;
     font-size: 18px;
     padding: 0 2px;
 }
