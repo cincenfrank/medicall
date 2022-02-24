@@ -7,18 +7,18 @@
 @section('content')
     {{-- <reviews-section></reviews-section> --}}
     <div class="container">
-        <div class="row justify-content-center mb-5">
+        <div class="row justify-content-center mb-5 bg-white rounded-3 p-4">
             <div class="col-12 col-md-3">
                 <img @if (!$user->userDetail->img_path) src="/img/avatar_placeholder.jpeg"
                 @else
                     src="{{ asset('storage/' . $user->userDetail->img_path) }}" @endif
-                    class="w-100 mb-3 mb-md-0" alt="doctor-profile-img">
+                    class="w-100 mb-3 mb-md-0 rounded-3" alt="doctor-profile-img">
             </div>
             <div class="col-12 col-md-9 ps-3">
-                <h2 class="card-title fw-bold">{{ $user->first_name . ' ' . $user->last_name }} </h2>
-                <p class="card-text">Numero di Telefono: {{ $user->userDetail->phone }}</p>
-                <p class="card-text">Email: {{ $user->email }}</p>
-                <stars :ratings={{ $media }} class="py-2">Media delle recensioni:</stars>
+                <h2 class="card-title fw-bold mb-5">{{ $user->first_name . ' ' . $user->last_name }}</h2>
+                <p class="card-text fs-5 mb-1">Numero di Telefono: <i>{{ $user->userDetail->phone }}</i></p>
+                <p class="card-text fs-5 mb-5">Email: <u><i>{{ $user->email }}</i></u></p>
+                <stars :ratings={{ $media }} class="py-2 fs-5 mb-5">Media delle recensioni:</stars>
                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
                     data-bs-target="#contact_doctor">
                     <a class="text-decoration-none" href="#" role="button">Contatta il dottore</a>
