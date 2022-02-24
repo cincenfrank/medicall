@@ -12,11 +12,11 @@ class ConversationController extends Controller
 {
     public function index()
     {
-        $conversations = Message::with("user")->where("user_id", "=", Auth::id())->get()->toArray();
+        $conversations = Message::with("user")->where("user_id", "=", Auth::id())->orderBy("created_at", "DESC")->get()->toArray();
 
-        if (!$conversations) {
-            return abort(401);
-        }
+        // if (!$conversations) {
+        //     return abort(401);
+        // }
 
         return view('pages.dashboard.conversations', compact("conversations"));
     }

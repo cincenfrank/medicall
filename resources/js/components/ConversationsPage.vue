@@ -1,6 +1,6 @@
 <template>
   <div class="p-5">
-    <h2>Messaggi Ricevuti</h2>
+    <h2 class="mb-4">Messaggi Ricevuti</h2>
     <div class="list-group">
       <a
         :href="`/dashboard/conversations/${conversation.id}`"
