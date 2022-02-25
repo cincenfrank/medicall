@@ -1,6 +1,11 @@
 <template>
     <div class="overflow-hidden w-100" v-if="services.length > 0">
-        <carousel class="" :visibleItemsNumber="3">
+        <carousel
+            class=""
+            :visibleItemsNumber="1"
+            :visibleItemsNumberMd="2"
+            :visibleItemsNumberLg="3"
+        >
             <div
                 class="carousel-element"
                 v-for="service in services"
