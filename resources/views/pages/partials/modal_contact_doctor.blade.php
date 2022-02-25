@@ -2,14 +2,17 @@
     @csrf
     <div class="modal fade" id="contact_doctor" tabindex="-1" aria-labelledby="" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content bg-dark text-light">
+            <div class="modal-content bg-primary text-light">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Contatta il Dottore</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3  align-items-center">invia un messaggio a
-                        {{ $user->first_name . ' ' . $user->last_name }}</div>
+                    <div class="mb-3  align-items-center">Invia un messaggio a
+                        <span class="fw-bold">
+                            {{ $user->first_name . ' ' . $user->last_name }}
+                        </span>
+                    </div>
                     <div class="mb-3  align-items-center">
                         <label for="patient_name" class="form-label ">Nome</label>
                         <input require type="text" class="form-control @error('patient_name') is-invalid @enderror" id="patient_name" name="patient_name">
@@ -36,9 +39,9 @@
                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                     {{-- <button type="submit">Invia</button> --}}
-                    <button type="submit" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" value="sentMessage">
+                    <button type="submit" class="btn btn-outline-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" value="sentMessage">
                         Invia Messaggio</button>
                 </div>
             </div>

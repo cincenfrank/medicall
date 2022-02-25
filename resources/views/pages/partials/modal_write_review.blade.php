@@ -11,7 +11,8 @@
                 <div class="modal-body">
                     <div class="mb-3  align-items-center">Scrivi la tua esperienza con
                         <span class="fw-bold">
-                            {{ $user->first_name . ' ' . $user->last_name }}</span>
+                            {{ $user->first_name . ' ' . $user->last_name }}
+                        </span>
                     </div>
                     <div class="mb-3  align-items-center">
                         <label for="title" class="form-label ">Title</label>

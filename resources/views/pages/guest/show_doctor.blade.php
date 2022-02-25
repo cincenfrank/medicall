@@ -43,7 +43,13 @@
                     </button>
                 @endif
             </div>
-            <p style="font-size: 20px">{{ $user->userDetail->bio }}</p>
+            <div class="bio-collapse">
+                <p class="hide-content-bio content-bio">{{ $user->userDetail->bio }}
+                </p>
+                <a  class="btn btn-primary my-btn-show-bio">
+                    Mostra tutto
+                </a>
+            </div>
         </div>
 
 

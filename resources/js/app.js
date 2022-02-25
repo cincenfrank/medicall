@@ -7,7 +7,21 @@
 require("./bootstrap");
 import Aos from "aos"
 import "aos/dist/aos.css"
-
+document.addEventListener('DOMContentLoaded',function(){
+    const button = document.querySelector('.my-btn-show-bio');
+    if(button){
+    button.addEventListener("click" , function(){
+        const textBox = button.parentElement.querySelector('.content-bio');
+        console.log(textBox);
+        textBox.classList.toggle('hide-content-bio');
+        if(textBox.classList.contains('hide-content-bio')){
+            button.textContent = "Mostra tutto";
+        }else{
+            button.textContent = "Riduci"
+        }
+    })
+}
+})
 window.Vue = require("vue");
 
 /**
