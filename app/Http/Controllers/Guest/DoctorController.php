@@ -143,7 +143,7 @@ class DoctorController extends Controller
         // }
         $media = round(Review::where('user_id', $user->id)->avg('rating'), 2);
         // dump(round($media));
-        $reviews = Review::where('user_id', $user->id)->with('user')->with('user.userDetail')->orderBy('created_at', 'desc')->paginate(12);
+        $reviews = Review::where('user_id', $user->id)->with('user')->with('user.userDetail')->orderBy('created_at', 'desc')->paginate(9);
 
         return view('pages.guest.show_doctor', [
             'user' => $user,
