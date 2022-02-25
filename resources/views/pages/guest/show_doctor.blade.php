@@ -29,7 +29,7 @@
                 </div>
             </div>
         </div>
-      
+
         <div class="row py-3 mt-3 mb-4 rounded custom-shadow bg-white">
             <div class="d-flex align-items-center gap-3 mb-2">
                 <h3 class="fw-bold mb-0" style="display: inline-block">Biografia</h3>
@@ -64,23 +64,16 @@
         </div>
 
         <div class="mb-4">
-            <div class="d-flex justify-content-between mb-3">
-                <div>
-                    <h3 class="fw-bold">Recensioni {{ $reviews->total() }}</h3>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-                        data-bs-target="#modal_review">
-                        <a class="text-decoration-none" href="#" role="button">Scrivi una recensione</a>
-                    </button>
-                </div>
-                @include('pages.partials.modal_write_review')
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="fw-bold">Recensioni {{ $reviews->total() }}</h3>
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_review">
+                    <a class="text-decoration-none" href="#" role="button">Scrivi una recensione</a>
+                </button>
                 {{-- @include('pages.partials.modal_sent_message') --}}
-
             </div>
 
             <div class="">
-                <div class="row row-cols-1 row-cols-md-4 g-4">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                     @foreach ($reviews as $review)
                         <div class="col">
                             {{-- @dd(json_encode($review)) --}}
@@ -94,7 +87,7 @@
 
                                     {{-- <h5 class="card-title">Voto: {{ $review->rating }}</h5> --}}
 
-                                    {{-- <stars :ratings={{ $review->rating }}></stars>
+                            {{-- <stars :ratings={{ $review->rating }}></stars>
 
                                     <p class="card-text">{{ Str::limit($review->content, 100, '...') }}</p>
                                     <p class="card-text">Recensito il {{ $review->created_at->format('d F y') }}
@@ -111,6 +104,8 @@
         </div>
         @include('pages.partials.modal_contact_doctor')
         @include('pages.partials.modal_sent_message')
+        @include('pages.partials.modal_write_review')
+
     </div>
 @endsection
 <script type="text/javascript">
