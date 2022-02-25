@@ -57,13 +57,13 @@
     &:hover {
         a {
             color: white;
-            transition: all .3s;
+            transition: all 0.3s;
         }
     }
 }
 
 .btn-primary {
-    transition: all .3s !important;
+    transition: all 0.3s !important;
 
     &:hover {
         background-color: $customRed !important;
@@ -72,13 +72,14 @@
     }
 }
 
-.btn-primary, .btn-danger {
+.btn-primary,
+.btn-danger {
     a {
         color: white !important;
         text-decoration: none !important;
 
         &:hover {
-            transition: all .3s !important;
+            transition: all 0.3s !important;
         }
     }
 }
@@ -87,7 +88,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px!important ;
+    padding: 10px !important ;
     font-weight: 300;
 
     a {
@@ -120,8 +121,21 @@
     }
 }
 
-.dashboard-sidebar{
+.dashboard-sidebar {
     .active {
         background-color: $customRed !important;
     }
+}
+
+// utility
+.custom-shadow {
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 50%);
+    transition: all 0.3s linear;
+    &:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+        transform: scale(1.01);
+    }
+}
+.custom-rounded {
+    border-radius: 30px;
 }

@@ -118,8 +118,7 @@ export default {
             }
             .card-doctor-link {
                 text-decoration: none;
-
-                font-size: 50;
+                // font-size: 50;
                 color: white;
             }
         }
