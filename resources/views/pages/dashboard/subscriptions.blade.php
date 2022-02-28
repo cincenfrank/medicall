@@ -45,7 +45,8 @@
             buttons.forEach(button => {
                 button.addEventListener('click', function() {
                     paymentPrice = button.value;
-                    document.getElementById('checkout-message').innerText = "Stai per effettuare un pagamento di € " + paymentPrice;
+                    document.getElementById('checkout-message').innerText =
+                        "Stai per effettuare un pagamento di € " + paymentPrice;
                 })
             });
         });
@@ -58,21 +59,27 @@
         <div class="d-flex flex-grow-1 flex-column text-center justify-content-center">
             <h1 class="mb-5">Subscriptions</h1>
             <div class="d-flex justify-content-center flex-grow-1 align-items-center">
-                @if(!$hasPremium)
+                @if (!$hasPremium)
                     <div class="row row-cols-1 row-cols-md-3 g-4">
                         @foreach ($subscriptions as $subscription)
                             <div class="col">
-                                <div class="card bg-primary text-white rounded-3 px-2 py-3" style="min-widht:300px; height: 300px">
-                                    <div class="card-body">
+                                <div class="card rounded-3 custom-shadow button-price" style="min-widht:300px; height: 300px"
+                                    data-bs-toggle="modal" data-bs-target="#modalPayment"
+                                    id="{{ 'btn' . $subscription->id }}" value="{{ $subscription->price }}">
+                                    <div class="card-header text-white bg-primary">
                                         <h3 class="card-title fw-bolder mt-2">{{ $subscription->name }}</h3>
-                                        <span class="card-body">{{ $subscription->price }}</span> <br>
-                                        <span class="card-body">Tempo: {{ $subscription->duration_hours }} ore</span> <br>
-                                        <p class="card-body">{{ $subscription->description }}</p>
-                                        <button type="button" class="btn btn-success button-price" data-bs-toggle="modal"
-                                            data-bs-target="#modalPayment" id="{{ 'btn' . $subscription->id }}"
-                                            value="{{ $subscription->price }}">
-                                            Acquista
-                                        </button>
+                                    </div>
+                                    <div
+                                        class="card-body position-relative bg-primary text-white text-center">
+
+                                        {{-- <p class="">Risulta in cima alle ricerche per
+                                            <strong>{{ $subscription->duration_hours }}</strong> ore</p> --}}
+                                        <p class="">{{ $subscription->description }}</p>
+                                        <h1 class="sub-price text-center fw-bold position-absolute">
+                                            {{ $subscription->price }}</h1>
+                                    </div>
+                                    <div class="card-footer bg-white text-primary text-center border-top-0">
+                                        <h2>Acquista</h2>
                                     </div>
                                 </div>
                             </div>

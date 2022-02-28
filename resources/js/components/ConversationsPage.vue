@@ -1,12 +1,12 @@
 <template>
-  <div class="p-5">
+  <div class="p-1 p-md-3 p-lg-5">
     <h2 class="mb-4">Messaggi Ricevuti</h2>
     <div class="list-group">
       <a
         :href="`/dashboard/conversations/${conversation.id}`"
         v-for="conversation in conversations"
         :key="conversation.id"
-        class="list-group-item list-group-item-action"
+        class="list-group-item list-group-item-action mb-3 custom-shadow rounded"
       >
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">{{ conversation.patient_name }}</h5>

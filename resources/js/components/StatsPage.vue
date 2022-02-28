@@ -1,7 +1,7 @@
 <template>
     <div class="row justify-content-center pt-2 px-5">
         <div class="col-12 col-md-4 mb-3 mb-md-0">
-            <div class="card h-100 mb-3 mb-md-0">
+            <div class="card h-100 mb-3 mb-md-0 custom-shadow">
                 <div class="card-header text-center fw-bold">
                     Media valutazioni
                 </div>
@@ -15,7 +15,7 @@
         </div>
 
         <div class="col-6 col-md-4">
-            <div class="card h-100 mb-3 mb-md-0">
+            <div class="card h-100 mb-3 mb-md-0 custom-shadow">
                 <div class="card-header text-center fw-bold">N° messaggi</div>
                 <div
                     class="card-body d-flex justify-content-center align-items-center display-5"
@@ -26,7 +26,7 @@
         </div>
 
         <div class="col-6 col-md-4">
-            <div class="card h-100 mb-3 mb-md-0">
+            <div class="card h-100 mb-3 mb-md-0 custom-shadow">
                 <div class="card-header text-center fw-bold">N° reviews</div>
                 <div
                     class="card-body d-flex justify-content-center align-items-center display-5"
@@ -37,7 +37,7 @@
         </div>
 
         <div class="col-12 col-xl-6 mt-3 mt-md-3">
-            <div class="card mb-3 mb-md-0">
+            <div class="card mb-3 mb-md-0 custom-shadow">
                 <div class="card-header">Messaggi nel tempo</div>
                 <div class="card-body">
                     <bar-chart
@@ -49,7 +49,7 @@
         </div>
 
         <div class="col-12 col-xl-6 mt-3 mt-md-3">
-            <div class="card mb-3 mb-md-0">
+            <div class="card mb-3 mb-md-0 custom-shadow">
                 <div class="card-header">Recensioni nel tempo</div>
                 <div class="card-body">
                     <bar-chart

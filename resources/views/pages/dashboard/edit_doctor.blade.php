@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="p-5">
+<div class="p-1 p-md-3 p-lg-5">
     <div>
         <h2>Le mie informazioni:</h2>
         <form action="{{ route('dashboard.profileUpdate') }}" method="POST" enctype="multipart/form-data" class=" p-3 border border-1 rounded rounded-3">

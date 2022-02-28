@@ -1,13 +1,17 @@
 <template>
   <div class="d-flex flex-column h-100">
-    <div class="chat-container flex-grow-1 p-5">
+    <div class="chat-container d-flex flex-column flex-grow-1 p-1 p-md-3 p-lg-5">
       <div class="chat-header row justify-content-between mb-4">
         <div class="col-12 col-md-6">{{ message.patient_name }}</div>
-        <div class="col-12 col-md-6">{{ message.patient_email }}</div>
+        <div class="col-12 col-md-6 text-md-end">
+          {{ message.patient_email }}
+        </div>
       </div>
-      <div class="message-bubble">
-        {{ message.content }}
-        <span class="message-time">{{ getParsedDate() }}</span>
+      <div class="col-12 col-md-10 col-lg-8">
+        <div class="message-bubble custom-shadow">
+          {{ message.content }}
+          <span class="message-time">{{ getParsedDate() }}</span>
+        </div>
       </div>
     </div>
     <div class="d-flex border border-top p-2">
@@ -25,7 +29,7 @@
 </template>
 
 <script>
-import dayjs from 'dayjs'
+import dayjs from "dayjs";
 
 export default {
   name: "MessagePage",
@@ -38,8 +42,8 @@ export default {
   },
   methods: {
     getParsedDate() {
-      return dayjs(this.message.created_at).format('DD/MM/YYYY, HH:mm')
-    }
+      return dayjs(this.message.created_at).format("DD/MM/YYYY, HH:mm");
+    },
   },
 
   mounted() {
@@ -60,7 +64,6 @@ export default {
   color: white;
   border-radius: 20px;
   //   border-bottom-left-radius: -20px;
-  width: 75%;
 
   .message-time {
     position: absolute;
