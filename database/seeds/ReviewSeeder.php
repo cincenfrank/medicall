@@ -27,6 +27,7 @@ class ReviewSeeder extends Seeder
                 $newReview->reviewer_name = $fakerPerson->firstName() . " " . $fakerPerson->lastName();
                 $newReview->reviewer_email = $faker->email();
                 $newReview->user_id = $doctor["id"];
+                $newReview->created_at = $faker->dateTimeBetween("-1 week");
                 $newReview->save();
             }
         }

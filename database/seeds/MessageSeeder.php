@@ -24,6 +24,7 @@ class MessageSeeder extends Seeder
                 $newMessage->patient_name = $fakerPerson->firstName() . " " . $fakerPerson->lastName();
                 $newMessage->patient_email = $faker->email();
                 $newMessage->user_id = $doctor["id"];
+                $newMessage->created_at = $faker->dateTimeBetween("-1 week");
                 $newMessage->save();
             }
         }

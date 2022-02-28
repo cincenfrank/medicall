@@ -38,7 +38,16 @@ class UserSeeder extends Seeder
             $newUser->first_name = $firstName;
             $newUser->last_name = $lastName;
             $newUser->slug = $slug;
-            $newUser->email = $fakerGen->email();
+            // $newUser->email = $fakerGen->email();
+            $safeFirstName = str_replace(["'", " "], "", $firstName);
+            $safeLastName = str_replace(["'", " "], "", $lastName);
+            $safeEmail = strtolower($safeFirstName . "." . $safeLastName . "@" . $fakerGen->domainName());
+            $isEmailAlreadyPresent = User::where('email', '=', $safeEmail)->count() > 0;
+            while ($isEmailAlreadyPresent) {
+                $safeEmail = strtolower($safeFirstName . "." . $safeLastName . $fakerGen->randomCustomString() . "@" . $fakerGen->domainName());
+                $isEmailAlreadyPresent = User::where('email', '=', $safeEmail)->count() > 0;
+            }
+            $newUser->email = $safeEmail;
             $newUser->password = '$2y$10$w5qBB2pes8s5RDpkr9jIZ.73N8ULg26kMeJJgW1UFLetDc7CKjFFq';
             $newUser->save();
             // Password : prova1234
