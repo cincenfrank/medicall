@@ -63,7 +63,9 @@
     <hr />
     <div class="dropdown">
         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="{{ asset('storage/' . Auth::user()->userDetail->img_path) }}" alt="user_avatar" width="32" height="32" class="rounded-circle me-2" />
+            <img @if (!Auth::user()->userDetail->img_path) src="/img/avatar_placeholder.jpeg"
+            @else
+            src="{{ asset('storage/' . Auth::user()->userDetail->img_path) }}" @endif alt="user_avatar" width="32" height="32" class="rounded-circle me-2" style="object-fit: cover;"/>
             <strong>
                 {{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}
             </strong>

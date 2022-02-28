@@ -44,9 +44,10 @@
             const buttons = document.querySelectorAll('.button-price')
             buttons.forEach(button => {
                 button.addEventListener('click', function() {
-                    paymentPrice = button.value;
-                    document.getElementById('checkout-message').innerText =
-                        "Stai per effettuare un pagamento di € " + paymentPrice;
+                   // console.log(button.getAttribute("data-value"));
+                     paymentPrice = button.getAttribute("data-value");
+                     document.getElementById('checkout-message').innerText =
+                         "Stai per effettuare un pagamento di € " + paymentPrice;
                 })
             });
         });
@@ -65,7 +66,7 @@
                             <div class="col">
                                 <div class="card rounded-3 custom-shadow button-price" style="min-widht:300px; height: 300px"
                                     data-bs-toggle="modal" data-bs-target="#modalPayment"
-                                    id="{{ 'btn' . $subscription->id }}" value="{{ $subscription->price }}">
+                                    id="{{ 'btn' . $subscription->id }}" data-value="{{ $subscription->price }}">
                                     <div class="card-header text-white bg-primary">
                                         <h3 class="card-title fw-bolder mt-2">{{ $subscription->name }}</h3>
                                     </div>
