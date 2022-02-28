@@ -17,19 +17,19 @@ class SubscriptionSeeder extends Seeder
                 'name' => 'Basic',
                 'price'=>'2.99',
                 'duration_hours' => '24',
-                'description' => 'Description basic'
+                'description' => 'Il nostro pacchetto BASIC ti permette di avere una marcia in più rispetto alla concorrenza. Aumenta la tua visibilità per 24h e amplia il tuo numero di pazienti.'
             ],
             [
                 'name' => 'Medium',
                 'price'=>'4.99',
                 'duration_hours' => '72',
-                'description' => 'Description medium'
+                'description' => 'Scegli il nostro pacchetto MEDIUM e con soli 2 €. in più rispetto al BASIC, sarai in primo piano per il triplo del tempo.'
             ],
             [
                 'name' => 'Gold',
                 'price'=>'9.99',
                 'duration_hours' => '144',
-                'description' => 'Description gold'
+                'description' => 'Il nostro pacchetto GOLD, ti permette di essere sempre in cima alle ricerche per 6 giorni, ad un prezzo imbattibile. Cosa aspetti ?'
             ],
         ];
 

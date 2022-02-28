@@ -56,22 +56,22 @@
 
 
 @section('content')
-    <div class="d-flex py-5">
+    <div class="d-flex p-1 p-md-3 p-lg-5">
         <div class="d-flex flex-grow-1 flex-column text-center justify-content-center">
-            <h1 class="mb-5">Subscriptions</h1>
+            <h1 class="mb-5">I nostri pacchetti Premium</h1>
             <div class="d-flex justify-content-center flex-grow-1 align-items-center">
                 @if (!$hasPremium)
                     <div class="row row-cols-1 row-cols-md-3 g-4">
                         @foreach ($subscriptions as $subscription)
                             <div class="col">
-                                <div class="card rounded-3 custom-shadow button-price" style="min-widht:300px; height: 300px"
+                                <div class="card h-100 rounded-3 custom-shadow button-price w-100"
                                     data-bs-toggle="modal" data-bs-target="#modalPayment"
                                     id="{{ 'btn' . $subscription->id }}" data-value="{{ $subscription->price }}">
                                     <div class="card-header text-white bg-primary">
                                         <h3 class="card-title fw-bolder mt-2">{{ $subscription->name }}</h3>
                                     </div>
                                     <div
-                                        class="card-body position-relative bg-primary text-white text-center">
+                                        class="card-body position-relative bg-primary text-white text-center pb-5">
 
                                         {{-- <p class="">Risulta in cima alle ricerche per
                                             <strong>{{ $subscription->duration_hours }}</strong> ore</p> --}}

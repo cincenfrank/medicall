@@ -1,10 +1,10 @@
 <div>
     <div class="modal fade text-white" id="modalPayment" tabindex="-1" aria-labelledby="buyModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content bg-dark">
+            <div class="modal-content bg-primary">
                 <div class="modal-header">
                     <h5 class="modal-title" id="buyModalLabel">Acquista</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <h5>Conferma il tuo acquisto</h5>
@@ -50,8 +50,8 @@
                 </form> --}}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" id="submit-button" class="btn btn-primary">Acquista</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="submit-button" class="btn btn-outline-light">Acquista</button>
             </div>
         </div>
     </div>
