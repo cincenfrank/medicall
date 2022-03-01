@@ -58,7 +58,11 @@
 @section('content')
     <div class="d-flex p-1 p-md-3 p-lg-5">
         <div class="d-flex flex-grow-1 flex-column text-center justify-content-center">
+            @if(!$hasPremium)
             <h1 class="mb-5">I nostri pacchetti Premium</h1>
+            @else
+            <h1 class="mb-5">Il tuo abbonamento attuale</h1>
+            @endif
             <div class="d-flex justify-content-center flex-grow-1 align-items-center">
                 @if (!$hasPremium)
                     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -88,13 +92,26 @@
                         @include('pages.partials.modal_payment_braintree')
                     </div>
                 @else
-                    <div class="row">
+            {{-- <h1 class="mb-5">Il tuo Abbonamento attuale</h1> --}}
+                <div class="card text-center col-6 custom-shadow">
+                      <h2 class="card-header bg-primary text-white">{{ $userInfo->subscriptions[0]->name }}</h2>
+                    <div class="card-body">
+                        
+                        <p class="card-text">Il tuo abbonamento sarà ancora valido per:</p>
+                      <count-down expiration-date="{{ $userInfo->subscriptions[0]->pivot->expiration_date }}"></count-down>
+                    
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                    </div>
+                </div>
+
+                    {{-- <div class="row">
                         <h3>Hai già effettuato l'acquisto della subscription</h3>
                         <p>{{ $userInfo->subscriptions[0]->pivot->expiration_date }}</p>
                         <p>{{ $userInfo->subscriptions[0]->name }}</p>
                         <p>{{ $userInfo->subscriptions[0]->price }}</p>
                         <p>{{ $userInfo->subscriptions[0]->description }}</p>
-                    </div>
+                    </div> --}}
                 @endif
             </div>
         </div>
