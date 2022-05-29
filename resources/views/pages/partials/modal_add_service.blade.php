@@ -25,7 +25,11 @@
                         </label>
                     </div>
 
-                    <div id="content2" class="mb-3">
+                    <div>
+                        <label for="start">Start date:</label>
+                        <input type="date" id="start" name="from-date" value="2018-07-22" min="2018-01-01" max="2022-12-31">
+                    </div>
+                    <div class="mb-3">
                         <label for="price" class="form-label">Prezzo</label>
                         <input type="number" class="form-control" id="price" value="0.00" name="price">
                     </div>

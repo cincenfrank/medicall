@@ -113,6 +113,7 @@ class EditDoctorController extends Controller
         if (isset($request->check)) {
             $user->services()->detach($data['serviceSelected']);
             $user->services()->attach($data['serviceSelected'], ['free' => true]);
+            $user->services()->attach($data['serviceSelected'],['created_at' => $data['from-date']]);
             return Redirect::back();
         }
         $user->services()->detach($data['serviceSelected']);

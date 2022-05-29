@@ -63,6 +63,6 @@ class User extends Authenticatable
     public function services()
     {
         return $this->belongsToMany(Service::class)
-            ->withPivot('price','free');
+            ->withPivot('price','free','created_at');
     }
 }
