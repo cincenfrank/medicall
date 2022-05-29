@@ -106,7 +106,6 @@ class EditDoctorController extends Controller
      **and make a simple control to check if the same service was selected for not add twice
      **the same service.
      */
-
     public function createDoctorService(Request $request)
     {
         $data = $request->all();

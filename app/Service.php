@@ -8,6 +8,6 @@ class Service extends Model
 {
     public function users()
     {
-        return $this->belongsToMany(User::class)->withPivot('free');
+        return $this->belongsToMany(User::class);
     }
 }

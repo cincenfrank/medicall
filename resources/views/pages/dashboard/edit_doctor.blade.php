@@ -64,6 +64,21 @@
         @include('pages.partials.modal_add_service')
         <ul class="list-group  p-3 border border-1 rounded rounded-3">
             @foreach ($user->services as $service)
+            @if ($service->pivot->free == true)
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div class=" flex-grow-1 ">
+                    {{$service->name}}
+                </div>
+                <span class="badge bg-success rounded-pill p-2 me-3">Free</span>
+                <form action="{{ route('dashboard.deleteDoctorService', ['serviceId' => $service->id]) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class=" btn text-white btn-danger">Elimina</button>
+                </form>
+            </li>
+
+            @else
+                
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div class=" flex-grow-1 ">
                     {{$service->name}}
@@ -75,6 +90,7 @@
                     <button type="submit" class=" btn text-white btn-danger">Elimina</button>
                 </form>
             </li>
+            @endif
             @endforeach
             <div class="d-flex justify-content-end my-3">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addService">
