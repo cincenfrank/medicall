@@ -101,14 +101,25 @@ class EditDoctorController extends Controller
         return Redirect::back();
     }
 
+    /**
+     **Here we take all the REQUEST from POST FORM (name = 'name on the request'), to attach all the data to db,
+     **and make a simple control to check if the same service was selected for not add twice
+     **the same service.
+     */
+
     public function createDoctorService(Request $request)
     {
         $data = $request->all();
-        // dd($data);
         $user = User::where("id", "=", Auth::id())->first();
-        $user->services()->detach($data['name']);
-        // quando aggiungiamo un dato su una tabella ponte come secondo argomento del attach dobbiamo specificare campo e contenuto che andrà inserito.
-        $user->services()->attach($data['name'], ['price' => $data['price']]);
+        // if (isset($request->check)) {
+        //     $user->services()->detach($data['serviceSelected']);
+        //     $user->services()->attach($data['serviceSelected'], ['price' => 0.00]);
+        //     $user->services()->attach($data['serviceSelected'], ['free' => true]);
+        //     return Redirect::back();
+        // }
+        $user->services()->detach($data['serviceSelected']);
+        $user->services()->attach($data['serviceSelected'], ['free' => true]);
+        $user->services()->attach($data['serviceSelected'], ['price' => $data['price']]);
         return Redirect::back();
     }
 

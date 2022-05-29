@@ -10,7 +10,7 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="name" class="form-label">Scegli il servizio</label>
-                        <select class="form-select" aria-label="Default select example" id="name" name="name">
+                        <select class="form-select" aria-label="Default select example" id="name" name="serviceSelected">
                             <option selected>Open this select menu</option>
                             {{-- foreach tutti i servizi disponibili --}}
                             @foreach ($services as $service)
@@ -18,10 +18,18 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="mb-3">
-                        <label for="price" class="form-label">Prezzo</label>
-                        <input type="number" class="form-control" id="price" name="price">
+                    <div class="form-check">
+                        <input class="form-check-input" name="check" type="checkbox" value="check" id="myCheck">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Gratuito
+                        </label>
                     </div>
+
+                    <div id="content2" class="mb-3">
+                        <label for="price" class="form-label">Prezzo</label>
+                        <input type="number" class="form-control" id="price" value="0.00" name="price">
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
