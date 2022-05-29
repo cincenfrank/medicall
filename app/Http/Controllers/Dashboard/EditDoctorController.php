@@ -110,14 +110,14 @@ class EditDoctorController extends Controller
     {
         $data = $request->all();
         $user = User::where("id", "=", Auth::id())->first();
-        if (isset($request->check)) {
-            $user->services()->detach($data['serviceSelected']);
-            $user->services()->attach($data['serviceSelected'], ['free' => true]);
-            $user->services()->attach($data['serviceSelected'],['created_at' => $data['from-date']]);
-            return Redirect::back();
-        }
         $user->services()->detach($data['serviceSelected']);
         $user->services()->attach($data['serviceSelected'], ['price' => $data['price']]);
+
+        if ($request->check == "check") {
+            $user->services()->detach($data['serviceSelected']);
+            $user->services()->attach($data['serviceSelected'], ['free' => true, 'valid_from' => $data['valid_from']]);
+            // $user->services()->attach($data['serviceSelected'], ['valid_from' => $data['valid_from']]);
+        }
         return Redirect::back();
     }
 

@@ -15,6 +15,7 @@ class UpdateServiceUserTable extends Migration
     {
         Schema::table('service_user', function (Blueprint $table) {
             $table->boolean('free')->default(false);
+            $table->date('valid_from')->nullable(true);
             $table->decimal("price", 8, 2)->default(0.00)->change();
         });
     }
@@ -28,6 +29,7 @@ class UpdateServiceUserTable extends Migration
     {
         Schema::table('service_user', function (Blueprint $table) {
             $table->dropColumn('free');
+            $table->dropColumn('valid_from');
             $table->decimal("price", 8, 2)->default(null)->change();
         });
     }
